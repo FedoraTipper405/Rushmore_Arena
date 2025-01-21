@@ -1,8 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MBBulletPooling : MonoBehaviour
 {
-    //public GameObject bulletPool = new Queue<GameObject>();
+    public Queue<GameObject> Bulletpool = new Queue<GameObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
