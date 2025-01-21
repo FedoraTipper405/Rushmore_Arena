@@ -4,10 +4,14 @@ public class MBBasePlayerController : MonoBehaviour
 {
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] private float playerMoveSpeed;
+    private float playerAtkRate = .5f;
+    public bool isAttacking = false;
+    private float atkCooldown = 0;
 
     private float movementOnX;
     private float movementOnY;
-    public Vector3 lastMoveDirection;
+    public Vector3 lastMoveDirection = new Vector3(1f,0f,0f);
+    public Vector3 currentShootDirection = new Vector3(1f,0f,0f);
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,10 +29,17 @@ public class MBBasePlayerController : MonoBehaviour
         movementOnY = moveInput.y; 
         movementOnX = moveInput.x; 
     }
-
-    virtual public void HandleAttack()
+     virtual public void Attack()
     {
-        
+       
+    }
+    virtual public void HandleAttack(bool inputState)
+    {
+        isAttacking = inputState;
+        if (inputState == true)
+        {
+            currentShootDirection = lastMoveDirection;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -38,5 +49,15 @@ public class MBBasePlayerController : MonoBehaviour
     void FixedUpdate()
     {
         this.transform.position += (new Vector3(movementOnX, movementOnY,0 ) * playerMoveSpeed) / 10;
+        if (isAttacking && atkCooldown <= 0)
+        {
+            Attack();
+            atkCooldown = playerAtkRate;
+        }
+
+        if (atkCooldown > 0)
+        {
+            atkCooldown -= Time.deltaTime;
+        }
     }
 }
