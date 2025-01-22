@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable
+public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
     public float CurrentHealth { get; set; }
@@ -12,6 +12,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable
     public EnemyStateMachine StateMachine { get; set; } 
     public EnemyMovementState StateMovement { get; set; }
     public EnemyAttackState StateAttack { get; set; }
+    public bool IsInRange { get; set; }
 
     public float MovementSpeed = 1f;
 
@@ -84,6 +85,11 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable
     private void AnimationTriggerEvent(AnimationTriggerType triggerType)
     {
         StateMachine.CurrentEnemyState.AnimationTriggerEvent(triggerType);
+    }
+
+    public void AttackPlayer(bool isInRange)
+    {
+        IsInRange = isInRange;
     }
 
     public enum AnimationTriggerType

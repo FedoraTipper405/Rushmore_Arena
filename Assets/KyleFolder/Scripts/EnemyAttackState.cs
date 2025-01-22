@@ -17,16 +17,25 @@ public class EnemyAttackState : EnemyState
     public override void EnterState()
     {
         base.EnterState();
+        Debug.Log("I attack");
     }
 
     public override void ExitState()
     {
         base.ExitState();
+        Debug.Log("I cant attack");
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
+
+        baseEnemy.MoveEnemy(Vector2.zero);
+
+        if (baseEnemy.IsInRange != true)
+        {
+            baseEnemy.StateMachine.ChangeState(baseEnemy.StateMovement);
+        }
     }
 
     public override void PhysicsUpdate()

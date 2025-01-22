@@ -33,6 +33,11 @@ public class EnemyMovementState : EnemyState
         Vector2 moveDirection = (_playerTransform.position - baseEnemy.transform.position).normalized;
 
         baseEnemy.MoveEnemy(moveDirection * baseEnemy.MovementSpeed);
+        
+        if (baseEnemy.IsInRange)
+        {
+            baseEnemy.StateMachine.ChangeState(baseEnemy.StateAttack);
+        }
     }
 
     public override void PhysicsUpdate()
