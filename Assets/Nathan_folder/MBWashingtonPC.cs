@@ -6,7 +6,16 @@ public class MBWashingtonPC : MBBasePlayerController
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+         moveSpeed = StatSO.moveSpeed;
+         attackDamage = StatSO.attackDamage;
+         attackSpeed = StatSO.attackSpeed;
+         attackRange = StatSO.attackRange;
+         isRangedAttacker = StatSO.isRangedAttacker;
+         projectileAmount = StatSO.projectileAmount;
+         projectileSpeed = StatSO.projectileSpeed;
+         projectileSize = StatSO.projectileSize;
+         knockBack = StatSO.knockBack;
+         penetration = StatSO.penetration;
     }
     public override void Attack()
     {
@@ -22,6 +31,7 @@ public class MBWashingtonPC : MBBasePlayerController
           lastBullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
         }
         lastBullet.GetComponent<MBBulletCollision>().bulletPooling = bulletPoolScript;
+        lastBullet.GetComponent<MBBulletMovement>().moveSpeed = projectileSpeed;
         lastBullet.GetComponent<MBBulletMovement>().moveDirection = currentShootDirection; 
     }
     // Update is called once per frame

@@ -408,10 +408,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3100145603139117077, guid: cded7b439d21a2a42966d2dc844a5c63, type: 3}
-  playerMoveSpeed: 1
   isAttacking: 0
   lastMoveDirection: {x: 0, y: 0, z: 0}
   currentShootDirection: {x: 1, y: 0, z: 0}
+  StatSO: {fileID: 11400000, guid: 95ef367998d86c0458ce7cd57a94b5c5, type: 2}
+  moveSpeed: 0
+  attackDamage: 0
+  attackSpeed: 0
+  health: 0
+  attackRange: 0
+  isRangedAttacker: 0
+  projectileAmount: 0
+  projectileSpeed: 0
+  projectileSize: 0
+  knockBack: 0
+  penetration: 0
   bulletPoolScript: {fileID: 594894577}
 --- !u!114 &594894577
 MonoBehaviour:

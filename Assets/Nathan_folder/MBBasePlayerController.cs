@@ -3,8 +3,6 @@ using UnityEngine;
 public class MBBasePlayerController : MonoBehaviour
 {
     [SerializeField] public GameObject bulletPrefab;
-    [SerializeField] private float playerMoveSpeed;
-    private float playerAtkRate = .5f;
     public bool isAttacking = false;
     private float atkCooldown = 0;
 
@@ -12,7 +10,18 @@ public class MBBasePlayerController : MonoBehaviour
     private float movementOnY;
     public Vector3 lastMoveDirection = new Vector3(1f,0f,0f);
     public Vector3 currentShootDirection = new Vector3(1f,0f,0f);
-    
+    public SOPlayerCharacters StatSO;
+    public float moveSpeed;
+    public float attackDamage;
+    public float attackSpeed;
+    public int health;
+    public float attackRange;
+    public bool isRangedAttacker;
+    public int projectileAmount;
+    public float projectileSpeed;
+    public float projectileSize;
+    public float knockBack;
+    public int penetration;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,11 +61,11 @@ public class MBBasePlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        this.transform.position += (new Vector3(movementOnX, movementOnY,0 ) * playerMoveSpeed) / 10;
+        this.transform.position += (new Vector3(movementOnX, movementOnY,0 ) * moveSpeed) / 10;
         if (isAttacking && atkCooldown <= 0)
         {
             Attack();
-            atkCooldown = playerAtkRate;
+            atkCooldown = attackSpeed;
         }
 
         if (atkCooldown > 0)

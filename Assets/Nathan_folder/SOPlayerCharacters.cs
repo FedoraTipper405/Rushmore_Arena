@@ -10,8 +10,8 @@ public class SOPlayerCharacters : ScriptableObject
     public float attackRange;
     public bool isRangedAttacker;
     public int projectileAmount;
-    public int projectileSpeed;
-    public int projectileSize;
+    public float projectileSpeed;
+    public float projectileSize;
     public float knockBack;
     public int penetration;
     
