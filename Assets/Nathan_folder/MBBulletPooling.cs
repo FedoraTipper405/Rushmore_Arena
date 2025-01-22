@@ -11,6 +11,20 @@ public class MBBulletPooling : MonoBehaviour
         
     }
 
+    public void AddToPool(GameObject bullet)
+    {
+        Debug.Log("Poo Script");
+        Bulletpool.Enqueue(bullet);
+        bullet.SetActive(false);
+    }
+
+    public GameObject GetFromPool()
+    {
+        GameObject FirstInLine = Bulletpool.Peek();
+        FirstInLine.SetActive(true);
+        Bulletpool.Dequeue();
+        return FirstInLine;
+    }
     // Update is called once per frame
     void Update()
     {

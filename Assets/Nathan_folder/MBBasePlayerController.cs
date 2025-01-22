@@ -36,9 +36,13 @@ public class MBBasePlayerController : MonoBehaviour
     virtual public void HandleAttack(bool inputState)
     {
         isAttacking = inputState;
-        if (inputState == true)
+        if (inputState == true && lastMoveDirection != new Vector3 (0,0,0))
         {
             currentShootDirection = lastMoveDirection;
+        }
+        else
+        {
+            currentShootDirection = new Vector3(1,0,0);
         }
     }
     // Update is called once per frame

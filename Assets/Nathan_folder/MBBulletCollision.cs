@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MBBulletCollision : MonoBehaviour
 {
+    public MBBulletPooling bulletPooling;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,6 +12,14 @@ public class MBBulletCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (bulletPooling != null)
+        {
+            bulletPooling.AddToPool(this.gameObject);
+        }
         
     }
 }

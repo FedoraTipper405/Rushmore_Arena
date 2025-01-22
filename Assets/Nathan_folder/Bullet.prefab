@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8848000736003292132}
   - component: {fileID: 7903655930884092057}
+  - component: {fileID: 4755453178651311261}
   - component: {fileID: 3669551897317151328}
   - component: {fileID: 4225278301984673359}
   - component: {fileID: 9096859883011732584}
+  - component: {fileID: -4484540643391114235}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -90,6 +92,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4755453178651311261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100145603139117077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61dba2ed833a2584ab5edcea565d700a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPooling: {fileID: 0}
 --- !u!58 &3669551897317151328
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -106,7 +121,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -152,3 +167,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dba2ed833a2584ab5edcea565d700a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPooling: {fileID: 0}
+--- !u!50 &-4484540643391114235
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100145603139117077}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDamping: 0
+  m_AngularDamping: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7

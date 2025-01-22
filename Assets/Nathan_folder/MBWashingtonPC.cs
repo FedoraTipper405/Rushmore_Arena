@@ -10,7 +10,18 @@ public class MBWashingtonPC : MBBasePlayerController
     }
     public override void Attack()
     {
-        GameObject lastBullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+        GameObject lastBullet = null;
+        if (bulletPoolScript != null && bulletPoolScript.Bulletpool.Count > 0)
+        {
+            lastBullet = bulletPoolScript.GetFromPool();
+            lastBullet.transform.position = this.transform.position;
+
+        }
+        else if(bulletPoolScript != null && bulletPoolScript.Bulletpool.Count <= 0)
+        {
+          lastBullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+        }
+        lastBullet.GetComponent<MBBulletCollision>().bulletPooling = bulletPoolScript;
         lastBullet.GetComponent<MBBulletMovement>().moveDirection = currentShootDirection; 
     }
     // Update is called once per frame
