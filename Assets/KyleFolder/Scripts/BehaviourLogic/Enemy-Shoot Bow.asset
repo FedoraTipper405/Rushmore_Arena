@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba53b985daf00347ac6804ef6eede7f, type: 3}
+  m_Name: Enemy-Shoot Bow
+  m_EditorClassIdentifier: 
+  ArrowPrefab: {fileID: 1595399577958078546, guid: 5306095b213863b428d9c1cb5cce531a, type: 3}
+  _bulletSpeed: 4
+  _timer: 1
+  _timeBetweenShots: 2
+  _exitTimer: 1
+  _timeTillExit: 3
+  _distanceToCountExit: 3

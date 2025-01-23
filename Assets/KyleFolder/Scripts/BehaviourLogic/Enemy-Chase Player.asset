@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8398bb9edbf6e74e83c3efa6387b685, type: 3}
   m_Name: Enemy-Chase Player
   m_EditorClassIdentifier: 
-  MovementSpeed: 1
+  MovementSpeed: 2

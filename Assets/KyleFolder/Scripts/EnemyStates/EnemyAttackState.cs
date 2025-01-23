@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyState
 {
-    public EnemyAttackState(BaseEnemy baseEnemy, EnemyStateMachine enemyStateMachine) : base(baseEnemy, enemyStateMachine)
-    {
-    
-    }
-
+    public EnemyAttackState(BaseEnemy baseEnemy, EnemyStateMachine enemyStateMachine) : base(baseEnemy, enemyStateMachine) { }
+   
     public override void AnimationTriggerEvent(BaseEnemy.AnimationTriggerType triggerType)
     {
         base.AnimationTriggerEvent(triggerType);

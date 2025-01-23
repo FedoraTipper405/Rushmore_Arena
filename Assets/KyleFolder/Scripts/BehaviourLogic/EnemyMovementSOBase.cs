@@ -5,7 +5,6 @@ public class EnemyMovementSOBase : ScriptableObject
     protected BaseEnemy baseEnemy;
     protected Transform transform;
     protected GameObject gameObject;
-
     protected Transform playerTransform;
 
     public virtual void Initialize(GameObject gameObject, BaseEnemy baseEnemy)
