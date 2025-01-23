@@ -329,7 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
-  MovementSpeed: 1
+  EnemyMovementBase: {fileID: 11400000, guid: c495a1d18f67e5549a32986e539586a0, type: 2}
+  EnemyAttackBase: {fileID: 11400000, guid: cebeffe7622b543468d6b40973515688, type: 2}
 --- !u!212 &527849215
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -12,12 +12,23 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public EnemyStateMachine StateMachine { get; set; } 
     public EnemyMovementState StateMovement { get; set; }
     public EnemyAttackState StateAttack { get; set; }
-    public bool IsInRange { get; set; }
+    
+    [SerializeField] private EnemyMovementSOBase EnemyMovementBase;
+    
+    [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
 
-    public float MovementSpeed = 1f;
+    public EnemyMovementSOBase EnemyMovementBaseInstance { get; set; }
+
+    public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
+
+    public bool IsInRange { get; set; }
 
     public void Awake()
     {
+        EnemyMovementBaseInstance = Instantiate(EnemyMovementBase);
+
+        EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);
+        
         StateMachine = new EnemyStateMachine();
         
         StateMovement = new EnemyMovementState(this, StateMachine);
@@ -30,6 +41,10 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         CurrentHealth = MaxHealth;
 
         RB = GetComponent<Rigidbody2D>();
+
+        EnemyMovementBaseInstance.Initialize(gameObject, this);
+        
+        EnemyAttackBaseInstance.Initialize(gameObject, this);
 
         StateMachine.Initialize(StateMovement);
     }

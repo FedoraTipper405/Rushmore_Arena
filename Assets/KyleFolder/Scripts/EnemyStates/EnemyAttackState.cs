@@ -12,34 +12,35 @@ public class EnemyAttackState : EnemyState
     public override void AnimationTriggerEvent(BaseEnemy.AnimationTriggerType triggerType)
     {
         base.AnimationTriggerEvent(triggerType);
+
+        baseEnemy.EnemyAttackBaseInstance.DoAnimationTriggerEventLogic(triggerType);
     }
 
     public override void EnterState()
     {
         base.EnterState();
-        Debug.Log("I attack");
+
+        baseEnemy.EnemyAttackBaseInstance.DoEnterLogic();
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        Debug.Log("I cant attack");
+
+        baseEnemy.EnemyAttackBaseInstance.DoExitLogic();
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
-        baseEnemy.MoveEnemy(Vector2.zero);
-
-        if (baseEnemy.IsInRange != true)
-        {
-            baseEnemy.StateMachine.ChangeState(baseEnemy.StateMovement);
-        }
+        baseEnemy.EnemyAttackBaseInstance.DoFrameUpdateLogic();
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
+        baseEnemy.EnemyAttackBaseInstance.DoPhysicsLogic();
     }
 }

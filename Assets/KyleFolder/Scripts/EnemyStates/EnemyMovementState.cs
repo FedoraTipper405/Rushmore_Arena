@@ -4,44 +4,43 @@ using UnityEngine;
 
 public class EnemyMovementState : EnemyState
 {
-    private Transform _playerTransform;
-
     public EnemyMovementState(BaseEnemy baseEnemy, EnemyStateMachine enemyStateMachine) : base(baseEnemy, enemyStateMachine)
     {
-        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
     public override void AnimationTriggerEvent(BaseEnemy.AnimationTriggerType triggerType)
     {
         base.AnimationTriggerEvent(triggerType);
+
+        baseEnemy.EnemyMovementBaseInstance.DoAnimationTriggerEventLogic(triggerType);
     }
 
     public override void EnterState()
     {
         base.EnterState();
+
+        baseEnemy.EnemyMovementBaseInstance.DoEnterLogic();
     }
 
     public override void ExitState()
     {
         base.ExitState();
+
+        baseEnemy.EnemyMovementBaseInstance.DoExitLogic();
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
-        Vector2 moveDirection = (_playerTransform.position - baseEnemy.transform.position).normalized;
-
-        baseEnemy.MoveEnemy(moveDirection * baseEnemy.MovementSpeed);
-        
-        if (baseEnemy.IsInRange)
-        {
-            baseEnemy.StateMachine.ChangeState(baseEnemy.StateAttack);
-        }
+        baseEnemy.EnemyMovementBaseInstance.DoFrameUpdateLogic();
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
+        baseEnemy.EnemyMovementBaseInstance.DoPhysicsLogic();
     }
 }
