@@ -6,7 +6,7 @@ public class SOPlayerCharacters : ScriptableObject
     public float moveSpeed;
     public float attackDamage;
     public float attackSpeed;
-    public int health;
+    public float health;
     public float attackRange;
     public bool isRangedAttacker;
     public int projectileAmount;

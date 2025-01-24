@@ -10,6 +10,7 @@ public class MBWashingtonPC : MBBasePlayerController
          attackDamage = StatSO.attackDamage;
          attackSpeed = StatSO.attackSpeed;
          attackRange = StatSO.attackRange;
+        health = StatSO.health;
          isRangedAttacker = StatSO.isRangedAttacker;
          projectileAmount = StatSO.projectileAmount;
          projectileSpeed = StatSO.projectileSpeed;
@@ -34,10 +35,13 @@ public class MBWashingtonPC : MBBasePlayerController
         MBBulletCollision tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
         MBBulletMovement tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
         tempBulletCollision.bulletPooling = bulletPoolScript;
-        tempBulletCollision.bulletDamage = attackRange;
-        tempBulletCollision.bulletRange = attackRange;
+        tempBulletCollision.bulletDamage = attackDamage;
+       
         tempBulletCollision.bulletPenetration = penetration;
         tempBulletCollision.bulletKnockback = knockBack;
+        tempBulletMovement.bulletRange = attackRange;
+        tempBulletMovement.bulletPooling = bulletPoolScript;
+        tempBulletMovement.distanceTraveled = 0;
         tempBulletMovement.moveSpeed = projectileSpeed;
         tempBulletMovement.moveDirection = currentShootDirection; 
     }

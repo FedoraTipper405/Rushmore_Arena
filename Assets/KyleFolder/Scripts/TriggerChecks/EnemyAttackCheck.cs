@@ -14,7 +14,14 @@ public class EnemyAttackCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == PlayerTarget)
+        IDamageablePlayer damageable = collision.gameObject.GetComponent<IDamageablePlayer>();
+        if (damageable != null)
+        {
+            damageable.DamageToPlayerHealth(1f);
+            Debug.Log("I hit");
+        }
+
+        if (collision.gameObject == PlayerTarget)
         {
             _enemy.AttackPlayer(true);
         }

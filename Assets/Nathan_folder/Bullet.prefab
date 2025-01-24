@@ -105,6 +105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPooling: {fileID: 0}
+  bulletDamage: 0
+  bulletPenetration: 0
+  bulletKnockback: 0
 --- !u!58 &3669551897317151328
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -155,6 +158,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 0, z: 0}
   moveSpeed: 0.1
+  bulletRange: 0
+  distanceTraveled: 0
+  bulletPooling: {fileID: 0}
 --- !u!114 &9096859883011732584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPooling: {fileID: 0}
+  bulletDamage: 0
+  bulletPenetration: 0
+  bulletKnockback: 0
 --- !u!50 &-4484540643391114235
 Rigidbody2D:
   serializedVersion: 5

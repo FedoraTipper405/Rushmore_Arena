@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MBBasePlayerController : MonoBehaviour
+public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
 {
     [SerializeField] public GameObject bulletPrefab;
     public bool isAttacking = false;
@@ -14,7 +14,7 @@ public class MBBasePlayerController : MonoBehaviour
     public float moveSpeed;
     public float attackDamage;
     public float attackSpeed;
-    public int health;
+    public float health;
     public float attackRange;
     public bool isRangedAttacker;
     public int projectileAmount;
@@ -22,10 +22,12 @@ public class MBBasePlayerController : MonoBehaviour
     public float projectileSize;
     public float knockBack;
     public int penetration;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
     //handles movement
     public void HandleMovement(Vector2 moveInput)
@@ -72,5 +74,20 @@ public class MBBasePlayerController : MonoBehaviour
         {
             atkCooldown -= Time.deltaTime;
         }
+    }
+
+    public void DamageToPlayerHealth(float damageAmount)
+    {
+        health -= damageAmount;
+
+        if(health < 0)
+        {
+            PlayerDies();
+        }
+    }
+
+    public void PlayerDies()
+    {
+        Debug.Log("Man I'm dead");
     }
 }

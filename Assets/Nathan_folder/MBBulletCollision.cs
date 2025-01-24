@@ -4,7 +4,6 @@ public class MBBulletCollision : MonoBehaviour
 {
     public MBBulletPooling bulletPooling;
     public float bulletDamage;
-    public float bulletRange;
     public float bulletPenetration;
     public float bulletKnockback;
 
@@ -21,6 +20,13 @@ public class MBBulletCollision : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+        if(damageable != null)
+        {
+            damageable.Damage(bulletDamage);
+            Debug.Log(bulletDamage);
+        }
+
         if (bulletPooling != null)
         {
             bulletPooling.AddToPool(this.gameObject);
