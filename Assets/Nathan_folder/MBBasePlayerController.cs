@@ -27,7 +27,7 @@ public class MBBasePlayerController : MonoBehaviour
     {
         
     }
-
+    //handles movement
     public void HandleMovement(Vector2 moveInput)
     {
         if (moveInput.x != 0 || moveInput.y != 0)

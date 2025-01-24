@@ -17,6 +17,7 @@ public class MBWashingtonPC : MBBasePlayerController
          knockBack = StatSO.knockBack;
          penetration = StatSO.penetration;
     }
+    
     public override void Attack()
     {
         GameObject lastBullet = null;
@@ -30,9 +31,15 @@ public class MBWashingtonPC : MBBasePlayerController
         {
           lastBullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
         }
-        lastBullet.GetComponent<MBBulletCollision>().bulletPooling = bulletPoolScript;
-        lastBullet.GetComponent<MBBulletMovement>().moveSpeed = projectileSpeed;
-        lastBullet.GetComponent<MBBulletMovement>().moveDirection = currentShootDirection; 
+        MBBulletCollision tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
+        MBBulletMovement tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
+        tempBulletCollision.bulletPooling = bulletPoolScript;
+        tempBulletCollision.bulletDamage = attackRange;
+        tempBulletCollision.bulletRange = attackRange;
+        tempBulletCollision.bulletPenetration = penetration;
+        tempBulletCollision.bulletKnockback = knockBack;
+        tempBulletMovement.moveSpeed = projectileSpeed;
+        tempBulletMovement.moveDirection = currentShootDirection; 
     }
     // Update is called once per frame
     void Update()
