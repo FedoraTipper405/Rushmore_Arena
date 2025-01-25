@@ -2,6 +2,9 @@ using UnityEngine;
 
 public interface ITriggerCheckable
 {
-    bool IsInRange { get; set; }
-    void AttackPlayer(bool isInRange);
+   
+    bool IsInRangeToChase { get; set; }
+    bool IsInRangeOfAttack { get; set; }
+    void ChasePlayer(bool isInRangeToChase);
+    void AttackPlayer(bool isInRangeOfAttack);
 }

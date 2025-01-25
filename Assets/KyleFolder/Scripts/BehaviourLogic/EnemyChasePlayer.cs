@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Enemy-Chase Player")]
-public class EnemyChasePlayer : EnemyMovementSOBase
+public class EnemyChasePlayer : EnemyChaseSOBase
 {
     public float MovementSpeed = 1f;
     
@@ -28,9 +28,14 @@ public class EnemyChasePlayer : EnemyMovementSOBase
 
         baseEnemy.MoveEnemy(moveDirection * MovementSpeed);
 
-        if (baseEnemy.IsInRange)
+        if (baseEnemy.IsInRangeOfAttack)
         {
             baseEnemy.StateMachine.ChangeState(baseEnemy.StateAttack);
+        }
+        
+        if (baseEnemy.IsInRangeToChase != true)
+        {
+            baseEnemy.StateMachine.ChangeState(baseEnemy.StateMovement);
         }
     }
 

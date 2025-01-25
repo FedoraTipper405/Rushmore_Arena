@@ -4,35 +4,42 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
-    [field: SerializeField] public float MaxHealth { get; set; } = 100f;
+    public float MaxHealth { get; set; } = 100f;
     public float CurrentHealth { get; set; }
     public Rigidbody2D RB { get; set; }
     public bool IsFacingRight { get; set; }
 
     public EnemyStateMachine StateMachine { get; set; } 
     public EnemyMovementState StateMovement { get; set; }
+    public EnemyChaseState StateChase { get; set; }
     public EnemyAttackState StateAttack { get; set; }
     
     [SerializeField] private EnemyMovementSOBase EnemyMovementBase;
-    
+
+    [SerializeField] private EnemyChaseSOBase EnemyChaseBase;
+
     [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
 
     public EnemyMovementSOBase EnemyMovementBaseInstance { get; set; }
-
+    public EnemyChaseSOBase EnemyChaseBaseInstance { get; set; }
     public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
-
-    public bool IsInRange { get; set; }
+    public bool IsInRangeToChase { get; set; }
+    public bool IsInRangeOfAttack { get; set; }
 
     public void Awake()
     {
         EnemyMovementBaseInstance = Instantiate(EnemyMovementBase);
+
+        EnemyChaseBaseInstance = Instantiate(EnemyChaseBase);
 
         EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);
         
         StateMachine = new EnemyStateMachine();
         
         StateMovement = new EnemyMovementState(this, StateMachine);
-        
+
+        StateChase = new EnemyChaseState(this, StateMachine);
+
         StateAttack = new EnemyAttackState(this, StateMachine);
     }
 
@@ -43,7 +50,9 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         RB = GetComponent<Rigidbody2D>();
 
         EnemyMovementBaseInstance.Initialize(gameObject, this);
-        
+
+        EnemyChaseBaseInstance.Initialize(gameObject, this);
+
         EnemyAttackBaseInstance.Initialize(gameObject, this);
 
         StateMachine.Initialize(StateMovement);
@@ -102,9 +111,14 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         StateMachine.CurrentEnemyState.AnimationTriggerEvent(triggerType);
     }
 
-    public void AttackPlayer(bool isInRange)
+    public void ChasePlayer(bool isInRangeToChase)
     {
-        IsInRange = isInRange;
+        IsInRangeToChase = isInRangeToChase;
+    }
+
+    public void AttackPlayer(bool isInRangeOfAttack)
+    {
+        IsInRangeOfAttack = isInRangeOfAttack;
     }
 
     public enum AnimationTriggerType

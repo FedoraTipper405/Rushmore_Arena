@@ -26,9 +26,9 @@ public class EnemyUseWeapon : EnemyAttackSOBase
         
         baseEnemy.MoveEnemy(Vector2.zero);
 
-        if (baseEnemy.IsInRange != true)
+        if (baseEnemy.IsInRangeOfAttack != true)
         {
-            baseEnemy.StateMachine.ChangeState(baseEnemy.StateMovement);
+            baseEnemy.StateMachine.ChangeState(baseEnemy.StateChase);
         }
     }
 
