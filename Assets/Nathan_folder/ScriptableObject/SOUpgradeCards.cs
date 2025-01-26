@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SOUpgradeCards", menuName = "Scriptable Objects/SOUpgradeCards")]
 public class SOUpgradeCards : ScriptableObject
 {
+    public string CardName;
+
     public float moveSpeedUpgrade;
     public float attackDamageUpgrade;
     public float attackSpeedUpgrade;

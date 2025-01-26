@@ -9,11 +9,17 @@ public class MBUpgradeManager : MonoBehaviour
     
     [SerializeField] MBBasePlayerController[] presidentControllers = new MBBasePlayerController[4];
     private MBBasePlayerController selectedPresident;
+
+    private GameObject UpgradeSlotOne;
+    private GameObject UpgradeSlotTwo;
+    private GameObject UpgradeSlotThree;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        RandomizeThreeUpgrades();
+        RandomizeThreeUpgrades();
+        RandomizeThreeUpgrades();
     }
     private void OnEnable()
     {
@@ -28,6 +34,31 @@ public class MBUpgradeManager : MonoBehaviour
         {
             upgradeSOList.Add(upgradeCardList[i].GetComponent<MBHoldUpgradeSO>().upgradeSO);
         }
+    }
+    public void RandomizeThreeUpgrades()
+    {
+        if (UpgradeSlotOne != null)
+        {
+            UpgradeSlotOne = null;
+        }
+        if (UpgradeSlotTwo != null)
+        {
+            UpgradeSlotTwo = null;
+        }
+        if (UpgradeSlotThree != null)
+        {
+            UpgradeSlotThree = null;
+        }
+        int newSlotOne = Random.Range(0, upgradeCardList.Count);
+        int newSlotTwo = Random.Range(0, upgradeCardList.Count);
+        int newSlotThree = Random.Range(0, upgradeCardList.Count);
+
+        UpgradeSlotOne = upgradeCardList[newSlotOne];
+        UpgradeSlotTwo = upgradeCardList[newSlotTwo];
+        UpgradeSlotThree = upgradeCardList[newSlotThree];
+        Debug.Log(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName);
+        Debug.Log(UpgradeSlotTwo.GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName);
+        Debug.Log(UpgradeSlotThree.GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName);
     }
     public void UpgradeCharacter(SOUpgradeCards selectedUpgrade)
     {

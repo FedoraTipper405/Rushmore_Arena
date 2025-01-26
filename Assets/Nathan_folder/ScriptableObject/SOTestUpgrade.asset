@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26604bcd13e86a5458791746f29a7aa5, type: 3}
   m_Name: SOTestUpgrade
   m_EditorClassIdentifier: 
+  CardName: Test 1
   moveSpeedUpgrade: 0
   attackDamageUpgrade: 5
   attackSpeedUpgrade: 0
-  healthUpgrade: 0
+  healthUpgrade: 1
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0
