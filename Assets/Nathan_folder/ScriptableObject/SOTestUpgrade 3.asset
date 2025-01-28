@@ -15,7 +15,7 @@ MonoBehaviour:
   CardName: Test 4
   moveSpeedUpgrade: 0
   attackDamageUpgrade: 0
-  attackSpeedUpgrade: 0
+  attackSpeedUpgrade: -0.05
   healthUpgrade: 4
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0

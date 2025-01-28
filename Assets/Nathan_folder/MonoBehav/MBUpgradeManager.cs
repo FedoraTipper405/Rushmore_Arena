@@ -15,6 +15,12 @@ public class MBUpgradeManager : MonoBehaviour
     private GameObject UpgradeSlotOne;
     private GameObject UpgradeSlotTwo;
     private GameObject UpgradeSlotThree;
+
+    private GameObject UpgradeUIElementOne;
+    private GameObject UpgradeUIElementTwo;
+    private GameObject UpgradeUIElementThree;
+
+    public bool isUpgrading = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,17 +45,42 @@ public class MBUpgradeManager : MonoBehaviour
     }
     public void ChangeSelectedUpgrade(Vector2 input)
     {
-    if(currentSelectedUpgrade > 0 && input.x < 0)
+        if (isUpgrading)
         {
-            currentSelectedUpgrade--;
+            if (currentSelectedUpgrade > 0 && input.x < 0)
+            {
+                currentSelectedUpgrade--;
+            }
+            if (currentSelectedUpgrade < 2 && input.x > 0)
+            {
+                currentSelectedUpgrade++;
+            }
         }
-    if(currentSelectedUpgrade < 2 && input.x > 0)
+    }
+    public void ConfirmUpgrade()
+    {
+        if (isUpgrading)
         {
-            currentSelectedUpgrade++;
+            if (currentSelectedUpgrade == 0)
+            {
+                UpgradeCharacter(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO);
+            }
+            else if (currentSelectedUpgrade == 1)
+            {
+                UpgradeCharacter(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO);
+            }
+            else if (currentSelectedUpgrade == 2)
+            {
+                UpgradeCharacter(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO);
+            }
+            Destroy(UpgradeUIElementOne);
+            Destroy(UpgradeUIElementTwo);
+            Destroy(UpgradeUIElementThree);
         }
     }
     public void RandomizeThreeUpgrades()
     {
+        ClearUI();
         bool isGenerating = true;
         bool cardTwoNotDuped = false;
         bool cardThreeNotDuped = false;
@@ -95,11 +126,31 @@ public class MBUpgradeManager : MonoBehaviour
                 isGenerating = false;
             }
         } while (isGenerating);
+
+
         UpgradeSlotTwo = upgradeCardList[newSlotTwo];
         UpgradeSlotThree = upgradeCardList[newSlotThree];
+
+
+        UpgradeUIElementOne = Instantiate(UpgradeSlotOne);
+        UpgradeUIElementTwo = Instantiate(UpgradeSlotTwo);
+        UpgradeUIElementThree = Instantiate(UpgradeSlotThree);
+
+
+        UpgradeUIElementOne.transform.SetParent(this.gameObject.transform);
+        UpgradeUIElementTwo.transform.SetParent(this.gameObject.transform);
+        UpgradeUIElementThree.transform.SetParent(this.gameObject.transform);
+
+
         Debug.Log(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName);
         Debug.Log(UpgradeSlotTwo.GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName);
         Debug.Log(UpgradeSlotThree.GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName);
+    }
+    public void ClearUI()
+    {
+        Destroy(UpgradeUIElementOne);
+        Destroy(UpgradeUIElementTwo);
+        Destroy(UpgradeUIElementThree);
     }
     public void UpgradeCharacter(SOUpgradeCards selectedUpgrade)
     {
