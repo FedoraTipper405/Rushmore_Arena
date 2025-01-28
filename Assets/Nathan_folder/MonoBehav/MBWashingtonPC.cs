@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MBWashingtonPC : MBBasePlayerController
@@ -40,10 +41,90 @@ public class MBWashingtonPC : MBBasePlayerController
         tempBulletCollision.bulletPenetration = penetration;
         tempBulletCollision.bulletKnockback = knockBack;
         tempBulletMovement.bulletRange = attackRange;
+
         tempBulletMovement.bulletPooling = bulletPoolScript;
+
         tempBulletMovement.distanceTraveled = 0;
         tempBulletMovement.moveSpeed = projectileSpeed;
         tempBulletMovement.moveDirection = currentShootDirection; 
+        if(projectileAmount > 1)
+        {
+            for(int i = 0; i < projectileAmount - 1; i++)
+            {
+                Vector3 shotgunShootDirection = new Vector3(0,0,0);
+                if(Mathf.Abs(currentShootDirection.x) == Mathf.Abs(currentShootDirection.y))
+                {
+                    float negativeChangerX = 1;
+                    float negativeChangerY = 1;
+                    if (currentShootDirection.x < 0)
+                    {
+                        negativeChangerX = -1;
+                    }
+                    if (currentShootDirection.y < 0)
+                    {
+                        negativeChangerY = -1;
+                    }
+                    if (i % 2 == 0)
+                    {  
+                        if(currentShootDirection.x > 0)
+                        {
+                            shotgunShootDirection.x = currentShootDirection.x - UnityEngine.Random.Range(0, 0.25f);
+                        }
+                        else
+                        {
+                            shotgunShootDirection.x = currentShootDirection.x + UnityEngine.Random.Range(0, 0.25f);
+                        }
+                        
+                        shotgunShootDirection.y = Mathf.Sqrt(1 - MathF.Pow(shotgunShootDirection.x, 2)) * negativeChangerY;
+                    }
+                    else
+                    {
+                        if (currentShootDirection.y > 0)
+                        {
+                            shotgunShootDirection.y = currentShootDirection.y - UnityEngine.Random.Range(0, 0.25f);
+                        }
+                        else
+                        {
+                            shotgunShootDirection.y = currentShootDirection.y + UnityEngine.Random.Range(0, 0.25f);
+                        }
+                        shotgunShootDirection.x = Mathf.Sqrt(1 - MathF.Pow(shotgunShootDirection.y, 2)) * negativeChangerX;
+                    }
+                }
+                else if(Mathf.Abs(currentShootDirection.x) > Mathf.Abs(currentShootDirection.y))
+                {
+
+                }
+                else
+                {
+
+                }
+                if (bulletPoolScript != null && bulletPoolScript.Bulletpool.Count > 0)
+                {
+                    lastBullet = bulletPoolScript.GetFromPool();
+                    lastBullet.transform.position = this.transform.position;
+
+                }
+                else if (bulletPoolScript != null && bulletPoolScript.Bulletpool.Count <= 0)
+                {
+                    lastBullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+                }
+                tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
+                tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
+                tempBulletCollision.bulletPooling = bulletPoolScript;
+                tempBulletCollision.bulletDamage = attackDamage;
+
+                tempBulletCollision.bulletPenetration = penetration;
+                tempBulletCollision.bulletKnockback = knockBack;
+                tempBulletMovement.bulletRange = attackRange;
+
+                tempBulletMovement.bulletPooling = bulletPoolScript;
+
+                tempBulletMovement.distanceTraveled = 0;
+                tempBulletMovement.moveSpeed = projectileSpeed;
+                tempBulletMovement.moveDirection = shotgunShootDirection;
+            }
+            
+        }
     }
     // Update is called once per frame
     void Update()

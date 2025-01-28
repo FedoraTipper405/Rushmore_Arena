@@ -13,7 +13,7 @@ public class MBBulletPooling : MonoBehaviour
 
     public void AddToPool(GameObject bullet)
     {
-        Debug.Log("Poo Script");
+
         Bulletpool.Enqueue(bullet);
         bullet.SetActive(false);
     }

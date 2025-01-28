@@ -15,6 +15,8 @@ public class MBBulletMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(moveDirection.x == float.NaN){moveDirection.x = 0;}
+        else if(moveDirection.y == float.NaN) { moveDirection.y = 0;}
         this.transform.position += moveDirection * moveSpeed;
         distanceTraveled += moveSpeed;
         if(distanceTraveled > bulletRange)
