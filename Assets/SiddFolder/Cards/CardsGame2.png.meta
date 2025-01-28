@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 925170c6ec6fb594ea553e18bbf454fa
+guid: 32d599f5d25d02340a61d7e6a36143a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 406827021089400256
-    second: Cards3 (1)_0
+      213: 3878266270755481208
+    second: CardsGame2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cards3 (1)_0
+      name: CardsGame2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 5
+        y: 1
+        width: 54
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0c5601d250755a500800000000000000
-      internalID: 406827021089400256
+      spriteID: 87662c410ae52d530800000000000000
+      internalID: 3878266270755481208
       vertices: []
       indices: 
       edges: []
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CardsGame2_0: 3878266270755481208
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
