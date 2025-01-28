@@ -6,6 +6,8 @@ public class MBUpgradeManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> upgradeCardList = new List<GameObject>();
     public List<SOUpgradeCards> upgradeSOList = new List<SOUpgradeCards>();
+    public int currentSelectedUpgrade = 0;
+
     
     [SerializeField] MBBasePlayerController[] presidentControllers = new MBBasePlayerController[4];
     private MBBasePlayerController selectedPresident;
@@ -35,8 +37,22 @@ public class MBUpgradeManager : MonoBehaviour
             upgradeSOList.Add(upgradeCardList[i].GetComponent<MBHoldUpgradeSO>().upgradeSO);
         }
     }
+    public void ChangeSelectedUpgrade(Vector2 input)
+    {
+    if(currentSelectedUpgrade > 0 && input.x < 0)
+        {
+            currentSelectedUpgrade--;
+        }
+    if(currentSelectedUpgrade < 2 && input.x > 0)
+        {
+            currentSelectedUpgrade++;
+        }
+    }
     public void RandomizeThreeUpgrades()
     {
+        bool isGenerating = true;
+        bool cardTwoNotDuped = false;
+        bool cardThreeNotDuped = false;
         if (UpgradeSlotOne != null)
         {
             UpgradeSlotOne = null;
@@ -50,10 +66,35 @@ public class MBUpgradeManager : MonoBehaviour
             UpgradeSlotThree = null;
         }
         int newSlotOne = Random.Range(0, upgradeCardList.Count);
-        int newSlotTwo = Random.Range(0, upgradeCardList.Count);
-        int newSlotThree = Random.Range(0, upgradeCardList.Count);
+        int newSlotTwo = 0 ;
+        int newSlotThree = 0;
 
         UpgradeSlotOne = upgradeCardList[newSlotOne];
+        do
+        {
+            if (cardTwoNotDuped == false)
+            {
+                newSlotTwo = Random.Range(0, upgradeCardList.Count);
+            }
+            
+            if (upgradeCardList[newSlotTwo].GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName != UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName && upgradeCardList[newSlotTwo].GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName != upgradeCardList[newSlotThree].GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName)
+            {
+                cardTwoNotDuped = true;
+            }
+            if (cardThreeNotDuped == false)
+            {
+                newSlotThree = Random.Range(0, upgradeCardList.Count);
+            }
+
+            if (upgradeCardList[newSlotThree].GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName != UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName && upgradeCardList[newSlotTwo].GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName != upgradeCardList[newSlotThree].GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName)
+            {
+                cardThreeNotDuped = true;
+            }
+            if(cardThreeNotDuped && cardTwoNotDuped)
+            {
+                isGenerating = false;
+            }
+        } while (isGenerating);
         UpgradeSlotTwo = upgradeCardList[newSlotTwo];
         UpgradeSlotThree = upgradeCardList[newSlotThree];
         Debug.Log(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName);

@@ -770,6 +770,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8703483750831658555, guid: df29ba9452688f54c9954e17cfbc98d9, type: 3}
+      propertyPath: upgradeManager
+      value: 
+      objectReference: {fileID: 1170543650}
+    - target: {fileID: 8703483750831658555, guid: df29ba9452688f54c9954e17cfbc98d9, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 594894572}
@@ -833,6 +837,7 @@ MonoBehaviour:
   - {fileID: 3494999421109923977, guid: 17f363d5e46ef9942b4c3f316c11db4c, type: 3}
   - {fileID: 5902911090929857919, guid: 49883a2393369f94fb3dd533d3ebb6fe, type: 3}
   upgradeSOList: []
+  currentSelectedUpgrade: 0
   presidentControllers:
   - {fileID: 594894572}
   - {fileID: 83467567}
