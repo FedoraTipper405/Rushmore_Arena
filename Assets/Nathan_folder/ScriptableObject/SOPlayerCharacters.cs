@@ -14,5 +14,6 @@ public class SOPlayerCharacters : ScriptableObject
     public float projectileSize;
     public float knockBack;
     public int penetration;
+    public float spread;
     
 }

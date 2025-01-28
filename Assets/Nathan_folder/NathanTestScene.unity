@@ -513,6 +513,7 @@ MonoBehaviour:
   projectileSize: 0
   knockBack: 0
   penetration: 0
+  projectileSpread: 0
   bulletPoolScript: {fileID: 594894577}
 --- !u!114 &594894577
 MonoBehaviour:
@@ -1211,7 +1212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2099907118
 RectTransform:
   m_ObjectHideFlags: 0

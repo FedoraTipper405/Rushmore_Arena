@@ -22,6 +22,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     public float projectileSize;
     public float knockBack;
     public int penetration;
+    public float projectileSpread;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

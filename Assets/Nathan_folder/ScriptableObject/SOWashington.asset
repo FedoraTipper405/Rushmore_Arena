@@ -18,8 +18,9 @@ MonoBehaviour:
   health: 100
   attackRange: 7
   isRangedAttacker: 1
-  projectileAmount: 3
+  projectileAmount: 5
   projectileSpeed: 0.2
-  projectileSize: 1
+  projectileSize: 0.15
   knockBack: 1
   penetration: 1
+  spread: 0.4
