@@ -73,9 +73,8 @@ public class MBUpgradeManager : MonoBehaviour
             {
                 UpgradeCharacter(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO);
             }
-            Destroy(UpgradeUIElementOne);
-            Destroy(UpgradeUIElementTwo);
-            Destroy(UpgradeUIElementThree);
+            ClearUI();
+            isUpgrading = false;
         }
     }
     public void RandomizeThreeUpgrades()
@@ -137,9 +136,9 @@ public class MBUpgradeManager : MonoBehaviour
         UpgradeUIElementThree = Instantiate(UpgradeSlotThree);
 
 
-        UpgradeUIElementOne.transform.SetParent(this.gameObject.transform);
-        UpgradeUIElementTwo.transform.SetParent(this.gameObject.transform);
-        UpgradeUIElementThree.transform.SetParent(this.gameObject.transform);
+        UpgradeUIElementOne.transform.SetParent(this.gameObject.transform.GetChild(0));
+        UpgradeUIElementTwo.transform.SetParent(this.gameObject.transform.GetChild(0));
+        UpgradeUIElementThree.transform.SetParent(this.gameObject.transform.GetChild(0));
 
 
         Debug.Log(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO.CardName);
@@ -170,6 +169,17 @@ public class MBUpgradeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            isUpgrading = !isUpgrading;
+            if(isUpgrading)
+            {
+                RandomizeThreeUpgrades();
+            }
+            else
+            {
+                ClearUI();
+            }
+        }
     }
 }
