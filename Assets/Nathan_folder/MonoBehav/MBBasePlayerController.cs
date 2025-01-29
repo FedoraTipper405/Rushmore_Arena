@@ -37,9 +37,14 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
         {
             lastMoveDirection.x = moveInput.x;
             lastMoveDirection.y = moveInput.y;
+            SwitchAnimationForPlayer();
         }
         movementOnY = moveInput.y; 
         movementOnX = moveInput.x; 
+        if(moveInput.x == 0 && moveInput.y == 0)
+        {
+            StopPlayerAnimation();
+        }
     }
      virtual public void Attack()
     {
@@ -60,10 +65,42 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(lastMoveDirection.x + " " + lastMoveDirection.z + " " + lastMoveDirection.y);
+    }
+    void StopPlayerAnimation()
+    {
+
+    }
+    void SwitchAnimationForPlayer()
+    {
+        if(Mathf.Abs(lastMoveDirection.x) >= Mathf.Abs(lastMoveDirection.y))
+        {
+            //HorizontalAnimations
+            if (lastMoveDirection.x > 0)
+            {
+                //moving right/diaganol right
+            }
+            else if (lastMoveDirection.x < 0)
+            {
+                //moving left/diaganol left
+            }
+        }
+        else
+        {
+            //verticalAnimations
+            if (lastMoveDirection.y > 0)
+            {
+                //moving Up
+            }
+            else if (lastMoveDirection.y < 0)
+            {
+                //moving Down
+            }
+        }
+
     }
     void FixedUpdate()
     {
+       
         this.transform.position += (new Vector3(movementOnX, movementOnY,0 ) * moveSpeed) / 10;
         if (isAttacking && atkCooldown <= 0)
         {
