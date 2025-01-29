@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MBUpgradeManager : MonoBehaviour
 {
@@ -21,13 +22,15 @@ public class MBUpgradeManager : MonoBehaviour
     private GameObject UpgradeUIElementThree;
 
     public bool isUpgrading = false;
+
+    public List<SOUpgradeCards> chosenUpgrades = new List<SOUpgradeCards>();
+
+    [SerializeField] GameObject selectionParent;
+    [SerializeField] GameObject[] selectorIcons = new GameObject[3];
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        RandomizeThreeUpgrades();
-        RandomizeThreeUpgrades();
-        RandomizeThreeUpgrades();
     }
     private void OnEnable()
     {
@@ -55,6 +58,17 @@ public class MBUpgradeManager : MonoBehaviour
             {
                 currentSelectedUpgrade++;
             }
+            for(int i = 0; i < selectorIcons.Length; i++)
+            {
+                if(i == currentSelectedUpgrade)
+                {
+                    selectorIcons[i].GetComponent<Image>().color = new Vector4(1,1,1,1);
+                }
+                else
+                {
+                    selectorIcons[i].GetComponent<Image>().color = new Vector4(1, 1, 1, 0);
+                }
+            }
         }
     }
     public void ConfirmUpgrade()
@@ -64,17 +78,19 @@ public class MBUpgradeManager : MonoBehaviour
             if (currentSelectedUpgrade == 0)
             {
                 UpgradeCharacter(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO);
+                chosenUpgrades.Add(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO);
             }
             else if (currentSelectedUpgrade == 1)
             {
-                UpgradeCharacter(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO);
+                UpgradeCharacter(UpgradeSlotTwo.GetComponent<MBHoldUpgradeSO>().upgradeSO);
+                chosenUpgrades.Add(UpgradeSlotTwo.GetComponent<MBHoldUpgradeSO>().upgradeSO);
             }
             else if (currentSelectedUpgrade == 2)
             {
-                UpgradeCharacter(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO);
+                UpgradeCharacter(UpgradeSlotThree.GetComponent<MBHoldUpgradeSO>().upgradeSO);
+                chosenUpgrades.Add(UpgradeSlotThree.GetComponent<MBHoldUpgradeSO>().upgradeSO);
             }
-            ClearUI();
-            isUpgrading = false;
+            ChangeUpgradingState();
         }
     }
     public void RandomizeThreeUpgrades()
@@ -166,20 +182,48 @@ public class MBUpgradeManager : MonoBehaviour
 
         
     }
+    private void ChangeSelectionDisplayState()
+    {
+        if (isUpgrading)
+        {
+            selectionParent.SetActive(true);
+        }
+        else
+        {
+            selectionParent.SetActive(false);
+        }
+    }
+    private void ChangeUpgradingState()
+    {
+        isUpgrading = !isUpgrading;
+        if (isUpgrading)
+        {
+            RandomizeThreeUpgrades();
+            currentSelectedUpgrade = 0;
+            for (int i = 0; i < selectorIcons.Length; i++)
+            {
+                if (i == currentSelectedUpgrade)
+                {
+                    selectorIcons[i].GetComponent<Image>().color = new Vector4(1, 1, 1, 1);
+                }
+                else
+                {
+                    selectorIcons[i].GetComponent<Image>().color = new Vector4(1, 1, 1, 0);
+                }
+            }
+        }
+        else
+        {
+            ClearUI();
+        }
+        ChangeSelectionDisplayState();
+    }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.U))
         {
-            isUpgrading = !isUpgrading;
-            if(isUpgrading)
-            {
-                RandomizeThreeUpgrades();
-            }
-            else
-            {
-                ClearUI();
-            }
+            ChangeUpgradingState();
         }
     }
 }
