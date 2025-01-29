@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Enemy-Charge Player")]
+[CreateAssetMenu(fileName = "Enemy-Charge", menuName = "Kyles SOs/Enemy-Charge")]
 public class EnemyCharge : EnemyChaseSOBase
 {
     private Vector3 _lastPosOfPlayer;
@@ -9,11 +9,6 @@ public class EnemyCharge : EnemyChaseSOBase
     [SerializeField] public float _timeUntilCharge;
     [SerializeField] public bool InRange = false;
     [SerializeField] private float _distanceToCountExit;
-
-    public override void DoAnimationTriggerEventLogic(BaseEnemy.AnimationTriggerType triggerType)
-    {
-        base.DoAnimationTriggerEventLogic(triggerType);
-    }
 
     public override void DoEnterLogic()
     {

@@ -20,7 +20,5 @@ public class EnemyMovementSOBase : ScriptableObject
     public virtual void DoExitLogic() { }
     public virtual void DoFrameUpdateLogic() { }
     public virtual void DoPhysicsLogic() { }
-    public virtual void DoAnimationTriggerEventLogic(BaseEnemy.AnimationTriggerType triggerType) { }
-
 }
 

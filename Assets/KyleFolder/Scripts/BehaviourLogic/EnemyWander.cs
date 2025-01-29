@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Enemy-Wander")]
+[CreateAssetMenu(fileName = "Enemy-Wander", menuName = "Kyles SOs/Enemy-Wander")]
 public class EnemyWander : EnemyMovementSOBase
 {
     [SerializeField] private float MovementSpeed;
@@ -8,11 +8,6 @@ public class EnemyWander : EnemyMovementSOBase
 
     private Vector3 _targetPos;
     private Vector3 _direction;
-
-    public override void DoAnimationTriggerEventLogic(BaseEnemy.AnimationTriggerType triggerType)
-    {
-        base.DoAnimationTriggerEventLogic(triggerType);
-    }
 
     public override void DoEnterLogic()
     {
@@ -36,6 +31,12 @@ public class EnemyWander : EnemyMovementSOBase
         if((baseEnemy.transform.position - _targetPos).sqrMagnitude < 0.01f)
         {
             _targetPos = GetRandomPointInCircle();
+        }
+
+        if (baseEnemy.ObjectInWay)
+        {
+            _targetPos = GetRandomPointInCircle();
+            baseEnemy.ObjectInTheWay(false);
         }
         
         if (baseEnemy.IsInRangeToChase)

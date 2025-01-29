@@ -5,13 +5,6 @@ using UnityEngine;
 public class EnemyMovementState : EnemyState
 {
     public EnemyMovementState(BaseEnemy baseEnemy, EnemyStateMachine enemyStateMachine) : base(baseEnemy, enemyStateMachine) { }
-  
-    public override void AnimationTriggerEvent(BaseEnemy.AnimationTriggerType triggerType)
-    {
-        base.AnimationTriggerEvent(triggerType);
-
-        baseEnemy.EnemyMovementBaseInstance.DoAnimationTriggerEventLogic(triggerType);
-    }
 
     public override void EnterState()
     {

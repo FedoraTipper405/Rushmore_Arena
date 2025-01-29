@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99443fcc9785e6a439434e63577402ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 50
   EnemyMovementBase: {fileID: 11400000, guid: 4bf6c581971b00f47a9375ba114c9a8e, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: c495a1d18f67e5549a32986e539586a0, type: 2}
 --- !u!50 &5744339542382835896
@@ -207,8 +208,8 @@ Transform:
   m_GameObject: {fileID: 2014355552989622945}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalPosition: {x: -0.81, y: 0, z: 0}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7364870821671016792}
@@ -247,8 +248,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0.068447076, y: 0}
+  m_Radius: 0.38329372
 --- !u!114 &5898293922586769507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,10 +262,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac3300d65537e0458ca473222e560ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTransform: {fileID: 0}
   _timer: 2
   _arrowHolder: {fileID: 11400000, guid: d6d97de21fb37444d9276a20704eb2fb, type: 2}
   arrowspeed: 2
+  _detectTimer: 1
+  _detectTransform: {fileID: 7466135995152881543}
+  _detectArea: {x: 0.5, y: 2}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &2622692236061457085
 GameObject:
   m_ObjectHideFlags: 0

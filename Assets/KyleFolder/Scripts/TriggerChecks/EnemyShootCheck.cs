@@ -10,6 +10,11 @@ public class EnemyShootCheck : MonoBehaviour
     [SerializeField] public float _timer;
     [SerializeField] private SOArrowHolder _arrowHolder;
     public float arrowspeed;
+    private bool _canDetect = true;
+    [SerializeField] public float _detectTimer;
+    [SerializeField] private Transform _detectTransform;
+    [SerializeField] private Vector2 _detectArea;
+    [SerializeField] private LayerMask _layerMask;
 
     private void Awake()
     {
@@ -17,6 +22,21 @@ public class EnemyShootCheck : MonoBehaviour
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         _collider = GetComponent<Collider2D>();
         _baseEnemy = GetComponentInParent<BaseEnemy>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_canDetect == true)
+        {
+            Collider2D[] objectsHit = Physics2D.OverlapBoxAll(_detectTransform.position, _detectArea, 0, _layerMask);
+
+            if (objectsHit.Length > 0)
+            {
+                _baseEnemy.ObjectInTheWay(true);
+            }
+            _canDetect = false;
+            StartCoroutine(DetectAgain());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,11 +54,21 @@ public class EnemyShootCheck : MonoBehaviour
         yield return new WaitForSeconds(_timer);
         _collider.enabled = true;
     }
+    private IEnumerator DetectAgain()
+    {
+        yield return new WaitForSeconds(_detectTimer);
+        _canDetect = true;
+    }
 
     private void ShootArrow()
     {
         Vector2 direction = (_playerTransform.position - _baseEnemy.transform.position).normalized;
         GameObject shotArrow = Instantiate(_arrowHolder.ArrowPrefab, _baseEnemy.transform.position, Quaternion.identity);
         shotArrow.GetComponent<Rigidbody2D>().linearVelocity = direction * arrowspeed;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(_detectTransform.position, _detectArea);
     }
 }

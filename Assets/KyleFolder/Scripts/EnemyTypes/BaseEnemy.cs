@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
-    public float MaxHealth { get; set; } = 100f;
+    [field: SerializeField] public float MaxHealth { get; set; }
     public float CurrentHealth { get; set; }
     public Rigidbody2D RB { get; set; }
     public bool IsFacingRight { get; set; }
@@ -20,6 +20,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public EnemyMovementSOBase EnemyMovementBaseInstance { get; set; }
     public EnemyChaseSOBase EnemyChaseBaseInstance { get; set; }
     public bool IsInRangeToChase { get; set; }
+    public bool ObjectInWay { get; set; }
 
     public void Awake()
     {
@@ -95,19 +96,13 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         }
     }
 
-    private void AnimationTriggerEvent(AnimationTriggerType triggerType)
-    {
-        StateMachine.CurrentEnemyState.AnimationTriggerEvent(triggerType);
-    }
-
     public void ChasePlayer(bool isInRangeToChase)
     {
         IsInRangeToChase = isInRangeToChase;
     }
 
-    public enum AnimationTriggerType
+    public void ObjectInTheWay(bool objectInWay)
     {
-        Movement,
-        Attack
+        ObjectInWay = objectInWay;
     }
 }

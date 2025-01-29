@@ -1,14 +1,9 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Enemy-Chase Player")]
+[CreateAssetMenu(fileName = "Enemy-Chase", menuName = "Kyles SOs/Enemy-Chase")]
 public class EnemyChasePlayer : EnemyChaseSOBase
 {
     public float MovementSpeed = 1f;
-    
-    public override void DoAnimationTriggerEventLogic(BaseEnemy.AnimationTriggerType triggerType)
-    {
-        base.DoAnimationTriggerEventLogic(triggerType);
-    }
 
     public override void DoEnterLogic()
     {

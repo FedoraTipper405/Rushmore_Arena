@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 493999781204395081}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.421, y: 0, z: 0}
+  m_LocalPosition: {x: -0.807, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -154,7 +154,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.22818923, y: -0.0031713247}
+  m_Offset: {x: -0.32095313, y: -0.0031713247}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -164,7 +164,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.3026423, y: 0.56445336}
+  m_Size: {x: 1.2156501, y: 0.56445336}
   m_EdgeRadius: 0
 --- !u!114 &5109172160016707759
 MonoBehaviour:
@@ -179,6 +179,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timer: 2
+  _detectTimer: 1
+  _detectTransform: {fileID: 9102749648464070077}
+  _detectArea: {x: 0.5, y: 1.6}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &4677407813063428951
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99443fcc9785e6a439434e63577402ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 50
   EnemyMovementBase: {fileID: 11400000, guid: 4bf6c581971b00f47a9375ba114c9a8e, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: c495a1d18f67e5549a32986e539586a0, type: 2}
 --- !u!50 &7879206157585465411
