@@ -140,13 +140,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '+Damage
+  m_text: 'Your attacks become quite quick
 
-    +Health
+    ++Attack Speed
 
-    +Ligma
+    -Attack Damage
 
-    +Place holding'
+    -Projectile
+    Speed
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95438cad93f63ac4dabbd7e8ffbb25d1, type: 2}
   m_sharedMaterial: {fileID: 5192042783379724554, guid: 95438cad93f63ac4dabbd7e8ffbb25d1, type: 2}
@@ -303,7 +306,7 @@ GameObject:
   - component: {fileID: 7711493329337348274}
   - component: {fileID: 7037244100998989885}
   m_Layer: 5
-  m_Name: AdvancedUpgradeBase
+  m_Name: RapidAssault
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +413,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AdvancedBase
+  m_text: Rapid Assault
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95438cad93f63ac4dabbd7e8ffbb25d1, type: 2}
   m_sharedMaterial: {fileID: 5192042783379724554, guid: 95438cad93f63ac4dabbd7e8ffbb25d1, type: 2}

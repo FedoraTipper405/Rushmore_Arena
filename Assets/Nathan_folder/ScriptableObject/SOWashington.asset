@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   attackDamage: 50
-  attackSpeed: 0.25
+  attackSpeed: 0.35
   health: 100
   attackRange: 7
   isRangedAttacker: 1
