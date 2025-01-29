@@ -27,11 +27,6 @@ public class EnemyChasePlayer : EnemyChaseSOBase
         Vector2 moveDirection = (playerTransform.position - baseEnemy.transform.position).normalized;
 
         baseEnemy.MoveEnemy(moveDirection * MovementSpeed);
-
-        if (baseEnemy.IsInRangeOfAttack)
-        {
-            baseEnemy.StateMachine.ChangeState(baseEnemy.StateAttack);
-        }
         
         if (baseEnemy.IsInRangeToChase != true)
         {

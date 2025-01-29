@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9102749648464070077}
   - component: {fileID: 8239239173832640303}
+  - component: {fileID: 5109172160016707759}
   m_Layer: 0
   m_Name: AttackArea
   m_TagString: Untagged
@@ -165,6 +166,100 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3026423, y: 0.56445336}
   m_EdgeRadius: 0
+--- !u!114 &5109172160016707759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493999781204395081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5886714d31ac194aa1ba99900565470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timer: 2
+--- !u!1 &4677407813063428951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4808347699064481585}
+  - component: {fileID: 2648313130831009790}
+  - component: {fileID: 5689214818446075900}
+  m_Layer: 0
+  m_Name: AgroArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4808347699064481585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4677407813063428951}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4271199131233034736}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2648313130831009790
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4677407813063428951}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!114 &5689214818446075900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4677407813063428951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9316adabb5f3e2b46afb6bf482d7f1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6910088278627587558
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +273,6 @@ GameObject:
   - component: {fileID: 180167105803624710}
   - component: {fileID: 7879206157585465411}
   - component: {fileID: 2655366447107407547}
-  - component: {fileID: 3251806635939168471}
   m_Layer: 0
   m_Name: RomanSpearSoldier
   m_TagString: Untagged
@@ -202,6 +296,7 @@ Transform:
   - {fileID: 5477933344886081845}
   - {fileID: 2427117328523737508}
   - {fileID: 9102749648464070077}
+  - {fileID: 4808347699064481585}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1551953404296174868
@@ -271,9 +366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99443fcc9785e6a439434e63577402ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 100
-  EnemyMovementBase: {fileID: 11400000, guid: c495a1d18f67e5549a32986e539586a0, type: 2}
-  EnemyAttackBase: {fileID: 11400000, guid: cebeffe7622b543468d6b40973515688, type: 2}
+  EnemyMovementBase: {fileID: 11400000, guid: 4bf6c581971b00f47a9375ba114c9a8e, type: 2}
+  EnemyChaseBase: {fileID: 11400000, guid: c495a1d18f67e5549a32986e539586a0, type: 2}
 --- !u!50 &7879206157585465411
 Rigidbody2D:
   serializedVersion: 5
@@ -347,18 +441,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3251806635939168471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6910088278627587558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5886714d31ac194aa1ba99900565470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9175855217616007363
 GameObject:
   m_ObjectHideFlags: 0

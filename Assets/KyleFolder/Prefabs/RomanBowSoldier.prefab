@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7039820374745366498}
   - component: {fileID: 5744339542382835896}
   - component: {fileID: 8507211378433925280}
-  - component: {fileID: 998501238178849}
   m_Layer: 0
   m_Name: RomanBowSoldier
   m_TagString: Untagged
@@ -106,9 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99443fcc9785e6a439434e63577402ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 100
-  EnemyMovementBase: {fileID: 11400000, guid: c495a1d18f67e5549a32986e539586a0, type: 2}
-  EnemyAttackBase: {fileID: 11400000, guid: f05937c73878f944a8c81345ea3d3541, type: 2}
+  EnemyMovementBase: {fileID: 11400000, guid: 4bf6c581971b00f47a9375ba114c9a8e, type: 2}
+  EnemyChaseBase: {fileID: 11400000, guid: c495a1d18f67e5549a32986e539586a0, type: 2}
 --- !u!50 &5744339542382835896
 Rigidbody2D:
   serializedVersion: 5
@@ -182,18 +180,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &998501238178849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406854409288136065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5886714d31ac194aa1ba99900565470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2014355552989622945
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7466135995152881543}
   - component: {fileID: 7203842655746706270}
+  - component: {fileID: 5898293922586769507}
   m_Layer: 0
   m_Name: AttackArea
   m_TagString: Untagged
@@ -262,6 +249,22 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &5898293922586769507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014355552989622945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac3300d65537e0458ca473222e560ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerTransform: {fileID: 0}
+  _timer: 2
+  _arrowHolder: {fileID: 11400000, guid: d6d97de21fb37444d9276a20704eb2fb, type: 2}
+  arrowspeed: 2
 --- !u!1 &2622692236061457085
 GameObject:
   m_ObjectHideFlags: 0

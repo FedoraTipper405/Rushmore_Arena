@@ -12,35 +12,26 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public EnemyStateMachine StateMachine { get; set; } 
     public EnemyMovementState StateMovement { get; set; }
     public EnemyChaseState StateChase { get; set; }
-    public EnemyAttackState StateAttack { get; set; }
     
     [SerializeField] private EnemyMovementSOBase EnemyMovementBase;
 
     [SerializeField] private EnemyChaseSOBase EnemyChaseBase;
 
-    [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
-
     public EnemyMovementSOBase EnemyMovementBaseInstance { get; set; }
     public EnemyChaseSOBase EnemyChaseBaseInstance { get; set; }
-    public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
     public bool IsInRangeToChase { get; set; }
-    public bool IsInRangeOfAttack { get; set; }
 
     public void Awake()
     {
         EnemyMovementBaseInstance = Instantiate(EnemyMovementBase);
 
         EnemyChaseBaseInstance = Instantiate(EnemyChaseBase);
-
-        EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);
         
         StateMachine = new EnemyStateMachine();
         
         StateMovement = new EnemyMovementState(this, StateMachine);
 
         StateChase = new EnemyChaseState(this, StateMachine);
-
-        StateAttack = new EnemyAttackState(this, StateMachine);
     }
 
     private void Start()
@@ -52,8 +43,6 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         EnemyMovementBaseInstance.Initialize(gameObject, this);
 
         EnemyChaseBaseInstance.Initialize(gameObject, this);
-
-        EnemyAttackBaseInstance.Initialize(gameObject, this);
 
         StateMachine.Initialize(StateMovement);
     }
@@ -114,11 +103,6 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public void ChasePlayer(bool isInRangeToChase)
     {
         IsInRangeToChase = isInRangeToChase;
-    }
-
-    public void AttackPlayer(bool isInRangeOfAttack)
-    {
-        IsInRangeOfAttack = isInRangeOfAttack;
     }
 
     public enum AnimationTriggerType
