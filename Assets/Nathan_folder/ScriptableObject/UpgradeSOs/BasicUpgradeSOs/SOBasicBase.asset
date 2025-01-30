@@ -16,11 +16,11 @@ MonoBehaviour:
   moveSpeedUpgrade: 0
   attackDamageUpgrade: 0
   attackSpeedUpgrade: -0.05
-  healthUpgrade: 4
+  healthUpgrade: 0
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0
   projectileSpeedUpgrade: 0
   projectileSizeUpgrade: 0
-  knockBackUpgrade: 3
+  knockBackUpgrade: 0
   penetrationUpgrade: 0

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26604bcd13e86a5458791746f29a7aa5, type: 3}
-  m_Name: SOAdvancedBase
+  m_Name: SOPumpedUpKicks
   m_EditorClassIdentifier: 
-  CardName: AdvancedBase
-  moveSpeedUpgrade: 0
+  CardName: PumpedKicks
+  moveSpeedUpgrade: 0.2
   attackDamageUpgrade: 0
   attackSpeedUpgrade: 0
-  healthUpgrade: 3
+  healthUpgrade: -20
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0
