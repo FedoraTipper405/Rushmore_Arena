@@ -48,11 +48,14 @@ public class EnemyAttackCheck : MonoBehaviour
         {
             StartCoroutine(CanAttackAgain());
             _collider.enabled = false;
-        }       
+            _baseEnemy.EnemyAnimator.SetTrigger("Attack");
+            _baseEnemy.EnemyAnimator.SetBool("CanAttack", true);
+        }
     }
     private IEnumerator CanAttackAgain()
     {
         yield return new WaitForSeconds(_timer);
+        _baseEnemy.EnemyAnimator.SetBool("CanAttack", false);
         _collider.enabled = true;
     }
     private IEnumerator DetectAgain()

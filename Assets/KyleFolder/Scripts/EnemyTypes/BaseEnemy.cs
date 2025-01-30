@@ -21,6 +21,8 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public EnemyChaseSOBase EnemyChaseBaseInstance { get; set; }
     public bool IsInRangeToChase { get; set; }
     public bool ObjectInWay { get; set; }
+    
+    public Animator EnemyAnimator;
 
     public void Awake()
     {

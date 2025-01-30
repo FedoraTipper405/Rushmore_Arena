@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c0f737e8bb262408403fd221149a7c, type: 3}
-  m_Name: Enemy-Charge Player
+  m_Script: {fileID: 11500000, guid: d7bc3e886c0f0e04d876a97cc37d898d, type: 3}
+  m_Name: Enemy-Wander-Before-Charge
   m_EditorClassIdentifier: 
-  SpeedOfCharge: 5
-  _timeUntilCharge: 0.5
-  _distanceToCountExit: 1
+  MovementSpeed: 1
+  MovementRange: 4
+  _timeUntilStop: 4

@@ -23,6 +23,8 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     public float knockBack;
     public int penetration;
     public float projectileSpread;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Animator _animator;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -78,10 +80,18 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
             if (lastMoveDirection.x > 0)
             {
                 //moving right/diaganol right
+                spriteRenderer.flipX = false;
+                _animator.SetBool("IsGoingUp", false);
+                _animator.SetBool("IsGoingDown", false);
+
             }
             else if (lastMoveDirection.x < 0)
             {
                 //moving left/diaganol left
+                spriteRenderer.flipX = true;
+                _animator.SetBool("IsGoingUp", false);
+                _animator.SetBool("IsGoingDown", false);
+
             }
         }
         else
@@ -90,10 +100,14 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
             if (lastMoveDirection.y > 0)
             {
                 //moving Up
+                _animator.SetBool("IsGoingUp", true);
+                _animator.SetBool("IsGoingDown", false);
             }
             else if (lastMoveDirection.y < 0)
             {
                 //moving Down
+                _animator.SetBool("IsGoingUp", false);
+                _animator.SetBool("IsGoingDown", true);
             }
         }
 

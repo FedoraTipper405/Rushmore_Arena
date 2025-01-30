@@ -7,14 +7,15 @@ public class EnemyCharge : EnemyChaseSOBase
     [SerializeField] public float SpeedOfCharge;
     private float _timer;
     [SerializeField] public float _timeUntilCharge;
-    [SerializeField] public bool InRange = false;
     [SerializeField] private float _distanceToCountExit;
 
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
         baseEnemy.MoveEnemy(Vector2.zero);
-        InRange = true;
+        _lastPosOfPlayer = playerTransform.position;
+        _timer = 0f;
+        baseEnemy.EnemyAnimator.SetBool("Charge", true);
     }
 
     public override void DoExitLogic()
@@ -28,26 +29,18 @@ public class EnemyCharge : EnemyChaseSOBase
 
         if(_timer >= _timeUntilCharge)
         {
-            _timer = 0f;
-
-            _lastPosOfPlayer = playerTransform.position;
-
             Vector2 direction = (((_lastPosOfPlayer + (_lastPosOfPlayer - transform.position)) - (Vector3)transform.position).normalized);
 
             baseEnemy.MoveEnemy(direction * SpeedOfCharge);
+
+            baseEnemy.EnemyAnimator.SetBool("Charge", false);
         }
 
         if (Vector2.Distance(_lastPosOfPlayer, baseEnemy.transform.position) <= _distanceToCountExit)
         {        
             baseEnemy.StateMachine.ChangeState(baseEnemy.StateMovement);
-            InRange = true;
-            _timer = 0f;
         }
-
-        if (InRange == true)
-        {
-            _timer += Time.deltaTime;
-        }
+        _timer += Time.deltaTime;
     }
 
     public override void DoPhysicsLogic()

@@ -44,6 +44,7 @@ public class EnemyShootCheck : MonoBehaviour
         if (collision.gameObject == PlayerTarget)
         {
             ShootArrow();
+            _baseEnemy.EnemyAnimator.SetTrigger("ShootArrow");
             StartCoroutine(CanAttackAgain());
             _collider.enabled = false;
         }
@@ -65,6 +66,9 @@ public class EnemyShootCheck : MonoBehaviour
         Vector2 direction = (_playerTransform.position - _baseEnemy.transform.position).normalized;
         GameObject shotArrow = Instantiate(_arrowHolder.ArrowPrefab, _baseEnemy.transform.position, Quaternion.identity);
         shotArrow.GetComponent<Rigidbody2D>().linearVelocity = direction * arrowspeed;
+
+        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        shotArrow.transform.rotation = Quaternion.Euler(0,0, rot + 180);
     }
     private void OnDrawGizmosSelected()
     {
