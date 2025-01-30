@@ -795,10 +795,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeCardList:
-  - {fileID: 7898566241512594426, guid: c81261b66f8f1ed46ab6009cb8af4c9d, type: 3}
+  - {fileID: 6977338615978971011, guid: 700e7c4d4b6911049999f9be706adb8c, type: 3}
+  - {fileID: 6977338615978971011, guid: 700e7c4d4b6911049999f9be706adb8c, type: 3}
+  - {fileID: 6977338615978971011, guid: 700e7c4d4b6911049999f9be706adb8c, type: 3}
+  - {fileID: 6977338615978971011, guid: 700e7c4d4b6911049999f9be706adb8c, type: 3}
   - {fileID: 6977338615978971011, guid: bb1c86e1841d9bd45b1ecbb6676f74f6, type: 3}
-  - {fileID: 1847016424505841997, guid: 6997e6a49a6d4a244a8ac654c3643f3e, type: 3}
-  - {fileID: 7622881123932056382, guid: 9e84fff48d67f384482b63f3d5c8b4ec, type: 3}
+  - {fileID: 6977338615978971011, guid: bb1c86e1841d9bd45b1ecbb6676f74f6, type: 3}
+  - {fileID: 6977338615978971011, guid: bb1c86e1841d9bd45b1ecbb6676f74f6, type: 3}
+  - {fileID: 6977338615978971011, guid: bb1c86e1841d9bd45b1ecbb6676f74f6, type: 3}
+  - {fileID: 6977338615978971011, guid: 6c4a5fa988552574ca09e4d1efc464ba, type: 3}
+  - {fileID: 6977338615978971011, guid: 6c4a5fa988552574ca09e4d1efc464ba, type: 3}
+  - {fileID: 6977338615978971011, guid: 6c4a5fa988552574ca09e4d1efc464ba, type: 3}
+  - {fileID: 6977338615978971011, guid: 6c4a5fa988552574ca09e4d1efc464ba, type: 3}
+  - {fileID: 6977338615978971011, guid: ead558690abafe54eb8a0b508bfa2313, type: 3}
+  - {fileID: 6977338615978971011, guid: ead558690abafe54eb8a0b508bfa2313, type: 3}
+  - {fileID: 6977338615978971011, guid: ead558690abafe54eb8a0b508bfa2313, type: 3}
+  - {fileID: 6977338615978971011, guid: ead558690abafe54eb8a0b508bfa2313, type: 3}
+  - {fileID: 6977338615978971011, guid: cbed832d1da1e744fa5c2f91d78a03d9, type: 3}
+  - {fileID: 6977338615978971011, guid: cbed832d1da1e744fa5c2f91d78a03d9, type: 3}
+  - {fileID: 6977338615978971011, guid: cbed832d1da1e744fa5c2f91d78a03d9, type: 3}
+  - {fileID: 6977338615978971011, guid: cbed832d1da1e744fa5c2f91d78a03d9, type: 3}
+  - {fileID: 7898566241512594426, guid: 605b2b736fd65a64497c332af5f57fc7, type: 3}
+  - {fileID: 7898566241512594426, guid: 605b2b736fd65a64497c332af5f57fc7, type: 3}
+  - {fileID: 7898566241512594426, guid: 64a916c60404b9f408bfe1d3e31167be, type: 3}
+  - {fileID: 7898566241512594426, guid: 64a916c60404b9f408bfe1d3e31167be, type: 3}
+  - {fileID: 7898566241512594426, guid: 5fea2ba5798a695409933d87b3383f56, type: 3}
+  - {fileID: 7898566241512594426, guid: 5fea2ba5798a695409933d87b3383f56, type: 3}
+  - {fileID: 7898566241512594426, guid: 5b45552d589efc946bdfb06c1a551d2a, type: 3}
+  - {fileID: 7898566241512594426, guid: 5b45552d589efc946bdfb06c1a551d2a, type: 3}
+  - {fileID: 7898566241512594426, guid: 32366007e1fd64c4aa2acbf9eb45e6f8, type: 3}
+  - {fileID: 7898566241512594426, guid: 32366007e1fd64c4aa2acbf9eb45e6f8, type: 3}
+  - {fileID: 7898566241512594426, guid: 5ae0c266dd3567a4faaf7ea6c9154d88, type: 3}
+  - {fileID: 7898566241512594426, guid: 5ae0c266dd3567a4faaf7ea6c9154d88, type: 3}
   upgradeSOList: []
   currentSelectedUpgrade: 0
   presidentControllers:
@@ -1520,6 +1548,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8736174567393708941, guid: 3170d02e8e42eb846933f57812740061, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 8775093413358983649, guid: 3170d02e8e42eb846933f57812740061, type: 3}
       propertyPath: upgradeManager
       value: 

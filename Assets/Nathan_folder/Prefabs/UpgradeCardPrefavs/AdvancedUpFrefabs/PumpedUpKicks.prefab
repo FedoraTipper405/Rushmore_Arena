@@ -140,14 +140,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sharp bullets means more good
+  m_text: 'Better run
 
-    ++Bullet Penetration
+    ++Move Speed
 
-    +Damage
-
-    --Attack
-    Speed'
+    --Max Health'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95438cad93f63ac4dabbd7e8ffbb25d1, type: 2}
   m_sharedMaterial: {fileID: 5192042783379724554, guid: 95438cad93f63ac4dabbd7e8ffbb25d1, type: 2}
@@ -345,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0188b44ef95cbaa4caca9820736ec082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeSO: {fileID: 11400000, guid: 468d727f998235145849c2989443d299, type: 2}
+  upgradeSO: {fileID: 11400000, guid: 2efceb2221fd0624da5b60623166a1b4, type: 2}
 --- !u!1 &8793886585053315003
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pumped Up
+  m_text: Pumped Up Kicks
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95438cad93f63ac4dabbd7e8ffbb25d1, type: 2}
   m_sharedMaterial: {fileID: 5192042783379724554, guid: 95438cad93f63ac4dabbd7e8ffbb25d1, type: 2}
