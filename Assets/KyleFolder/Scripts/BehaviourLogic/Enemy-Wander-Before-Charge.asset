@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bc3e886c0f0e04d876a97cc37d898d, type: 3}
   m_Name: Enemy-Wander-Before-Charge
   m_EditorClassIdentifier: 
-  MovementSpeed: 1
+  MovementSpeed: 2
   MovementRange: 4
   _timeUntilStop: 4
