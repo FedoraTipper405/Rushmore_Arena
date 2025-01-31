@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private bool[] isSpawningType = new bool[5];
 
+    [SerializeField] MBWaveManager waveManager;
     //private int _swordSpawns; 0
     //private int _spearSpawns; 1
     //private int _rhinoSpawns; 2
@@ -40,6 +41,7 @@ public class EnemySpawner : MonoBehaviour
     {
         MakeNewSpawnList();
     }
+    
 
     public void MakeNewSpawnList()
     {
@@ -59,7 +61,7 @@ public class EnemySpawner : MonoBehaviour
             isSpawningType[enemyAdded] = true;
 
         }
-        Debug.Log("Starting Couro");
+  //      Debug.Log("Starting Couro");
         StartCoroutine(SpawnTimer());
     }
 
@@ -69,7 +71,7 @@ public class EnemySpawner : MonoBehaviour
         bool hasFoundToSpawn = false;
         bool nothingToSpawn = true;
         int tryThis = 0;
-        Debug.Log("Started Spawn Enemy");
+      //  Debug.Log("Started Spawn Enemy");
         for (int i = 0; i < enemySpawns.Length; i++)
         {
             if (enemySpawns[i] <= 0)
@@ -91,12 +93,13 @@ public class EnemySpawner : MonoBehaviour
                 hasFoundToSpawn = true;
             }
         } while (hasFoundToSpawn == false && nothingToSpawn == false && stopLoss < 30);
-        Debug.Log(nothingToSpawn);
+      //  Debug.Log(nothingToSpawn);
         
         if(nothingToSpawn == false)
         {
             enemySpawns[tryThis]--;
-            Instantiate(enemiesToSpawn[tryThis], spawnPoints[RandomSpawnPoint].position, Quaternion.identity);
+           GameObject lastEnemy = Instantiate(enemiesToSpawn[tryThis], spawnPoints[RandomSpawnPoint].position, Quaternion.identity);
+            lastEnemy.GetComponent<BaseEnemy>().waveManager = waveManager;
         }
         
     }
@@ -109,6 +112,7 @@ public class EnemySpawner : MonoBehaviour
         {
             _amountOfSpawns += enemySpawns[i];
         }
+        waveManager.EnemiesInScene = _amountOfSpawns;
         for (int i = 0; i < _amountOfSpawns; i++)
         {
             yield return new WaitForSeconds(2);

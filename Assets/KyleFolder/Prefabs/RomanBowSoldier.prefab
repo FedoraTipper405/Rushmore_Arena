@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5744339542382835896}
   - component: {fileID: 8507211378433925280}
   - component: {fileID: -553582382390141555}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RomanBowSoldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,6 +108,7 @@ MonoBehaviour:
   EnemyMovementBase: {fileID: 11400000, guid: 4bf6c581971b00f47a9375ba114c9a8e, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: c495a1d18f67e5549a32986e539586a0, type: 2}
   EnemyAnimator: {fileID: -553582382390141555}
+  waveManager: {fileID: 0}
 --- !u!50 &5744339542382835896
 Rigidbody2D:
   serializedVersion: 5
@@ -130,7 +131,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -151,7 +152,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

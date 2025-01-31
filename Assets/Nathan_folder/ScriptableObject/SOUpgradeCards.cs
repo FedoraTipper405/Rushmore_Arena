@@ -16,5 +16,6 @@ public class SOUpgradeCards : ScriptableObject
     public float projectileSizeUpgrade;
     public float knockBackUpgrade;
     public int penetrationUpgrade;
+    public bool isUniqueCardOne;
 
 }

@@ -27,6 +27,8 @@ public class MBUpgradeManager : MonoBehaviour
 
     [SerializeField] GameObject selectionParent;
     [SerializeField] GameObject[] selectorIcons = new GameObject[3];
+
+    [SerializeField] EnemySpawner enemySpawner;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -179,7 +181,7 @@ public class MBUpgradeManager : MonoBehaviour
         selectedPresident.projectileSize += selectedUpgrade.projectileSizeUpgrade;
         selectedPresident.knockBack += selectedUpgrade.knockBackUpgrade;
         selectedPresident.penetration += selectedUpgrade.penetrationUpgrade;
-
+        selectedPresident.hasUniqueCardOne = selectedUpgrade.isUniqueCardOne;
         
     }
     private void ChangeSelectionDisplayState()
@@ -193,7 +195,7 @@ public class MBUpgradeManager : MonoBehaviour
             selectionParent.SetActive(false);
         }
     }
-    private void ChangeUpgradingState()
+    public void ChangeUpgradingState()
     {
         isUpgrading = !isUpgrading;
         if (isUpgrading)
@@ -214,6 +216,7 @@ public class MBUpgradeManager : MonoBehaviour
         }
         else
         {
+            enemySpawner.MakeNewSpawnList();
             ClearUI();
         }
         ChangeSelectionDisplayState();
@@ -221,9 +224,9 @@ public class MBUpgradeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        /*if (Input.GetKeyDown(KeyCode.U))
         {
             ChangeUpgradingState();
-        }
+        }*/
     }
 }

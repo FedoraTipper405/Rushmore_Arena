@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 4659778945720745103}
   - component: {fileID: 6475042103472365428}
   - component: {fileID: 2035309465393012137}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rhino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,6 +206,7 @@ MonoBehaviour:
   EnemyMovementBase: {fileID: 11400000, guid: c655c7176ad73a74ea23215ea867d407, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: 7ca52472db39bd041b15c3ceeab1ab07, type: 2}
   EnemyAnimator: {fileID: 2035309465393012137}
+  waveManager: {fileID: 0}
 --- !u!50 &4659778945720745103
 Rigidbody2D:
   serializedVersion: 5
@@ -228,7 +229,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -249,7 +250,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

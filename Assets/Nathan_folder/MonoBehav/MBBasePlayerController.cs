@@ -10,6 +10,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     private float movementOnY;
     public Vector3 lastMoveDirection = new Vector3(1f,0f,0f);
     public Vector3 currentShootDirection = new Vector3(1f,0f,0f);
+
     public SOPlayerCharacters StatSO;
     public float moveSpeed;
     public float attackDamage;
@@ -23,6 +24,8 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     public float knockBack;
     public int penetration;
     public float projectileSpread;
+    public bool hasUniqueCardOne = false;
+
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator _animator;
 
@@ -63,6 +66,10 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
         {
             currentShootDirection = new Vector3(1,0,0);
         }
+        if(inputState == false)
+        {
+            SwitchAnimationForPlayer();
+        }
     }
     // Update is called once per frame
     void Update()
@@ -74,7 +81,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     }
     void SwitchAnimationForPlayer()
     {
-        if(Mathf.Abs(lastMoveDirection.x) >= Mathf.Abs(lastMoveDirection.y))
+        if(Mathf.Abs(lastMoveDirection.x) >= Mathf.Abs(lastMoveDirection.y) && isAttacking == false)
         {
             //HorizontalAnimations
             if (lastMoveDirection.x > 0)
@@ -94,7 +101,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
 
             }
         }
-        else
+        else if (isAttacking == false)
         {
             //verticalAnimations
             if (lastMoveDirection.y > 0)
@@ -115,7 +122,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     void FixedUpdate()
     {
        
-        this.transform.position += (new Vector3(movementOnX, movementOnY,0 ) * moveSpeed) / 10;
+        this.transform.position += (new Vector3(movementOnX, movementOnY,0 ) * Mathf.Clamp(moveSpeed, 0, 20)) / 10;
         if (isAttacking && atkCooldown <= 0)
         {
             Attack();

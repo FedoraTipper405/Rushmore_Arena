@@ -4,9 +4,18 @@ using UnityEngine;
 public class MBWashingtonPC : MBBasePlayerController
 {
     [SerializeField] private MBBulletPooling bulletPoolScript;
+
+    [SerializeField] GameObject bulletSpawnLeft;
+    [SerializeField] GameObject bulletSpawnRight;
+    [SerializeField] GameObject bulletSpawnUp;
+    [SerializeField] GameObject bulletSpawnDown;
+    private GameObject currentBulletSpawn;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currentBulletSpawn = bulletSpawnRight;
          moveSpeed = StatSO.moveSpeed;
          attackDamage = StatSO.attackDamage;
          attackSpeed = StatSO.attackSpeed;
@@ -19,33 +28,57 @@ public class MBWashingtonPC : MBBasePlayerController
          knockBack = StatSO.knockBack;
          penetration = StatSO.penetration;
         projectileSpread = StatSO.spread;
+        hasUniqueCardOne = false;
     }
     
     public override void Attack()
     {
+        if(Mathf.Abs(currentShootDirection.x) >= Mathf.Abs(currentShootDirection.y))
+        {
+            if(currentShootDirection.x > 0)
+            {
+                currentBulletSpawn = bulletSpawnRight;
+            }
+            else
+            {
+                currentBulletSpawn = bulletSpawnLeft;
+            }
+        }
+        else
+        {
+            if (currentShootDirection.y > 0)
+            {
+                currentBulletSpawn = bulletSpawnUp;
+            }
+            else
+            {
+                currentBulletSpawn = bulletSpawnDown;
+            }
+        }
         GameObject lastBullet = null;
         if (bulletPoolScript != null && bulletPoolScript.Bulletpool.Count > 0)
         {
             lastBullet = bulletPoolScript.GetFromPool();
-            lastBullet.transform.position = this.transform.position;
+            lastBullet.transform.position = currentBulletSpawn.transform.position;
 
         }
         else if(bulletPoolScript != null && bulletPoolScript.Bulletpool.Count <= 0)
         {
-          lastBullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+          lastBullet = Instantiate(bulletPrefab, currentBulletSpawn.transform.position, Quaternion.identity);
         }
         MBBulletCollision tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
         MBBulletMovement tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
         lastBullet.transform.localScale = new Vector3(projectileSize, projectileSize, 0);
         tempBulletCollision.bulletPooling = bulletPoolScript;
         tempBulletCollision.bulletDamage = attackDamage;
-       
+
+        //unique to washington
+        tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;
+
         tempBulletCollision.bulletPenetration = penetration;
         tempBulletCollision.bulletKnockback = knockBack;
         tempBulletMovement.bulletRange = attackRange;
-
         tempBulletMovement.bulletPooling = bulletPoolScript;
-
         tempBulletMovement.distanceTraveled = 0;
         tempBulletMovement.moveSpeed = projectileSpeed;
         tempBulletMovement.moveDirection = currentShootDirection;
@@ -129,25 +162,29 @@ public class MBWashingtonPC : MBBasePlayerController
                 if (bulletPoolScript != null && bulletPoolScript.Bulletpool.Count > 0)
                 {
                     lastBullet = bulletPoolScript.GetFromPool();
-                    lastBullet.transform.position = this.transform.position;
+                    lastBullet.transform.position = currentBulletSpawn.transform.position;
 
                 }
                 else if (bulletPoolScript != null && bulletPoolScript.Bulletpool.Count <= 0)
                 {
-                    lastBullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+                    lastBullet = Instantiate(bulletPrefab, currentBulletSpawn.transform.position, Quaternion.identity);
                 }
                 lastBullet.transform.localScale = new Vector3(projectileSize, projectileSize, 0);
                 tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
                 tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
                 tempBulletCollision.bulletPooling = bulletPoolScript;
                 tempBulletCollision.bulletDamage = attackDamage;
-
                 tempBulletCollision.bulletPenetration = penetration;
                 tempBulletCollision.bulletKnockback = knockBack;
+              
+                //unique to washington
+                tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;
+
+
                 tempBulletMovement.bulletRange = attackRange;
 
                 tempBulletMovement.bulletPooling = bulletPoolScript;
-
+               
                 tempBulletMovement.distanceTraveled = 0;
                 tempBulletMovement.moveSpeed = projectileSpeed;
                 tempBulletMovement.moveDirection = shotgunShootDirection;
