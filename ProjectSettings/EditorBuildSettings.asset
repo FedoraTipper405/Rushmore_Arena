@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenuScene.unity
-    guid: 8e0674c6934ea8945a37832c53a968df
+    path: Assets/KyleFolder/Scenes/RushmoreMainMenu.unity
+    guid: dadbff5853405ac4f8b85390630ec8e4
   - enabled: 1
-    path: Assets/Scenes/CharacterSelection.unity
-    guid: 47694402ab4fcdc4195876d71ab1505d
+    path: Assets/KyleFolder/Scenes/EnemyTestGym.unity
+    guid: 12ad673a56089754b88e730a00369a20
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
