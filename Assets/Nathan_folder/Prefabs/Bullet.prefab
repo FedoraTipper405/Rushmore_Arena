@@ -162,7 +162,7 @@ MonoBehaviour:
   bulletKnockback: 0
   doesMoreDamageCloseRange: 0
   bulletMovement: {fileID: 4225278301984673359}
-  closeRangeDistance: 5
+  closeRangeDistance: 1.75
 --- !u!50 &-4484540643391114235
 Rigidbody2D:
   serializedVersion: 5

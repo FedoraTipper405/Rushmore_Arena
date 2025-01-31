@@ -40,7 +40,7 @@ public class EnemyAttackCheck : MonoBehaviour
         IDamageablePlayer damageable = collision.gameObject.GetComponent<IDamageablePlayer>();
         if (damageable != null)
         {
-            damageable.DamageToPlayerHealth(1f);
+            damageable.DamageToPlayerHealth(_baseEnemy.EnemyDamage);
          //   Debug.Log("I hit");
         }
 

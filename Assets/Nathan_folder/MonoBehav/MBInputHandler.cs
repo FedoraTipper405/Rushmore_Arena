@@ -20,4 +20,5 @@ public class MBInputHandler : MonoBehaviour
         playerControls.PlayerControlMap.Attack.performed += (var) => upgradeManager.ConfirmUpgrade();
         playerControls.Enable();
     }
+   
 }

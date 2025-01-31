@@ -1500,6 +1500,11 @@ MonoBehaviour:
   - {fileID: 7898566241512594426, guid: 32366007e1fd64c4aa2acbf9eb45e6f8, type: 3}
   - {fileID: 7898566241512594426, guid: 5ae0c266dd3567a4faaf7ea6c9154d88, type: 3}
   - {fileID: 7898566241512594426, guid: 5ae0c266dd3567a4faaf7ea6c9154d88, type: 3}
+  - {fileID: 1847016424505841997, guid: ccc4adfe34d577c43b63e5baa3a4bc29, type: 3}
+  - {fileID: 1847016424505841997, guid: ccc4adfe34d577c43b63e5baa3a4bc29, type: 3}
+  - {fileID: 1847016424505841997, guid: a9e6a62826161a043b9063cc62e0a023, type: 3}
+  - {fileID: 1847016424505841997, guid: a9e6a62826161a043b9063cc62e0a023, type: 3}
+  - {fileID: 7622881123932056382, guid: fef4ec3827a332a43afb3c078052ec52, type: 3}
   upgradeSOList: []
   currentSelectedUpgrade: 0
   presidentControllers:
@@ -1544,12 +1549,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1664,6 +1669,7 @@ MonoBehaviour:
   CurrentWave: 1
   upgradeManager: {fileID: 1456351887}
   spawner: {fileID: 1136968393}
+  playerController: {fileID: 0}
 --- !u!4 &1654356423
 Transform:
   m_ObjectHideFlags: 0
@@ -1951,7 +1957,7 @@ PrefabInstance:
       objectReference: {fileID: 1513795620}
     - target: {fileID: 1444339123119469800, guid: 3170d02e8e42eb846933f57812740061, type: 3}
       propertyPath: hasUniqueCardOne
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8736174567393708941, guid: 3170d02e8e42eb846933f57812740061, type: 3}
       propertyPath: m_Size.x

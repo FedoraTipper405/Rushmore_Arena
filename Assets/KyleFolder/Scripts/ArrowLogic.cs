@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ArrowLogic : MonoBehaviour
 {
+    public float arrowDamage;
     private void Start()
     {
         StartCoroutine(TimeUntilDestroyArrow());
@@ -12,7 +13,7 @@ public class ArrowLogic : MonoBehaviour
         IDamageablePlayer damageable = collision.gameObject.GetComponent<IDamageablePlayer>();
         if (damageable != null)
         {
-            damageable.DamageToPlayerHealth(1f);
+            damageable.DamageToPlayerHealth(arrowDamage);
             Destroy(gameObject);
         }
     }

@@ -66,7 +66,7 @@ public class EnemyShootCheck : MonoBehaviour
         Vector2 direction = (_playerTransform.position - _baseEnemy.transform.position).normalized;
         GameObject shotArrow = Instantiate(_arrowHolder.ArrowPrefab, _baseEnemy.transform.position, Quaternion.identity);
         shotArrow.GetComponent<Rigidbody2D>().linearVelocity = direction * arrowspeed;
-
+        shotArrow.GetComponent<ArrowLogic>().arrowDamage = _baseEnemy.EnemyDamage;
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         shotArrow.transform.rotation = Quaternion.Euler(0,0, rot + 180);
     }
