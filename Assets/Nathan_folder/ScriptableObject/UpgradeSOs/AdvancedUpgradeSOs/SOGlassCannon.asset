@@ -21,6 +21,7 @@ MonoBehaviour:
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0
   projectileSpeedUpgrade: 0
-  projectileSizeUpgrade: 0
+  projectileSizeUpgrade: 0.1
   knockBackUpgrade: 0
   penetrationUpgrade: 0
+  isUniqueCardOne: 0

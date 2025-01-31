@@ -1,4 +1,5 @@
-using NUnit.Framework;
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,6 +30,8 @@ public class MBUpgradeManager : MonoBehaviour
     [SerializeField] GameObject[] selectorIcons = new GameObject[3];
 
     [SerializeField] EnemySpawner enemySpawner;
+
+    [SerializeField]GameObject UpgradingTimeText;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -203,26 +206,36 @@ public class MBUpgradeManager : MonoBehaviour
     public void ChangeUpgradingState()
     {
         isUpgrading = !isUpgrading;
+        selectedPresident.isUpgrading = isUpgrading;
         if (isUpgrading)
         {
-            RandomizeThreeUpgrades();
-            currentSelectedUpgrade = 0;
-            for (int i = 0; i < selectorIcons.Length; i++)
-            {
-                if (i == currentSelectedUpgrade)
-                {
-                    selectorIcons[i].GetComponent<Image>().color = new Vector4(1, 1, 1, 1);
-                }
-                else
-                {
-                    selectorIcons[i].GetComponent<Image>().color = new Vector4(1, 1, 1, 0);
-                }
-            }
+            StartCoroutine(StartUpgrading());
         }
         else
         {
             enemySpawner.MakeNewSpawnList();
+            ChangeSelectionDisplayState();
             ClearUI();
+        }
+        
+    }
+    IEnumerator StartUpgrading()
+    {
+        UpgradingTimeText.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        UpgradingTimeText.SetActive(false);
+        RandomizeThreeUpgrades();
+        currentSelectedUpgrade = 0;
+        for (int i = 0; i < selectorIcons.Length; i++)
+        {
+            if (i == currentSelectedUpgrade)
+            {
+                selectorIcons[i].GetComponent<Image>().color = new Vector4(1, 1, 1, 1);
+            }
+            else
+            {
+                selectorIcons[i].GetComponent<Image>().color = new Vector4(1, 1, 1, 0);
+            }
         }
         ChangeSelectionDisplayState();
     }
