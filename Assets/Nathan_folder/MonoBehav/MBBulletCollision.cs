@@ -14,7 +14,10 @@ public class MBBulletCollision : MonoBehaviour
     {
         
     }
-
+    public void OnEnable()
+    {
+        bulletMovement = this.gameObject.GetComponent<MBBulletMovement>();
+    }
     // Update is called once per frame
     void Update()
     {

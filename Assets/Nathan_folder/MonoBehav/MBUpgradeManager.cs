@@ -171,10 +171,15 @@ public class MBUpgradeManager : MonoBehaviour
     }
     public void UpgradeCharacter(SOUpgradeCards selectedUpgrade)
     {
+        if (selectedUpgrade.isUniqueCardOne)
+        {
+            //need to remove unique upgrade from upgrade pool. Must also make the upgrade pools work for the different upgrades (Ranged upgrade, uniques, etc.)
+        }
         selectedPresident.moveSpeed += selectedUpgrade.moveSpeedUpgrade;
         selectedPresident.attackDamage += selectedUpgrade.attackDamageUpgrade;
         selectedPresident.attackSpeed += selectedUpgrade.attackSpeedUpgrade;
         selectedPresident.health += selectedUpgrade.healthUpgrade;
+        selectedPresident.maxHealth += selectedUpgrade.healthUpgrade;
         selectedPresident.attackRange += selectedUpgrade.attackRangeUpgrade;
         selectedPresident.projectileAmount += selectedUpgrade.projectileAmountUpgrade;
         selectedPresident.projectileSpeed += selectedUpgrade.projectileSpeedUpgrade;

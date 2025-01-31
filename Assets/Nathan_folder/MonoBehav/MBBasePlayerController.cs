@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
 {
@@ -15,6 +16,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     public float moveSpeed;
     public float attackDamage;
     public float attackSpeed;
+    public float maxHealth;
     public float health;
     public float attackRange;
     public bool isRangedAttacker;
@@ -29,6 +31,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator _animator;
 
+    [SerializeField] private Transform middleOfArena;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -134,7 +137,11 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
             atkCooldown -= Time.deltaTime;
         }
     }
-
+    public void ResetPlayerPerRound()
+    {
+        this.transform.position = middleOfArena.position;
+        health = maxHealth;
+    }
     public void DamageToPlayerHealth(float damageAmount)
     {
         health -= damageAmount;
@@ -147,6 +154,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
 
     public void PlayerDies()
     {
+        SceneManager.LoadScene("RushmoreMainMenu");
         Debug.Log("Man I'm dead");
     }
 }

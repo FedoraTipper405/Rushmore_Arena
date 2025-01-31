@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0188b44ef95cbaa4caca9820736ec082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeSO: {fileID: 11400000, guid: 70e7021a3204d594ba1c8b71c70e6107, type: 2}
+  upgradeSO: {fileID: 11400000, guid: 623c712a9ee107e4886195f34127e46d, type: 2}
 --- !u!1 &2657963512324274188
 GameObject:
   m_ObjectHideFlags: 0

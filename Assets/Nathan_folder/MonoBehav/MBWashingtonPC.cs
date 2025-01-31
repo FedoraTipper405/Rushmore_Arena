@@ -21,6 +21,7 @@ public class MBWashingtonPC : MBBasePlayerController
          attackSpeed = StatSO.attackSpeed;
          attackRange = StatSO.attackRange;
         health = StatSO.health;
+        maxHealth = StatSO.health;
          isRangedAttacker = StatSO.isRangedAttacker;
          projectileAmount = StatSO.projectileAmount;
          projectileSpeed = StatSO.projectileSpeed;
@@ -28,7 +29,6 @@ public class MBWashingtonPC : MBBasePlayerController
          knockBack = StatSO.knockBack;
          penetration = StatSO.penetration;
         projectileSpread = StatSO.spread;
-        hasUniqueCardOne = false;
     }
     
     public override void Attack()
