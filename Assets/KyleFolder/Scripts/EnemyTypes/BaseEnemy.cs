@@ -73,9 +73,12 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     }
 
     public void Die()
+    { 
+       Destroy(gameObject);
+    }
+    public void OnDestroy()
     {
         waveManager.EnemyKilled();
-       Destroy(gameObject);
     }
 
     public void MoveEnemy(Vector2 velocity)

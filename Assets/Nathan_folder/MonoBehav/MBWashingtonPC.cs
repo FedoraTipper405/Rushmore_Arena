@@ -33,6 +33,7 @@ public class MBWashingtonPC : MBBasePlayerController
     
     public override void Attack()
     {
+        Debug.Log("here");
         if(Mathf.Abs(currentShootDirection.x) >= Mathf.Abs(currentShootDirection.y))
         {
             if(currentShootDirection.x > 0)
@@ -169,22 +170,19 @@ public class MBWashingtonPC : MBBasePlayerController
                 {
                     lastBullet = Instantiate(bulletPrefab, currentBulletSpawn.transform.position, Quaternion.identity);
                 }
+                 tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
+                 tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
                 lastBullet.transform.localScale = new Vector3(projectileSize, projectileSize, 0);
-                tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
-                tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
                 tempBulletCollision.bulletPooling = bulletPoolScript;
                 tempBulletCollision.bulletDamage = attackDamage;
-                tempBulletCollision.bulletPenetration = penetration;
-                tempBulletCollision.bulletKnockback = knockBack;
-              
+
                 //unique to washington
                 tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;
 
-
+                tempBulletCollision.bulletPenetration = penetration;
+                tempBulletCollision.bulletKnockback = knockBack;
                 tempBulletMovement.bulletRange = attackRange;
-
                 tempBulletMovement.bulletPooling = bulletPoolScript;
-               
                 tempBulletMovement.distanceTraveled = 0;
                 tempBulletMovement.moveSpeed = projectileSpeed;
                 tempBulletMovement.moveDirection = shotgunShootDirection;

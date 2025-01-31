@@ -181,8 +181,11 @@ public class MBUpgradeManager : MonoBehaviour
         selectedPresident.moveSpeed += selectedUpgrade.moveSpeedUpgrade;
         selectedPresident.attackDamage += selectedUpgrade.attackDamageUpgrade;
         selectedPresident.attackSpeed += selectedUpgrade.attackSpeedUpgrade;
+        
         selectedPresident.health += selectedUpgrade.healthUpgrade;
         selectedPresident.maxHealth += selectedUpgrade.healthUpgrade;
+        selectedPresident.healthBar.SetMaxHealth(selectedPresident.health);
+        
         selectedPresident.attackRange += selectedUpgrade.attackRangeUpgrade;
         selectedPresident.projectileAmount += selectedUpgrade.projectileAmountUpgrade;
         selectedPresident.projectileSpeed += selectedUpgrade.projectileSpeedUpgrade;
@@ -190,6 +193,7 @@ public class MBUpgradeManager : MonoBehaviour
         selectedPresident.knockBack += selectedUpgrade.knockBackUpgrade;
         selectedPresident.penetration += selectedUpgrade.penetrationUpgrade;
         selectedPresident.hasUniqueCardOne = selectedUpgrade.isUniqueCardOne;
+        selectedPresident.projectileSpread += selectedUpgrade.spread;
         
     }
     private void ChangeSelectionDisplayState()
@@ -207,6 +211,8 @@ public class MBUpgradeManager : MonoBehaviour
     {
         isUpgrading = !isUpgrading;
         selectedPresident.isUpgrading = isUpgrading;
+        selectedPresident.healthBar.SetHealth(selectedPresident.health);
+        
         if (isUpgrading)
         {
             StartCoroutine(StartUpgrading());
