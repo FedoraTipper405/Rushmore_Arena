@@ -5,6 +5,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
 {
     [SerializeField] public GameObject bulletPrefab;
     public bool isAttacking = false;
+    public bool isUpgrading = false;
     private float atkCooldown = 0;
 
     private float movementOnX;
@@ -124,9 +125,12 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     }
     void FixedUpdate()
     {
+       if(isUpgrading == false)
+        {
+            this.transform.position += (new Vector3(movementOnX, movementOnY, 0) * Mathf.Clamp(moveSpeed, 0, 20)) / 10;
+        }
        
-        this.transform.position += (new Vector3(movementOnX, movementOnY,0 ) * Mathf.Clamp(moveSpeed, 0, 20)) / 10;
-        if (isAttacking && atkCooldown <= 0)
+        if (isAttacking && atkCooldown <= 0 && isUpgrading == false)
         {
             Attack();
             atkCooldown = attackSpeed;
