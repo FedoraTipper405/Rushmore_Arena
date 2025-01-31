@@ -32,11 +32,12 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private Animator _animator;
 
     [SerializeField] private Transform middleOfArena;
+    public HealthBar healthBar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        healthBar.SetMaxHealth(maxHealth);
     }
     //handles movement
     public void HandleMovement(Vector2 moveInput)
@@ -145,8 +146,9 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     public void DamageToPlayerHealth(float damageAmount)
     {
         health -= damageAmount;
+        healthBar.SetHealth(health);
 
-        if(health < 0)
+        if(health <= 0)
         {
             PlayerDies();
         }

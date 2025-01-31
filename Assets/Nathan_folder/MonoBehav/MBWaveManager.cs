@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+
 
 public class MBWaveManager : MonoBehaviour
 {
@@ -8,13 +10,14 @@ public class MBWaveManager : MonoBehaviour
     public int CurrentWave = 1;
     [SerializeField] private MBUpgradeManager upgradeManager;
     [SerializeField] private EnemySpawner spawner;
+    [SerializeField] private TMP_Text Wave;
 
     //temp solution. Needs to be fixed for when there is more that one president
     [SerializeField] private MBBasePlayerController playerController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
     public void EnemyKilled()
     {
@@ -27,6 +30,7 @@ public class MBWaveManager : MonoBehaviour
             playerController.ResetPlayerPerRound();
             spawner.difficultyCounter = (int)Mathf.Ceil(CurrentWave / 2);
             upgradeManager.ChangeUpgradingState();
+            Wave.SetText("Wave: " + CurrentWave.ToString());
         }
 
     }

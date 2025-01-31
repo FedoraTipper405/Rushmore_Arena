@@ -20,7 +20,7 @@ MonoBehaviour:
   isRangedAttacker: 1
   projectileAmount: 1
   projectileSpeed: 0.15
-  projectileSize: 0.15
+  projectileSize: 1
   knockBack: 1
   penetration: 1
   spread: 0.4
