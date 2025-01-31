@@ -24,3 +24,4 @@ MonoBehaviour:
   projectileSizeUpgrade: 0
   knockBackUpgrade: 0
   penetrationUpgrade: 0
+  isUniqueCardOne: 1

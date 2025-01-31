@@ -24,6 +24,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     
     public Animator EnemyAnimator;
 
+    public MBWaveManager waveManager;
     public void Awake()
     {
         EnemyMovementBaseInstance = Instantiate(EnemyMovementBase);
@@ -72,6 +73,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public void Die()
     {
+        waveManager.EnemyKilled();
        Destroy(gameObject);
     }
 
