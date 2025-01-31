@@ -33,8 +33,8 @@ public class MBWashingtonPC : MBBasePlayerController
     
     public override void Attack()
     {
-        Debug.Log("here");
-        if(Mathf.Abs(currentShootDirection.x) >= Mathf.Abs(currentShootDirection.y))
+        AudioManager.PlaySound(SoundClip.Shoot);
+        if (Mathf.Abs(currentShootDirection.x) >= Mathf.Abs(currentShootDirection.y))
         {
             if(currentShootDirection.x > 0)
             {
