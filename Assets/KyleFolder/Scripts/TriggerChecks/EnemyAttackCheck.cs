@@ -41,7 +41,7 @@ public class EnemyAttackCheck : MonoBehaviour
         if (damageable != null)
         {
             damageable.DamageToPlayerHealth(1f);
-            Debug.Log("I hit");
+         //   Debug.Log("I hit");
         }
 
         if (collision.gameObject == PlayerTarget)
