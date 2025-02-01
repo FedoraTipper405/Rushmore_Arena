@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PixelMountRushmoreBackground_0: 2191693423779216377
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

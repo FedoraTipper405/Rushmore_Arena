@@ -8,6 +8,12 @@ public class MBUpgradeManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> upgradeCardList = new List<GameObject>();
     public List<SOUpgradeCards> upgradeSOList = new List<SOUpgradeCards>();
+
+    [SerializeField] GameObject[] presidentUniqueCardsOne = new GameObject[4];
+    SOUpgradeCards[] presidentUniqueCardsSOsOne = new SOUpgradeCards[4];
+    GameObject currentPresidentUniqueCardOne;
+    SOUpgradeCards currentPresidentsUniqueCardSOOne;
+
     public int currentSelectedUpgrade = 0;
 
     
@@ -23,6 +29,7 @@ public class MBUpgradeManager : MonoBehaviour
     private GameObject UpgradeUIElementThree;
 
     public bool isUpgrading = false;
+    public bool isWaitingToUpgrade = false;
 
     public List<SOUpgradeCards> chosenUpgrades = new List<SOUpgradeCards>();
 
@@ -44,6 +51,9 @@ public class MBUpgradeManager : MonoBehaviour
             if (presidentControllers[i].gameObject.activeSelf)
             {
                 selectedPresident = presidentControllers[i];
+                currentPresidentUniqueCardOne = presidentUniqueCardsOne[i];
+                currentPresidentsUniqueCardSOOne = presidentUniqueCardsOne[i].GetComponent<MBHoldUpgradeSO>().upgradeSO;
+                
             }
         }
         for(int i = 0;i < upgradeCardList.Count; i++)
@@ -209,26 +219,34 @@ public class MBUpgradeManager : MonoBehaviour
     }
     public void ChangeUpgradingState()
     {
-        isUpgrading = !isUpgrading;
-        selectedPresident.isUpgrading = isUpgrading;
-        selectedPresident.healthBar.SetHealth(selectedPresident.health);
-        
-        if (isUpgrading)
+        if (isWaitingToUpgrade == false)
         {
-            StartCoroutine(StartUpgrading());
-        }
-        else
-        {
-            enemySpawner.MakeNewSpawnList();
-            ChangeSelectionDisplayState();
-            ClearUI();
-        }
+
         
+            isUpgrading = !isUpgrading;
+            selectedPresident.isUpgrading = isUpgrading;
+            selectedPresident.healthBar.SetHealth(selectedPresident.health);
+        
+            if (isUpgrading)
+            {
+                StartCoroutine(StartUpgrading());
+            }
+            else
+            {
+                enemySpawner.MakeNewSpawnList();
+                ChangeSelectionDisplayState();
+                ClearUI();
+            }
+
+        }
+
     }
     IEnumerator StartUpgrading()
     {
+        isWaitingToUpgrade = true;
         UpgradingTimeText.SetActive(true);
         yield return new WaitForSeconds(2.5f);
+        isWaitingToUpgrade = false;
         UpgradingTimeText.SetActive(false);
         RandomizeThreeUpgrades();
         currentSelectedUpgrade = 0;
