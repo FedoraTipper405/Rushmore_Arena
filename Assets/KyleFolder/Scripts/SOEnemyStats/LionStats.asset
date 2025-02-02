@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572c484447b4b8d499a921fa65a8c541, type: 3}
-  m_Name: ArrowHolder
+  m_Script: {fileID: 11500000, guid: 9a102acf75a7d46448df1363e9ee53ef, type: 3}
+  m_Name: LionStats
   m_EditorClassIdentifier: 
-  ArrowPrefab: {fileID: 1491379982255337961, guid: 5306095b213863b428d9c1cb5cce531a, type: 3}
+  EnemyMaxHealth: 30
+  EnemyDamage: 20
+  AttackTimer: 1
+  DetectTimer: 1
+  ArrowSpeed: 0
+  ArrowPrefab: {fileID: 0}

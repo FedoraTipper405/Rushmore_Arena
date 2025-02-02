@@ -7,11 +7,13 @@ public class EnemyShootCheck : MonoBehaviour
     private Transform _playerTransform;
     private BaseEnemy _baseEnemy;
     private Collider2D _collider;
-    [SerializeField] public float _timer;
-    [SerializeField] private SOArrowHolder _arrowHolder;
-    public float arrowspeed;
+    private float _timer => _baseEnemy.EnemyStatSO.AttackTimer;
+    private float _detectTimer => _baseEnemy.EnemyStatSO.DetectTimer;
+    private float _arrowspeed => _baseEnemy.EnemyStatSO.ArrowSpeed;
+    private GameObject _arrowPrefab => _baseEnemy.EnemyStatSO.ArrowPrefab;
+
     private bool _canDetect = true;
-    [SerializeField] public float _detectTimer;
+    
     [SerializeField] private Transform _detectTransform;
     [SerializeField] private Vector2 _detectArea;
     [SerializeField] private LayerMask _layerMask;
@@ -64,9 +66,9 @@ public class EnemyShootCheck : MonoBehaviour
     private void ShootArrow()
     {
         Vector2 direction = (_playerTransform.position - _baseEnemy.transform.position).normalized;
-        GameObject shotArrow = Instantiate(_arrowHolder.ArrowPrefab, _baseEnemy.transform.position, Quaternion.identity);
-        shotArrow.GetComponent<Rigidbody2D>().linearVelocity = direction * arrowspeed;
-        shotArrow.GetComponent<ArrowLogic>().arrowDamage = _baseEnemy.EnemyDamage;
+        GameObject shotArrow = Instantiate(_arrowPrefab, _baseEnemy.transform.position, Quaternion.identity);
+        shotArrow.GetComponent<Rigidbody2D>().linearVelocity = direction * _arrowspeed;
+        shotArrow.GetComponent<ArrowLogic>().arrowDamage = _baseEnemy.DamageAmount;
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         shotArrow.transform.rotation = Quaternion.Euler(0,0, rot + 180);
     }

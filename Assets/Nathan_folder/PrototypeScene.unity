@@ -1946,7 +1946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1136968393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2506,6 +2506,11 @@ MonoBehaviour:
   - {fileID: 1847016424505841997, guid: e349745b81da6134882328ff857b2d5f, type: 3}
   - {fileID: 7622881123932056382, guid: fef4ec3827a332a43afb3c078052ec52, type: 3}
   upgradeSOList: []
+  presidentUniqueCardsOne:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentSelectedUpgrade: 0
   presidentControllers:
   - {fileID: 58658808}
@@ -2513,6 +2518,7 @@ MonoBehaviour:
   - {fileID: 58658808}
   - {fileID: 58658808}
   isUpgrading: 0
+  isWaitingToUpgrade: 0
   chosenUpgrades: []
   selectionParent: {fileID: 965392677}
   selectorIcons:

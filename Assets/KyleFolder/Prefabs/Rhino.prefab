@@ -91,8 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5886714d31ac194aa1ba99900565470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: 1
-  _detectTimer: 1
   _detectTransform: {fileID: 4171085277445624291}
   _detectArea: {x: 0.6, y: 2}
   _layerMask:
@@ -202,8 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99443fcc9785e6a439434e63577402ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 100
-  <EnemyDamage>k__BackingField: 50
+  EnemyStatSO: {fileID: 11400000, guid: 81e1cb60d75dc0447a573379c748be89, type: 2}
   EnemyMovementBase: {fileID: 11400000, guid: c655c7176ad73a74ea23215ea867d407, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: 7ca52472db39bd041b15c3ceeab1ab07, type: 2}
   EnemyAnimator: {fileID: 2035309465393012137}

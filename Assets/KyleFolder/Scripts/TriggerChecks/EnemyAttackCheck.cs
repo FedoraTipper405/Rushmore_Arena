@@ -7,8 +7,9 @@ public class EnemyAttackCheck : MonoBehaviour
     private BaseEnemy _baseEnemy;
     private Collider2D _collider;
     private bool _canDetect = true;
-    [SerializeField] public float _timer;
-    [SerializeField] public float _detectTimer = 0.5f;
+    private float _timer => _baseEnemy.EnemyStatSO.AttackTimer;
+    private float _detectTimer => _baseEnemy.EnemyStatSO.DetectTimer;
+    
     [SerializeField] private Transform _detectTransform;
     [SerializeField] private Vector2 _detectArea;
     [SerializeField] private LayerMask _layerMask;
@@ -40,8 +41,7 @@ public class EnemyAttackCheck : MonoBehaviour
         IDamageablePlayer damageable = collision.gameObject.GetComponent<IDamageablePlayer>();
         if (damageable != null)
         {
-            damageable.DamageToPlayerHealth(_baseEnemy.EnemyDamage);
-         //   Debug.Log("I hit");
+            damageable.DamageToPlayerHealth(_baseEnemy.DamageAmount);
         }
 
         if (collision.gameObject == PlayerTarget)
