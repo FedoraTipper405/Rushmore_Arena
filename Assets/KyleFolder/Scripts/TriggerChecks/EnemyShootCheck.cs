@@ -11,6 +11,7 @@ public class EnemyShootCheck : MonoBehaviour
     private float _detectTimer => _baseEnemy.EnemyStatSO.DetectTimer;
     private float _arrowspeed => _baseEnemy.EnemyStatSO.ArrowSpeed;
     private GameObject _arrowPrefab => _baseEnemy.EnemyStatSO.ArrowPrefab;
+    private float _waitBeforeAnimation = 0.5f;
 
     private bool _canDetect = true;
     
@@ -45,13 +46,18 @@ public class EnemyShootCheck : MonoBehaviour
     {
         if (collision.gameObject == PlayerTarget)
         {
-            ShootArrow();
             _baseEnemy.EnemyAnimator.SetTrigger("ShootArrow");
+            StartCoroutine(FinishAnimationBeforeShooting());
             StartCoroutine(CanAttackAgain());
             _collider.enabled = false;
         }
     }
 
+    private IEnumerator FinishAnimationBeforeShooting()
+    {
+        yield return new WaitForSeconds(_waitBeforeAnimation);
+        ShootArrow();
+    }
     private IEnumerator CanAttackAgain()
     {
         yield return new WaitForSeconds(_timer);

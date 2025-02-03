@@ -106,7 +106,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyStatSO: {fileID: 11400000, guid: 5b5d6787049b8a444ae009dfa1d150e7, type: 2}
-  <MaxHealth>k__BackingField: 20
   EnemyMovementBase: {fileID: 11400000, guid: 4bf6c581971b00f47a9375ba114c9a8e, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: c495a1d18f67e5549a32986e539586a0, type: 2}
   EnemyAnimator: {fileID: -6459273020431535448}

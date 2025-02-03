@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyChasePlayer : EnemyChaseSOBase
 {
     public float MovementSpeed = 1f;
+    public float DistanceFromEnemy = 2f;
 
     public override void DoEnterLogic()
     {
@@ -22,7 +23,18 @@ public class EnemyChasePlayer : EnemyChaseSOBase
         Vector2 moveDirection = (playerTransform.position - baseEnemy.transform.position).normalized;
 
         baseEnemy.MoveEnemy(moveDirection * MovementSpeed);
-        
+
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var obj in objects)
+        {
+            if (Vector3.Distance(transform.position, obj.transform.position) < DistanceFromEnemy && obj != gameObject)
+            {
+                Debug.Log("Correcting position");
+                Vector3 dir = (transform.position - obj.transform.position).normalized;
+                transform.Translate(dir * MovementSpeed * Time.deltaTime);
+            }
+        }
+
         if (baseEnemy.IsInRangeToChase != true)
         {
             baseEnemy.StateMachine.ChangeState(baseEnemy.StateMovement);
