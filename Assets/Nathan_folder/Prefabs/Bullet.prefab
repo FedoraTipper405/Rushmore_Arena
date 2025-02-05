@@ -159,7 +159,9 @@ MonoBehaviour:
   bulletPooling: {fileID: 0}
   bulletDamage: 0
   bulletPenetration: 0
-  bulletKnockback: 0
+  bulletKnockback: 20
+  bulletDamageOverTimeAmount: 10
+  bulletDamageOverTimeTicks: 4
   doesMoreDamageCloseRange: 0
   bulletMovement: {fileID: 4225278301984673359}
   closeRangeDistance: 1.75

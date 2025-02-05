@@ -6,13 +6,16 @@ public class MBBulletCollision : MonoBehaviour
     public float bulletDamage;
     public float bulletPenetration;
     public float bulletKnockback;
+    public float bulletDamageOverTimeAmount;
+    public float bulletDamageOverTimeTicks;
     public bool doesMoreDamageCloseRange = false;
     [SerializeField] MBBulletMovement bulletMovement;
     [SerializeField] private float closeRangeDistance = 2;
+    private Transform bulletTransform;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        bulletTransform = GetComponent<Transform>();
     }
     public void OnEnable()
     {
@@ -40,6 +43,18 @@ public class MBBulletCollision : MonoBehaviour
         {
             damageable.Damage(bulletDamage);
             Debug.Log(bulletDamage);
+        }
+        
+        IDamageable damageableOverTime = collision.gameObject.GetComponent<IDamageable>();
+        if (damageableOverTime != null)
+        {
+            damageableOverTime.DamageOverTime(bulletDamageOverTimeAmount, bulletDamageOverTimeTicks);
+        }
+
+        IDamageable knockBack = collision.gameObject.GetComponent<IDamageable>();
+        if (knockBack != null)
+        {
+            knockBack.KnockBack(bulletTransform, bulletKnockback);
         }
 
         if (bulletPooling != null && bulletPenetration <= 0)

@@ -24,25 +24,29 @@ public class EnemyWander : EnemyMovementSOBase
     {
         base.DoFrameUpdateLogic();
 
-        _direction = (_targetPos - baseEnemy.transform.position).normalized;
-
-        baseEnemy.MoveEnemy(_direction * MovementSpeed);
-
-        if((baseEnemy.transform.position - _targetPos).sqrMagnitude < 0.01f)
+        if (baseEnemy.IsKnockedBack != true)
         {
-            _targetPos = GetRandomPointInCircle();
-        }
+            _direction = (_targetPos - baseEnemy.transform.position).normalized;
 
-        if (baseEnemy.ObjectInWay)
-        {
-            _targetPos = GetRandomPointInCircle();
-            baseEnemy.ObjectInTheWay(false);
+            baseEnemy.MoveEnemy(_direction * MovementSpeed);
+
+            if ((baseEnemy.transform.position - _targetPos).sqrMagnitude < 0.01f)
+            {
+                _targetPos = GetRandomPointInCircle();
+            }
+
+            if (baseEnemy.ObjectInWay)
+            {
+                _targetPos = GetRandomPointInCircle();
+                baseEnemy.ObjectInTheWay(false);
+            }
+
+            if (baseEnemy.IsInRangeToChase)
+            {
+                baseEnemy.StateMachine.ChangeState(baseEnemy.StateChase);
+            }
         }
-        
-        if (baseEnemy.IsInRangeToChase)
-        {
-            baseEnemy.StateMachine.ChangeState(baseEnemy.StateChase);
-        }
+       
     }
 
     public override void DoPhysicsLogic()

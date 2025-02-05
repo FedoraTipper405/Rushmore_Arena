@@ -19,25 +19,28 @@ public class EnemyChasePlayer : EnemyChaseSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
-        
-        Vector2 moveDirection = (playerTransform.position - baseEnemy.transform.position).normalized;
 
-        baseEnemy.MoveEnemy(moveDirection * MovementSpeed);
-
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (var obj in objects)
+        if (baseEnemy.IsKnockedBack != true)
         {
-            if (Vector3.Distance(transform.position, obj.transform.position) < DistanceFromEnemy && obj != gameObject)
+            Vector2 moveDirection = (playerTransform.position - baseEnemy.transform.position).normalized;
+
+            baseEnemy.MoveEnemy(moveDirection * MovementSpeed);
+
+            GameObject[] objects = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (var obj in objects)
             {
-                Debug.Log("Correcting position");
-                Vector3 dir = (transform.position - obj.transform.position).normalized;
-                transform.Translate(dir * MovementSpeed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, obj.transform.position) < DistanceFromEnemy && obj != gameObject)
+                {
+                    Debug.Log("Correcting position");
+                    Vector3 dir = (transform.position - obj.transform.position).normalized;
+                    transform.Translate(dir * MovementSpeed * Time.deltaTime);
+                }
             }
-        }
 
-        if (baseEnemy.IsInRangeToChase != true)
-        {
-            baseEnemy.StateMachine.ChangeState(baseEnemy.StateMovement);
+            if (baseEnemy.IsInRangeToChase != true)
+            {
+                baseEnemy.StateMachine.ChangeState(baseEnemy.StateMovement);
+            }
         }
     }
 

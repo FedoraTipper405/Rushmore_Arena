@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
@@ -27,6 +29,11 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public Animator EnemyAnimator;
 
     public MBWaveManager waveManager;
+
+    public bool IsKnockedBack;
+
+    private bool IsOnFire;
+
     public void Awake()
     {
         EnemyMovementBaseInstance = Instantiate(EnemyMovementBase);
@@ -38,6 +45,10 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         StateMovement = new EnemyMovementState(this, StateMachine);
 
         StateChase = new EnemyChaseState(this, StateMachine);
+
+        IsKnockedBack = false;
+        
+        IsOnFire = true;
     }
 
     private void Start()
@@ -70,6 +81,42 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         if (CurrentHealth <= 0f)
         {
             Die();
+        }
+    }
+
+    public void KnockBack(Transform bulletTransform, float knockBackForce)
+    {
+        IsKnockedBack = true;
+        Vector2 direction = (transform.position - bulletTransform.position).normalized;
+        RB.linearVelocity = direction * knockBackForce;
+        StartCoroutine(KnockBackTimer());
+    }
+    IEnumerator KnockBackTimer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        IsKnockedBack = false;
+    }
+    public void DamageOverTime(float damageOverTimeAmount, float damageOverTimeTicks)
+    {
+        StartCoroutine(Burn(damageOverTimeAmount, damageOverTimeTicks));
+    }
+
+    IEnumerator Burn(float damageOverTimeAmount, float damageOverTimeTicks)
+    {
+        if (IsOnFire == true)
+        {
+            while (damageOverTimeTicks > 0f)
+            {
+                IsOnFire = false;
+                CurrentHealth -= damageOverTimeAmount;
+                yield return new WaitForSeconds(1f);
+                damageOverTimeTicks--;
+                if (CurrentHealth <= 0f)
+                {
+                    Die();
+                }
+            }
+            IsOnFire = true;
         }
     }
 
