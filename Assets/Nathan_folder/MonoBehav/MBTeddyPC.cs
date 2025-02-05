@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class MBWashingtonPC : MBBasePlayerController
+public class MBTeddyPC : MBBasePlayerController
 {
     [SerializeField] private MBBulletPooling bulletPoolScript;
 
@@ -10,8 +10,6 @@ public class MBWashingtonPC : MBBasePlayerController
     [SerializeField] GameObject bulletSpawnUp;
     [SerializeField] GameObject bulletSpawnDown;
     private GameObject currentBulletSpawn;
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,7 +28,6 @@ public class MBWashingtonPC : MBBasePlayerController
         penetration = StatSO.penetration;
         projectileSpread = StatSO.spread;
     }
-
     public override void Attack()
     {
         Debug.Log("here");
@@ -73,8 +70,8 @@ public class MBWashingtonPC : MBBasePlayerController
         tempBulletCollision.bulletPooling = bulletPoolScript;
         tempBulletCollision.bulletDamage = attackDamage;
 
-        //unique to washington
-        tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;
+        //unique to Teddy
+        //tempBulletCollision.isDragonsBreath = hasUniqueCardOne;
 
         tempBulletCollision.bulletPenetration = penetration;
         tempBulletCollision.bulletKnockback = knockBack;
@@ -176,8 +173,8 @@ public class MBWashingtonPC : MBBasePlayerController
                 tempBulletCollision.bulletPooling = bulletPoolScript;
                 tempBulletCollision.bulletDamage = attackDamage;
 
-                //unique to washington
-                tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;
+                //unique to Teddy
+                //tempBulletCollision.isDragonsBreath = hasUniqueCardOne;
 
                 tempBulletCollision.bulletPenetration = penetration;
                 tempBulletCollision.bulletKnockback = knockBack;
@@ -193,6 +190,6 @@ public class MBWashingtonPC : MBBasePlayerController
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }

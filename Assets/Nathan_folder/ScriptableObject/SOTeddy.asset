@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 689c1b636d14b31459dc81b65eb63b57, type: 3}
-  m_Name: SOWashington
+  m_Name: SOTeddy
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 0.8
   attackDamage: 20
-  attackSpeed: 0.65
-  health: 100
-  attackRange: 9
+  attackSpeed: 0.7
+  health: 120
+  attackRange: 4.5
   isRangedAttacker: 1
-  projectileAmount: 1
-  projectileSpeed: 0.15
-  projectileSize: 1
+  projectileAmount: 5
+  projectileSpeed: 0.08
+  projectileSize: 0.75
   knockBack: 1
   penetration: 1
-  spread: 0.45
+  spread: 0.35
