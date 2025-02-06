@@ -21,7 +21,7 @@ public class MBJeffyPC : MBBasePlayerController
         attackSpeed = StatSO.attackSpeed;
         attackRange = StatSO.attackRange;
         health = StatSO.health;
-        maxHealth = StatSO.health;
+        baseMaxHealth = StatSO.health;
         isRangedAttacker = StatSO.isRangedAttacker;
         projectileAmount = StatSO.projectileAmount;
         projectileSpeed = StatSO.projectileSpeed;

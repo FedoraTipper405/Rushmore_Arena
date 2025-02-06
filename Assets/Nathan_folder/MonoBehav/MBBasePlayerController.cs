@@ -17,7 +17,8 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     public float moveSpeed;
     public float attackDamage;
     public float attackSpeed;
-    public float maxHealth;
+    public float baseMaxHealth;
+    public float currentMaxHealth;
     public float health;
     public float attackRange;
     public bool isRangedAttacker;
@@ -29,6 +30,17 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     public float projectileSpread;
     public bool hasUniqueCardOne = false;
 
+    public float moveSpeedUpgrade = 1;//implemented
+    public float attackDamageUpgrade = 1;//implemented
+    public float attackSpeedUpgrade = 1;//implemented
+    public float healthUpgrade = 1;
+    public float attackRangeUpgrade = 1;//implemented
+    public float projectileSpeedUpgrade = 1;//implemented
+    public float projectileSizeUpgrade = 1;//implemented
+    public float knockbackUpgrade = 1;//implemented
+    public float projectileSpreadUpgrade = 1;//implemented
+
+
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator _animator;
 
@@ -38,7 +50,9 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        healthBar.SetMaxHealth(maxHealth);
+        currentMaxHealth = baseMaxHealth;
+        healthBar.SetMaxHealth(currentMaxHealth);
+        
     }
     //handles movement
     public void HandleMovement(Vector2 moveInput)
@@ -128,13 +142,13 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     {
        if(isUpgrading == false)
         {
-            this.transform.position += (new Vector3(movementOnX, movementOnY, 0) * Mathf.Clamp(moveSpeed, 0, 20)) / 10;
+            this.transform.position += (new Vector3(movementOnX, movementOnY, 0) * Mathf.Clamp(moveSpeed * moveSpeedUpgrade, 0, 20)) / 10;
         }
        
         if (isAttacking && atkCooldown <= 0 && isUpgrading == false)
         {
             Attack();
-            atkCooldown = attackSpeed;
+            atkCooldown = attackSpeed * attackSpeedUpgrade;
         }
 
         if (atkCooldown > 0)
@@ -145,7 +159,9 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     public void ResetPlayerPerRound()
     {
         this.transform.position = middleOfArena.position;
-        health = maxHealth;
+        currentMaxHealth = baseMaxHealth * healthUpgrade;
+        health = currentMaxHealth;
+        healthBar.SetMaxHealth(currentMaxHealth);
     }
     public void DamageToPlayerHealth(float damageAmount)
     {

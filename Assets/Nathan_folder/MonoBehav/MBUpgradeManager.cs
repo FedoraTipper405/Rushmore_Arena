@@ -467,9 +467,8 @@ public class MBUpgradeManager : MonoBehaviour
         selectedPresident.moveSpeed += selectedUpgrade.moveSpeedUpgrade;
         selectedPresident.attackDamage += selectedUpgrade.attackDamageUpgrade;
         selectedPresident.attackSpeed += selectedUpgrade.attackSpeedUpgrade;
-        
-        selectedPresident.health += selectedUpgrade.healthUpgrade;
-        selectedPresident.maxHealth += selectedUpgrade.healthUpgrade;
+       
+        selectedPresident.healthUpgrade += selectedUpgrade.healthUpgrade;
         selectedPresident.healthBar.SetMaxHealth(selectedPresident.health);
         
         selectedPresident.attackRange += selectedUpgrade.attackRangeUpgrade;

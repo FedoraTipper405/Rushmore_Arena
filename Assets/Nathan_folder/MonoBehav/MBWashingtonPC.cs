@@ -21,7 +21,7 @@ public class MBWashingtonPC : MBBasePlayerController
         attackSpeed = StatSO.attackSpeed;
         attackRange = StatSO.attackRange;
         health = StatSO.health;
-        maxHealth = StatSO.health;
+        baseMaxHealth = StatSO.health;
         isRangedAttacker = StatSO.isRangedAttacker;
         projectileAmount = StatSO.projectileAmount;
         projectileSpeed = StatSO.projectileSpeed;
@@ -69,19 +69,19 @@ public class MBWashingtonPC : MBBasePlayerController
         }
         MBBulletCollision tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
         MBBulletMovement tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
-        lastBullet.transform.localScale = new Vector3(projectileSize, projectileSize, 0);
+        lastBullet.transform.localScale = new Vector3(projectileSize * projectileSizeUpgrade, projectileSize * projectileSizeUpgrade, 0);
         tempBulletCollision.bulletPooling = bulletPoolScript;
-        tempBulletCollision.bulletDamage = attackDamage;
+        tempBulletCollision.bulletDamage = attackDamage * attackDamageUpgrade;
 
         //unique to washington
         tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;
 
         tempBulletCollision.bulletPenetration = penetration;
-        tempBulletCollision.bulletKnockback = knockBack;
-        tempBulletMovement.bulletRange = attackRange;
+        tempBulletCollision.bulletKnockback = knockBack * knockbackUpgrade;
+        tempBulletMovement.bulletRange = attackRange * attackRangeUpgrade;
         tempBulletMovement.bulletPooling = bulletPoolScript;
         tempBulletMovement.distanceTraveled = 0;
-        tempBulletMovement.moveSpeed = projectileSpeed;
+        tempBulletMovement.moveSpeed = projectileSpeed * projectileSpeedUpgrade;
         tempBulletMovement.moveDirection = currentShootDirection;
         if (projectileAmount > 1)
         {
@@ -104,11 +104,11 @@ public class MBWashingtonPC : MBBasePlayerController
                     {
                         if (currentShootDirection.x > 0)
                         {
-                            shotgunShootDirection.x = currentShootDirection.x - UnityEngine.Random.Range(0, Math.Clamp(projectileSpread, 0, 0.7f));
+                            shotgunShootDirection.x = currentShootDirection.x - UnityEngine.Random.Range(0, Math.Clamp(projectileSpread * projectileSpreadUpgrade, 0, 0.7f));
                         }
                         else
                         {
-                            shotgunShootDirection.x = currentShootDirection.x + UnityEngine.Random.Range(0, Math.Clamp(projectileSpread, 0, 0.7f));
+                            shotgunShootDirection.x = currentShootDirection.x + UnityEngine.Random.Range(0, Math.Clamp(projectileSpread * projectileSpreadUpgrade, 0, 0.7f));
                         }
 
                         shotgunShootDirection.y = Mathf.Sqrt(1 - MathF.Pow(shotgunShootDirection.x, 2)) * negativeChangerY;
@@ -117,11 +117,11 @@ public class MBWashingtonPC : MBBasePlayerController
                     {
                         if (currentShootDirection.y > 0)
                         {
-                            shotgunShootDirection.y = currentShootDirection.y - UnityEngine.Random.Range(0, Math.Clamp(projectileSpread, 0, 0.7f));
+                            shotgunShootDirection.y = currentShootDirection.y - UnityEngine.Random.Range(0, Math.Clamp(projectileSpread * projectileSpreadUpgrade, 0, 0.7f));
                         }
                         else
                         {
-                            shotgunShootDirection.y = currentShootDirection.y + UnityEngine.Random.Range(0, Math.Clamp(projectileSpread, 0, 0.7f));
+                            shotgunShootDirection.y = currentShootDirection.y + UnityEngine.Random.Range(0, Math.Clamp(projectileSpread * projectileSpreadUpgrade, 0, 0.7f));
                         }
                         shotgunShootDirection.x = Mathf.Sqrt(1 - MathF.Pow(shotgunShootDirection.y, 2)) * negativeChangerX;
                     }
@@ -130,12 +130,12 @@ public class MBWashingtonPC : MBBasePlayerController
                 {
                     if (i % 2 == 0)
                     {
-                        shotgunShootDirection.y = currentShootDirection.y - UnityEngine.Random.Range(0, Math.Clamp(projectileSpread, 0, 0.7f));
+                        shotgunShootDirection.y = currentShootDirection.y - UnityEngine.Random.Range(0, Math.Clamp(projectileSpread * projectileSpreadUpgrade, 0, 0.7f));
                         shotgunShootDirection.x = Mathf.Sqrt(1 - MathF.Pow(shotgunShootDirection.y, 2));
                     }
                     else
                     {
-                        shotgunShootDirection.y = currentShootDirection.y + UnityEngine.Random.Range(0, Math.Clamp(projectileSpread, 0, 0.7f));
+                        shotgunShootDirection.y = currentShootDirection.y + UnityEngine.Random.Range(0, Math.Clamp(projectileSpread * projectileSpreadUpgrade, 0, 0.7f));
                         shotgunShootDirection.x = Mathf.Sqrt(1 - MathF.Pow(shotgunShootDirection.y, 2));
                     }
                     if (currentShootDirection.x < 0)
@@ -172,19 +172,19 @@ public class MBWashingtonPC : MBBasePlayerController
                 }
                 tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
                 tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
-                lastBullet.transform.localScale = new Vector3(projectileSize, projectileSize, 0);
+                lastBullet.transform.localScale = new Vector3(projectileSize * projectileSizeUpgrade, projectileSize * projectileSizeUpgrade, 0);
                 tempBulletCollision.bulletPooling = bulletPoolScript;
-                tempBulletCollision.bulletDamage = attackDamage;
+                tempBulletCollision.bulletDamage = attackDamage * attackDamageUpgrade;
 
                 //unique to washington
                 tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;
 
                 tempBulletCollision.bulletPenetration = penetration;
-                tempBulletCollision.bulletKnockback = knockBack;
-                tempBulletMovement.bulletRange = attackRange;
+                tempBulletCollision.bulletKnockback = knockBack * knockbackUpgrade;
+                tempBulletMovement.bulletRange = attackRange * attackRangeUpgrade;
                 tempBulletMovement.bulletPooling = bulletPoolScript;
                 tempBulletMovement.distanceTraveled = 0;
-                tempBulletMovement.moveSpeed = projectileSpeed;
+                tempBulletMovement.moveSpeed = projectileSpeed * projectileSpeedUpgrade;
                 tempBulletMovement.moveDirection = shotgunShootDirection;
             }
 
