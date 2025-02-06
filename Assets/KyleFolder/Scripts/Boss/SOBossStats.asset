@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0b7cc091b72b24b85e5932eb41b93c, type: 3}
+  m_Name: SOBossStats
+  m_EditorClassIdentifier: 
+  BossMaxHealth: 100
+  BossDamage: 20
+  ArrowDamage: 20
+  ArrowSpeed: 10
+  ArrowPrefab: {fileID: 1491379982255337961, guid: 5306095b213863b428d9c1cb5cce531a, type: 3}
