@@ -460,26 +460,27 @@ public class MBUpgradeManager : MonoBehaviour
     }
     public void UpgradeCharacter(SOUpgradeCards selectedUpgrade)
     {
-        if (selectedUpgrade.isUniqueCardOne)
-        {
-            //need to remove unique upgrade from upgrade pool. Must also make the upgrade pools work for the different upgrades (Ranged upgrade, uniques, etc.)
-        }
-        selectedPresident.moveSpeed += selectedUpgrade.moveSpeedUpgrade;
-        selectedPresident.attackDamage += selectedUpgrade.attackDamageUpgrade;
-        selectedPresident.attackSpeed += selectedUpgrade.attackSpeedUpgrade;
-       
+    
+        // multiply upgrades
+        selectedPresident.moveSpeedUpgrade += selectedUpgrade.moveSpeedUpgrade;
+        selectedPresident.attackDamageUpgrade += selectedUpgrade.attackDamageUpgrade;
+        selectedPresident.attackSpeedUpgrade += selectedUpgrade.attackSpeedUpgrade;
+        selectedPresident.attackRangeUpgrade += selectedUpgrade.attackRangeUpgrade;
+        selectedPresident.projectileSpeedUpgrade += selectedUpgrade.projectileSpeedUpgrade;
+        selectedPresident.projectileSizeUpgrade += selectedUpgrade.projectileSizeUpgrade;
+        selectedPresident.knockbackUpgrade += selectedUpgrade.knockBackUpgrade;
+        selectedPresident.projectileSpreadUpgrade += selectedUpgrade.spread;
+
+        //health
         selectedPresident.healthUpgrade += selectedUpgrade.healthUpgrade;
         selectedPresident.healthBar.SetMaxHealth(selectedPresident.health);
-        
-        selectedPresident.attackRange += selectedUpgrade.attackRangeUpgrade;
+
+        //added upgrades
         selectedPresident.projectileAmount += selectedUpgrade.projectileAmountUpgrade;
-        selectedPresident.projectileSpeed += selectedUpgrade.projectileSpeedUpgrade;
-        selectedPresident.projectileSize += selectedUpgrade.projectileSizeUpgrade;
-        selectedPresident.knockBack += selectedUpgrade.knockBackUpgrade;
         selectedPresident.penetration += selectedUpgrade.penetrationUpgrade;
         selectedPresident.hasUniqueCardOne = selectedUpgrade.isUniqueCardOne;
-        selectedPresident.projectileSpread += selectedUpgrade.spread;
-        
+
+        Debug.Log(" moveSpeed - " + selectedPresident.moveSpeed * Mathf.Clamp(selectedPresident.moveSpeedUpgrade,0,10) + " atkDmg - " + selectedPresident.attackDamage * Mathf.Clamp(selectedPresident.attackDamageUpgrade, 0, 10) + " atkSpd - " + selectedPresident.attackSpeed * Mathf.Clamp(selectedPresident.attackSpeedUpgrade, 0, 10) + " atkrng - " + selectedPresident.attackRange * Mathf.Clamp(selectedPresident.attackRangeUpgrade, 0, 10) + " prjSpeed - " + selectedPresident.projectileSpeed * Mathf.Clamp(selectedPresident.projectileSpeedUpgrade, 0, 10) + " PrjSize - " + selectedPresident.projectileSize * Mathf.Clamp(selectedPresident.projectileSizeUpgrade, 0, 10) + " kb - " + selectedPresident.knockBack * Mathf.Clamp(selectedPresident.knockbackUpgrade, 0, 10) + " prjSpread - " + selectedPresident.projectileSpread * Mathf.Clamp(selectedPresident.projectileSpreadUpgrade, 0, 10) + " health - " + selectedPresident.baseMaxHealth * Mathf.Clamp(selectedPresident.healthUpgrade, 0, 10) + " prjamount - " + selectedPresident.projectileAmount+ " penetration - " + selectedPresident.penetration);
     }
     private void ChangeSelectionDisplayState()
     {

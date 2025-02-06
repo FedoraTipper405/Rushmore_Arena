@@ -67,19 +67,19 @@ public class MBAbePC : MBBasePlayerController
         }
         MBBulletCollision tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
         MBBulletMovement tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
-        lastBullet.transform.localScale = new Vector3(projectileSize * projectileSizeUpgrade, projectileSize * projectileSizeUpgrade, 0);
+        lastBullet.transform.localScale = new Vector3(projectileSize * Mathf.Clamp(projectileSizeUpgrade,0.1f,10), projectileSize * Mathf.Clamp(projectileSizeUpgrade, 0.1f, 10), 0);
         tempBulletCollision.bulletPooling = bulletPoolScript;
-        tempBulletCollision.bulletDamage = attackDamage * attackDamageUpgrade;
+        tempBulletCollision.bulletDamage = attackDamage * Mathf.Clamp(attackDamageUpgrade, 0.1f, 10);
 
         //unique to ABE
         //tempBulletCollision.hasSlowEffect = hasUniqueCardOne;
 
         tempBulletCollision.bulletPenetration = penetration;
-        tempBulletCollision.bulletKnockback = knockBack * knockbackUpgrade;
-        tempBulletMovement.bulletRange = attackRange * attackRangeUpgrade;
+        tempBulletCollision.bulletKnockback = knockBack * Mathf.Clamp(knockbackUpgrade, 0.1f, 10);
+        tempBulletMovement.bulletRange = attackRange * Mathf.Clamp(attackRangeUpgrade, 0.1f, 10);
         tempBulletMovement.bulletPooling = bulletPoolScript;
         tempBulletMovement.distanceTraveled = 0;
-        tempBulletMovement.moveSpeed = projectileSpeed * projectileSpeedUpgrade;
+        tempBulletMovement.moveSpeed = projectileSpeed * Mathf.Clamp(projectileSpeedUpgrade, 0.1f, 10);
         tempBulletMovement.moveDirection = currentShootDirection;
         if (projectileAmount > 1)
         {
@@ -170,19 +170,19 @@ public class MBAbePC : MBBasePlayerController
                 }
                 tempBulletCollision = lastBullet.GetComponent<MBBulletCollision>();
                 tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
-                lastBullet.transform.localScale = new Vector3(projectileSize * projectileSizeUpgrade, projectileSize * projectileSizeUpgrade, 0);
+                lastBullet.transform.localScale = new Vector3(projectileSize * Mathf.Clamp(projectileSizeUpgrade, 0.1f, 10), projectileSize * Mathf.Clamp(projectileSizeUpgrade, 0.1f, 10), 0);
                 tempBulletCollision.bulletPooling = bulletPoolScript;
-                tempBulletCollision.bulletDamage = attackDamage * attackDamageUpgrade;
+                tempBulletCollision.bulletDamage = attackDamage * Mathf.Clamp(attackDamageUpgrade, 0.1f, 10);
 
                 //unique to ABE
                 //tempBulletCollision.hasSlowEffect = hasUniqueCardOne;
 
                 tempBulletCollision.bulletPenetration = penetration;
-                tempBulletCollision.bulletKnockback = knockBack * knockbackUpgrade;
-                tempBulletMovement.bulletRange = attackRange * attackRangeUpgrade;
+                tempBulletCollision.bulletKnockback = knockBack * Mathf.Clamp(knockbackUpgrade, 0.1f, 10);
+                tempBulletMovement.bulletRange = attackRange * Mathf.Clamp(attackRangeUpgrade, 0.1f, 10);
                 tempBulletMovement.bulletPooling = bulletPoolScript;
                 tempBulletMovement.distanceTraveled = 0;
-                tempBulletMovement.moveSpeed = projectileSpeed * projectileSpeedUpgrade;
+                tempBulletMovement.moveSpeed = projectileSpeed * Mathf.Clamp(projectileSpeedUpgrade, 0.1f, 10);
                 tempBulletMovement.moveDirection = shotgunShootDirection;
             }
 

@@ -142,13 +142,13 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     {
        if(isUpgrading == false)
         {
-            this.transform.position += (new Vector3(movementOnX, movementOnY, 0) * Mathf.Clamp(moveSpeed * moveSpeedUpgrade, 0, 20)) / 10;
+            this.transform.position += (new Vector3(movementOnX, movementOnY, 0) * Mathf.Clamp(moveSpeed *Mathf.Clamp(moveSpeedUpgrade,0 , 10), 0, 20)) / 10;
         }
        
         if (isAttacking && atkCooldown <= 0 && isUpgrading == false)
         {
             Attack();
-            atkCooldown = attackSpeed * attackSpeedUpgrade;
+            atkCooldown = attackSpeed * Mathf.Clamp(attackSpeedUpgrade,0.05f,10);
         }
 
         if (atkCooldown > 0)
@@ -159,7 +159,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     public void ResetPlayerPerRound()
     {
         this.transform.position = middleOfArena.position;
-        currentMaxHealth = baseMaxHealth * healthUpgrade;
+        currentMaxHealth = baseMaxHealth * Mathf.Clamp(healthUpgrade, 0.1f,10);
         health = currentMaxHealth;
         healthBar.SetMaxHealth(currentMaxHealth);
     }

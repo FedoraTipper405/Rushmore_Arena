@@ -19,8 +19,8 @@ public class MBPlayerSwordCollision : MonoBehaviour
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            damageable.Damage(JeffyPc.attackDamage * JeffyPc.attackDamageUpgrade);
-            Debug.Log(JeffyPc.attackDamage * JeffyPc.attackDamageUpgrade);
+            damageable.Damage(JeffyPc.attackDamage * Mathf.Clamp(JeffyPc.attackDamageUpgrade, 0.05f, 10));
+            Debug.Log(JeffyPc.attackDamage * Mathf.Clamp(JeffyPc.attackDamageUpgrade,0.05f, 10));
         }
     }
 }

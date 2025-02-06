@@ -16,12 +16,14 @@ MonoBehaviour:
   moveSpeedUpgrade: 0
   attackDamageUpgrade: 0
   attackSpeedUpgrade: 0
-  healthUpgrade: 3
+  healthUpgrade: 0
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: -1
-  projectileSpeedUpgrade: 0.08
+  projectileSpeedUpgrade: 0.1
   projectileSizeUpgrade: 0.25
   knockBackUpgrade: 0
   penetrationUpgrade: 0
+  spread: 0
   isUniqueCardOne: 0
+  isOneTimeCard: 0
