@@ -19,4 +19,6 @@ public class SOUpgradeCards : ScriptableObject
     public float spread;
     public bool isUniqueCardOne;
 
+    public bool isOneTimeCard;
+
 }

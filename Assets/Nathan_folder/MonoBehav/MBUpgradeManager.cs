@@ -53,6 +53,11 @@ public class MBUpgradeManager : MonoBehaviour
     [SerializeField] EnemySpawner enemySpawner;
 
     [SerializeField]GameObject UpgradingTimeText;
+
+
+
+
+
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -134,7 +139,7 @@ public class MBUpgradeManager : MonoBehaviour
             {
                 UpgradeCharacter(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO);
                 chosenUpgrades.Add(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO);
-                if(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO.isUniqueCardOne)
+                if(UpgradeSlotOne.GetComponent<MBHoldUpgradeSO>().upgradeSO.isOneTimeCard)
                 {
                  if(selectedPresidentIndex == 0)
                     {
@@ -158,7 +163,7 @@ public class MBUpgradeManager : MonoBehaviour
             {
                 UpgradeCharacter(UpgradeSlotTwo.GetComponent<MBHoldUpgradeSO>().upgradeSO);
                 chosenUpgrades.Add(UpgradeSlotTwo.GetComponent<MBHoldUpgradeSO>().upgradeSO);
-                if (UpgradeSlotTwo.GetComponent<MBHoldUpgradeSO>().upgradeSO.isUniqueCardOne)
+                if (UpgradeSlotTwo.GetComponent<MBHoldUpgradeSO>().upgradeSO.isOneTimeCard)
                 {
                     if (selectedPresidentIndex == 0)
                     {
@@ -182,7 +187,7 @@ public class MBUpgradeManager : MonoBehaviour
             {
                 UpgradeCharacter(UpgradeSlotThree.GetComponent<MBHoldUpgradeSO>().upgradeSO);
                 chosenUpgrades.Add(UpgradeSlotThree.GetComponent<MBHoldUpgradeSO>().upgradeSO);
-                if (UpgradeSlotTwo.GetComponent<MBHoldUpgradeSO>().upgradeSO.isUniqueCardOne)
+                if (UpgradeSlotTwo.GetComponent<MBHoldUpgradeSO>().upgradeSO.isOneTimeCard)
                 {
                     if (selectedPresidentIndex == 0)
                     {
