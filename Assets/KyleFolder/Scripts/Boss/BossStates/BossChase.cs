@@ -29,7 +29,20 @@ public class BossChase : BossState
         
         if (_timer >= _timeUntilStop)
         {
-            boss.StateMachine.ChangeState(boss.ArrowSpiralState);
+            int RandomNum = Random.Range(0, 1);
+
+            switch (RandomNum)
+            {
+                case 0:
+                    boss.StateMachine.ChangeState(boss.ArrowSpiralState);
+                    return;
+                case 1:
+                    boss.StateMachine.ChangeState(boss.ArrowSpiralState);
+                    return;
+                case 2:
+                    boss.StateMachine.ChangeState(boss.ArrowSpiralState);
+                    return;
+            }
         }
         _timer += Time.deltaTime;
     }

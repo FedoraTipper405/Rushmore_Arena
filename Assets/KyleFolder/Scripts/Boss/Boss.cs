@@ -13,7 +13,10 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
     public BossChase ChaseState { get; set; }
     public BossCharge ChargeState { get; set; }
     public BossArrowSpiral ArrowSpiralState { get; set; }
+    public BossArrowBurst ArrowBurstState { get; set; }
     # endregion
+
+    public GameObject ArrowPrefab => BossStatSO.ArrowPrefab;
 
     private void Awake()
     {
@@ -21,6 +24,7 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
         ChaseState = new BossChase(this, StateMachine);
         ChargeState = new BossCharge(this, StateMachine);
         ArrowSpiralState = new BossArrowSpiral(this, StateMachine);
+        ArrowBurstState = new BossArrowBurst(this, StateMachine);
     }
     private void Start()
     {
