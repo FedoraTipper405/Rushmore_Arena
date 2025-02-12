@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 
 [CreateAssetMenu(fileName = "SOEnemyStats", menuName = "Kyles SOs/SOEnemyStats")]
 public class SOEnemyStats : ScriptableObject

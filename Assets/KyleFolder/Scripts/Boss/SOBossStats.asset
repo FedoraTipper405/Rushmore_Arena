@@ -13,7 +13,16 @@ MonoBehaviour:
   m_Name: SOBossStats
   m_EditorClassIdentifier: 
   BossMaxHealth: 100
-  BossDamage: 20
-  ArrowDamage: 20
-  ArrowSpeed: 10
+  BossMeleeDamage: 20
+  ArrowDamage: 10
+  ArrowSpeed: 8
+  MovementSpeed: 1
+  TimeUntilStateChange: 3
+  ChargeSpeed: 10
+  TimeUntilCharge: 1
+  DistanceCheck: 2
+  RadiusOfGroundSlam: 4
+  NumberOfArrowsSpiral: 8
+  NumberOfArrowsBurst: 5
+  TimeUntilFireArrow: 2
   ArrowPrefab: {fileID: 1491379982255337961, guid: 5306095b213863b428d9c1cb5cce531a, type: 3}

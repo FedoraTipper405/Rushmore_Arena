@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class BossArrowSpiral : BossState
 {
-    private int numberOfArrows = 8;
-    private float arrowSpeed = 5;
+    private int _numberOfArrows => boss.BossStatSO.NumberOfArrowsSpiral;
+    private float _arrowSpeed => boss.BossStatSO.ArrowSpeed;
+    private float _timeUntilFire => boss.BossStatSO.TimeUntilFireArrow;
+
     private const float radius = 1f;
     private float _timer;
-    private float _timeUntilFire = 3;
 
     public BossArrowSpiral(Boss boss, BossStateMachine bossStateMachine) : base(boss, bossStateMachine) { }
 
@@ -14,7 +15,7 @@ public class BossArrowSpiral : BossState
     {
         base.EnterState();
         boss.MoveEnemy(Vector2.zero);
-        SpawnArrows(numberOfArrows);
+        SpawnArrows(_numberOfArrows);
         _timer = 0f;
     }
 
@@ -28,10 +29,9 @@ public class BossArrowSpiral : BossState
         base.FrameUpdate();
         if (_timer >= _timeUntilFire)
         {
-            SpawnArrows(numberOfArrows);
+            SpawnArrows(_numberOfArrows);
         }
         _timer += Time.deltaTime;
-        Debug.Log(_timer);
     }
 
     private void SpawnArrows(int numberOfArrows)
@@ -45,7 +45,7 @@ public class BossArrowSpiral : BossState
             float arrowDirectionYPosition = boss.transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f) * radius;
 
             Vector3 arrowVector = new Vector3(arrowDirectionXPosition, arrowDirectionYPosition, 0);
-            Vector3 arrowMoveDirection = (arrowVector - boss.transform.position).normalized * arrowSpeed;
+            Vector3 arrowMoveDirection = (arrowVector - boss.transform.position).normalized * _arrowSpeed;
             
             GameObject tempArrow = GameObject.Instantiate(boss.ArrowPrefab, boss.transform.position, Quaternion.identity);
             tempArrow.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(arrowMoveDirection.x, arrowMoveDirection.y, 0);
@@ -53,6 +53,7 @@ public class BossArrowSpiral : BossState
             tempArrow.transform.rotation = Quaternion.Euler(0, 0, rot + 180);
 
             angle += angleStep;
+            boss.StateMachine.ChangeState(boss.ChaseState);
             _timer = 0f;
         }
     }

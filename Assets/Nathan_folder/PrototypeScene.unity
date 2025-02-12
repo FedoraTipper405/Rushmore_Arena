@@ -2245,7 +2245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1136968393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2658,10 +2658,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 654098201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1424501608 stripped
+--- !u!114 &1424501608
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4293540655553278702, guid: 95d45f457ef95684ab150b311d489a50, type: 3}
-  m_PrefabInstance: {fileID: 8642889178499219550}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -2669,6 +2670,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85c560ad6454a44d987eb8500a0aa91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  isAttacking: 0
+  isUpgrading: 0
+  lastMoveDirection: {x: 1, y: 0, z: 0}
+  currentShootDirection: {x: 1, y: 0, z: 0}
+  StatSO: {fileID: 0}
+  moveSpeed: 0
+  attackDamage: 0
+  attackSpeed: 0
+  baseMaxHealth: 0
+  currentMaxHealth: 0
+  health: 0
+  attackRange: 0
+  isRangedAttacker: 0
+  projectileAmount: 0
+  projectileSpeed: 0
+  projectileSize: 0
+  knockBack: 0
+  penetration: 0
+  projectileSpread: 0
+  hasUniqueCardOne: 0
+  moveSpeedUpgrade: 1
+  attackDamageUpgrade: 1
+  attackSpeedUpgrade: 1
+  healthUpgrade: 1
+  attackRangeUpgrade: 1
+  projectileSpeedUpgrade: 1
+  projectileSizeUpgrade: 1
+  knockbackUpgrade: 1
+  projectileSpreadUpgrade: 1
+  spriteRenderer: {fileID: 0}
+  _animator: {fileID: 0}
+  middleOfArena: {fileID: 0}
+  healthBar: {fileID: 0}
+  LeftAttackCollider: {fileID: 0}
+  RightAttackCollider: {fileID: 0}
+  UpAttackCollider: {fileID: 0}
+  DownAttackCollider: {fileID: 0}
+  LeftUpAttackCollider: {fileID: 0}
+  LeftDownAttackCollider: {fileID: 0}
+  RightUpAttackCollider: {fileID: 0}
+  RightDownAttackCollider: {fileID: 0}
 --- !u!1 &1430495156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,7 +2897,7 @@ MonoBehaviour:
   presidentControllers:
   - {fileID: 58658808}
   - {fileID: 1406352756}
-  - {fileID: 9176027687432457961}
+  - {fileID: 0}
   - {fileID: 1424501608}
   isUpgrading: 0
   isWaitingToUpgrade: 0
@@ -3440,7 +3483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 104721820689714229, guid: 3170d02e8e42eb846933f57812740061, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 346407237865184801, guid: 3170d02e8e42eb846933f57812740061, type: 3}
       propertyPath: m_Controller
@@ -3662,3 +3705,4 @@ SceneRoots:
   - {fileID: 1308974557}
   - {fileID: 1972385900}
   - {fileID: 860070537}
+  - {fileID: 1043357095}

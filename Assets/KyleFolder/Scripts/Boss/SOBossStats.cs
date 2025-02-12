@@ -4,8 +4,17 @@ using UnityEngine;
 public class SOBossStats : ScriptableObject
 {
     [SerializeField] public float BossMaxHealth;
-    [SerializeField] public float BossDamage;
+    [SerializeField] public float BossMeleeDamage;
     [SerializeField] public float ArrowDamage;
     [SerializeField] public float ArrowSpeed;
+    [SerializeField] public float MovementSpeed;
+    [SerializeField] public float TimeUntilStateChange;
+    [SerializeField] public float ChargeSpeed;
+    [SerializeField] public float TimeUntilCharge;
+    [SerializeField] public float DistanceCheck;
+    [SerializeField] public float RadiusOfGroundSlam;
+    [SerializeField] public int NumberOfArrowsSpiral;
+    [SerializeField] public int NumberOfArrowsBurst;
+    [SerializeField] public float TimeUntilFireArrow;
     [SerializeField] public GameObject ArrowPrefab;
 }
