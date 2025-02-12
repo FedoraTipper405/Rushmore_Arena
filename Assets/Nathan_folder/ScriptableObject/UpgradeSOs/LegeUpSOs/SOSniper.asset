@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: Sniper
   moveSpeedUpgrade: 0
-  attackDamageUpgrade: 20
-  attackSpeedUpgrade: 0.15
+  attackDamageUpgrade: 0.2
+  attackSpeedUpgrade: 0.3
   healthUpgrade: 0
-  attackRangeUpgrade: 10
+  attackRangeUpgrade: 0.75
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0
-  projectileSpeedUpgrade: 0.9
-  projectileSizeUpgrade: 0.1
+  projectileSpeedUpgrade: 0.6
+  projectileSizeUpgrade: 0.2
   knockBackUpgrade: 0
   penetrationUpgrade: 1
+  spread: 0
   isUniqueCardOne: 0
+  isOneTimeCard: 0

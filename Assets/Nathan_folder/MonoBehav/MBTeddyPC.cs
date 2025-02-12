@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class MBWashingtonPC : MBBasePlayerController
+public class MBTeddyPC : MBBasePlayerController
 {
     [SerializeField] private MBBulletPooling bulletPoolScript;
 
@@ -10,8 +10,6 @@ public class MBWashingtonPC : MBBasePlayerController
     [SerializeField] GameObject bulletSpawnUp;
     [SerializeField] GameObject bulletSpawnDown;
     private GameObject currentBulletSpawn;
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,7 +28,6 @@ public class MBWashingtonPC : MBBasePlayerController
         penetration = StatSO.penetration;
         projectileSpread = StatSO.spread;
     }
-
     public override void Attack()
     {
         Debug.Log("here");
@@ -73,8 +70,8 @@ public class MBWashingtonPC : MBBasePlayerController
         tempBulletCollision.bulletPooling = bulletPoolScript;
         tempBulletCollision.bulletDamage = attackDamage * Mathf.Clamp(attackDamageUpgrade, 0.1f, 10);
 
-        //unique to washington
-        tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;
+        //unique to Teddy
+        //tempBulletCollision.isDragonsBreath = hasUniqueCardOne;
 
         tempBulletCollision.bulletPenetration = penetration;
         tempBulletCollision.bulletKnockback = knockBack * Mathf.Clamp(knockbackUpgrade, 0.1f, 10);
@@ -147,12 +144,12 @@ public class MBWashingtonPC : MBBasePlayerController
                 {
                     if (i % 2 == 0)
                     {
-                        shotgunShootDirection.x = currentShootDirection.x - UnityEngine.Random.Range(0, Math.Clamp(projectileSpread, 0, 0.7f));
+                        shotgunShootDirection.x = currentShootDirection.x - UnityEngine.Random.Range(0, Math.Clamp(projectileSpread * projectileSpreadUpgrade, 0, 0.7f));
                         shotgunShootDirection.y = Mathf.Sqrt(1 - MathF.Pow(shotgunShootDirection.y, 2));
                     }
                     else
                     {
-                        shotgunShootDirection.x = currentShootDirection.x + UnityEngine.Random.Range(0, Math.Clamp(projectileSpread, 0, 0.7f));
+                        shotgunShootDirection.x = currentShootDirection.x + UnityEngine.Random.Range(0, Math.Clamp(projectileSpread * projectileSpreadUpgrade, 0, 0.7f));
                         shotgunShootDirection.y = Mathf.Sqrt(1 - MathF.Pow(shotgunShootDirection.x, 2));
                     }
                     if (currentShootDirection.y < 0)
@@ -176,8 +173,8 @@ public class MBWashingtonPC : MBBasePlayerController
                 tempBulletCollision.bulletPooling = bulletPoolScript;
                 tempBulletCollision.bulletDamage = attackDamage * Mathf.Clamp(attackDamageUpgrade, 0.1f, 10);
 
-                //unique to washington
-                tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;
+                //unique to Teddy
+                //tempBulletCollision.isDragonsBreath = hasUniqueCardOne;
 
                 tempBulletCollision.bulletPenetration = penetration;
                 tempBulletCollision.bulletKnockback = knockBack * Mathf.Clamp(knockbackUpgrade, 0.1f, 10);
@@ -193,6 +190,6 @@ public class MBWashingtonPC : MBBasePlayerController
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }

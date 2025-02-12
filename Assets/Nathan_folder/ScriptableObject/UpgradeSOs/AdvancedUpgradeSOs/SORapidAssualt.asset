@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: RapidAssault
   moveSpeedUpgrade: 0
-  attackDamageUpgrade: -15
-  attackSpeedUpgrade: -0.15
+  attackDamageUpgrade: -0.2
+  attackSpeedUpgrade: -0.2
   healthUpgrade: 0
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0
-  projectileSpeedUpgrade: -0.04
+  projectileSpeedUpgrade: -0.1
   projectileSizeUpgrade: 0
   knockBackUpgrade: 0
   penetrationUpgrade: 0
+  spread: 0
   isUniqueCardOne: 0
+  isOneTimeCard: 0

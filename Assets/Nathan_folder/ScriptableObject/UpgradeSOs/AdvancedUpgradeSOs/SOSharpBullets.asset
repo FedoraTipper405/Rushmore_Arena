@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: SharpBullet
   moveSpeedUpgrade: 0
-  attackDamageUpgrade: 10
+  attackDamageUpgrade: 0.25
   attackSpeedUpgrade: 0.1
   healthUpgrade: 0
   attackRangeUpgrade: 0
@@ -24,4 +24,6 @@ MonoBehaviour:
   projectileSizeUpgrade: -0.1
   knockBackUpgrade: 0
   penetrationUpgrade: 2
+  spread: 0
   isUniqueCardOne: 0
+  isOneTimeCard: 0

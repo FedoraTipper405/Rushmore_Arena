@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: PoorWelding
   moveSpeedUpgrade: 0
-  attackDamageUpgrade: -15
-  attackSpeedUpgrade: 0.15
+  attackDamageUpgrade: -0.05
+  attackSpeedUpgrade: 0.2
   healthUpgrade: 0
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
@@ -24,5 +24,6 @@ MonoBehaviour:
   projectileSizeUpgrade: -0.1
   knockBackUpgrade: 0
   penetrationUpgrade: 0
-  spread: 0.15
+  spread: 0.3
   isUniqueCardOne: 0
+  isOneTimeCard: 0

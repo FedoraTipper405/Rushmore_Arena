@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SOStandGround
   m_EditorClassIdentifier: 
   CardName: StandYourGround
-  moveSpeedUpgrade: -100
-  attackDamageUpgrade: 50
+  moveSpeedUpgrade: -10
+  attackDamageUpgrade: 0.3
   attackSpeedUpgrade: -0.05
-  healthUpgrade: 200
+  healthUpgrade: 1.25
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0
@@ -24,4 +24,6 @@ MonoBehaviour:
   projectileSizeUpgrade: 0
   knockBackUpgrade: 0
   penetrationUpgrade: 0
+  spread: 0
   isUniqueCardOne: 0
+  isOneTimeCard: 0

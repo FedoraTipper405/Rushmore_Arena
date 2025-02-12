@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SOPumpedUpKicks
   m_EditorClassIdentifier: 
   CardName: PumpedKicks
-  moveSpeedUpgrade: 0.2
+  moveSpeedUpgrade: 0.25
   attackDamageUpgrade: 0
   attackSpeedUpgrade: 0
-  healthUpgrade: -20
+  healthUpgrade: -0.2
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0
@@ -24,4 +24,6 @@ MonoBehaviour:
   projectileSizeUpgrade: -0.1
   knockBackUpgrade: 0
   penetrationUpgrade: 0
+  spread: 0
   isUniqueCardOne: 0
+  isOneTimeCard: 0
