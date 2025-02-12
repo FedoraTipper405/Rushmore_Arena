@@ -34,7 +34,7 @@ public class BossChase : BossState
             switch (RandomNum)
             {
                 case 0:
-                    boss.StateMachine.ChangeState(boss.ArrowSpiralState);
+                    boss.StateMachine.ChangeState(boss.GroundSlamState);
                     return;
                 case 1:
                     boss.StateMachine.ChangeState(boss.ArrowSpiralState);
