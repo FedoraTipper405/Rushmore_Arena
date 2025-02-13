@@ -13,7 +13,7 @@ public class MBWashingtonPC : MBBasePlayerController
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Start()
     {
         currentBulletSpawn = bulletSpawnRight;
         moveSpeed = StatSO.moveSpeed;
@@ -29,6 +29,7 @@ public class MBWashingtonPC : MBBasePlayerController
         knockBack = StatSO.knockBack;
         penetration = StatSO.penetration;
         projectileSpread = StatSO.spread;
+        base.Start();
     }
 
     public override void Attack()
