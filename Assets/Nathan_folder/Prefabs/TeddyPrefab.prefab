@@ -210,7 +210,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 4453247102240985388, guid: 64b780d22021c2f4089c3bd4eb24ead3, type: 3}
+  m_Sprite: {fileID: -5376359344459708615, guid: c7cb9bae3dee14d40860eb5bd7929afc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -292,7 +292,8 @@ MonoBehaviour:
   moveSpeed: 0
   attackDamage: 0
   attackSpeed: 0
-  maxHealth: 0
+  baseMaxHealth: 0
+  currentMaxHealth: 0
   health: 0
   attackRange: 0
   isRangedAttacker: 0
@@ -303,6 +304,15 @@ MonoBehaviour:
   penetration: 0
   projectileSpread: 0
   hasUniqueCardOne: 0
+  moveSpeedUpgrade: 1
+  attackDamageUpgrade: 1
+  attackSpeedUpgrade: 1
+  healthUpgrade: 1
+  attackRangeUpgrade: 1
+  projectileSpeedUpgrade: 1
+  projectileSizeUpgrade: 1
+  knockbackUpgrade: 1
+  projectileSpreadUpgrade: 1
   spriteRenderer: {fileID: 1436845170367929229}
   _animator: {fileID: 1635747281628161539}
   middleOfArena: {fileID: 0}
@@ -334,7 +344,7 @@ Animator:
   m_GameObject: {fileID: 6739774621204948086}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb90f09f9655b3b40876315b3f3b6fcf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 81631021e1972e9459c65f3d8fa4a56a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

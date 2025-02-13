@@ -48,6 +48,7 @@ public class MBUpgradeManager : MonoBehaviour
     public List<SOUpgradeCards> chosenUpgrades = new List<SOUpgradeCards>();
 
     [SerializeField] GameObject selectionParent;
+    [SerializeField] GameObject upgradeBackground;
     [SerializeField] GameObject[] selectorIcons = new GameObject[3];
 
     [SerializeField] EnemySpawner enemySpawner;
@@ -501,10 +502,12 @@ public class MBUpgradeManager : MonoBehaviour
         if (isUpgrading)
         {
             selectionParent.SetActive(true);
+            upgradeBackground.SetActive(true);
         }
         else
         {
             selectionParent.SetActive(false);
+            upgradeBackground.SetActive(false);
         }
     }
     public void ChangeUpgradingState()
