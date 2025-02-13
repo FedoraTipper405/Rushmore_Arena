@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Enemy-Chase", menuName = "Kyles SOs/Enemy-Chase")]
 public class EnemyChasePlayer : EnemyChaseSOBase
 {
-    public float MovementSpeed = 1f;
+    public float MovementSpeed => baseEnemy.MovementSpeed;
     public float DistanceFromEnemy = 2f;
 
     public override void DoEnterLogic()

@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Enemy-Wander-Before-Charge", menuName = "Kyles SOs/Enemy-Wander-Before-Charge")]
 public class EnemyWanderBeforeCharge : EnemyMovementSOBase
 {
-    [SerializeField] private float MovementSpeed;
+    private float MovementSpeed => baseEnemy.MovementSpeed;
     [SerializeField] private float MovementRange;
     private float _timer;
     [SerializeField] public float _timeUntilStop;

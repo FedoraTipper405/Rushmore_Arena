@@ -10,7 +10,8 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public float MaxHealth => EnemyStatSO.EnemyMaxHealth;
     public float DamageAmount => EnemyStatSO.EnemyDamage;
 
-    public float MovementSpeed = 1f;
+    public float ChargeSpeed;
+    public float MovementSpeed;
     public float CurrentHealth { get; set; }
     public Rigidbody2D RB { get; set; }
     public bool IsFacingRight { get; set; }
@@ -53,6 +54,10 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         IsKnockedBack = false;
         
         IsOnFire = true;
+
+        MovementSpeed = EnemyStatSO.EnemyMovementSpeed;
+
+        ChargeSpeed = EnemyStatSO.EnemyChargeSpeed;
     }
 
     private void Start()
@@ -81,19 +86,19 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public void Damage(float damageAmount)
     {
         CurrentHealth -= damageAmount;
-        StartCoroutine(HitColorFlash());
+        StartCoroutine(HitColorFlash(new Color(0.68f, 0.68f, 0.68f)));
         if (CurrentHealth <= 0f)
         {
             Die();
         }
     }
 
-    IEnumerator HitColorFlash()
+    IEnumerator HitColorFlash(Color flashColor)
     {
-        HitColor.color = new Color(1, 0, 0);
+        Color lastColor = HitColor.color;
+        HitColor.color = flashColor;
         yield return new WaitForSeconds(0.1f);
-        HitColor.color = new Color(1, 1, 1);
-
+        HitColor.color = lastColor;
     }
 
     public void KnockBack(Transform bulletTransform, float knockBackForce)
@@ -122,6 +127,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
                 IsOnFire = false;
                 CurrentHealth -= damageOverTimeAmount;
                 yield return new WaitForSeconds(1f);
+                StartCoroutine(HitColorFlash(new Color(1, 0.5f, 0)));
                 damageOverTimeTicks--;
                 if (CurrentHealth <= 0f)
                 {
@@ -138,11 +144,11 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     IEnumerator FreezeTimer(float speedReductionAmount, float freezeTimer)
     {
+        HitColor.color = new Color(0.05f,0.8f,0.95f);
         MovementSpeed *= speedReductionAmount;
-        Debug.Log(MovementSpeed);
         yield return new WaitForSeconds(freezeTimer);
         MovementSpeed /= speedReductionAmount;
-        Debug.Log(MovementSpeed);
+        HitColor.color = Color.white;
     }
 
     public void Die()

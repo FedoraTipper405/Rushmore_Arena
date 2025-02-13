@@ -5,6 +5,8 @@ public class SOEnemyStats : ScriptableObject
 {
     [SerializeField] public float EnemyMaxHealth;
     [SerializeField] public float EnemyDamage;
+    [SerializeField] public float EnemyMovementSpeed;
+    [SerializeField] public float EnemyChargeSpeed;
     [SerializeField] public float AttackTimer;
     [SerializeField] public float DetectTimer;
     [SerializeField] public float ArrowSpeed;

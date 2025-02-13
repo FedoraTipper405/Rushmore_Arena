@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5744339542382835896}
   - component: {fileID: 8507211378433925280}
   - component: {fileID: -553582382390141555}
+  - component: {fileID: 8669164797855388619}
   m_Layer: 8
   m_Name: RomanBowSoldier
   m_TagString: Untagged
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyStatSO: {fileID: 11400000, guid: 41131922bc4d1e8419e3ffe260c1ba1f, type: 2}
+  MovementSpeed: 1
   EnemyMovementBase: {fileID: 11400000, guid: 4bf6c581971b00f47a9375ba114c9a8e, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: c495a1d18f67e5549a32986e539586a0, type: 2}
   EnemyAnimator: {fileID: -553582382390141555}
@@ -206,6 +208,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8669164797855388619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406854409288136065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e7c057fb6c1c7468d3b4621fb7bb79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectTransform: {fileID: 7466135995152881543}
+  _detectArea: {x: 0.6, y: 2}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &2014355552989622945
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,8 +306,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac3300d65537e0458ca473222e560ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectTransform: {fileID: 7466135995152881543}
-  _detectArea: {x: 0.6, y: 2}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 64

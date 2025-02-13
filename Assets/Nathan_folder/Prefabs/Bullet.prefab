@@ -162,8 +162,8 @@ MonoBehaviour:
   bulletKnockback: 20
   bulletDamageOverTimeAmount: 10
   bulletDamageOverTimeTicks: 4
-  bulletSpeedReductionAmount: 0.1
-  bulletfreezeTimer: 4
+  bulletSpeedReductionAmount: 0.5
+  bulletfreezeTimer: 8
   doesMoreDamageCloseRange: 0
   bulletMovement: {fileID: 4225278301984673359}
   closeRangeDistance: 1.75

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyMaxHealth: 50
   EnemyDamage: 20
+  EnemyMovementSpeed: 1
+  EnemyChargeSpeed: 4
   AttackTimer: 1
   DetectTimer: 1
   ArrowSpeed: 5

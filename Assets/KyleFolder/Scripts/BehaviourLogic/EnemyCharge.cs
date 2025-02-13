@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyCharge : EnemyChaseSOBase
 {
     private Vector3 _lastPosOfPlayer;
-    [SerializeField] public float SpeedOfCharge;
+    private float SpeedOfCharge => baseEnemy.ChargeSpeed;
     private float _timer;
     [SerializeField] public float _timeUntilCharge;
     [SerializeField] private float _distanceToCountExit;

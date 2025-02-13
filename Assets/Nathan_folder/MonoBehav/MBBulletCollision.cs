@@ -40,6 +40,12 @@ public class MBBulletCollision : MonoBehaviour
             }
         }
         
+        IDamageable freeze = collision.gameObject.GetComponent<IDamageable>();
+        if (freeze != null)
+        {
+            freeze.Freeze(bulletSpeedReductionAmount, bulletfreezeTimer);
+        }
+
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
         if(damageable != null)
         {
@@ -57,13 +63,7 @@ public class MBBulletCollision : MonoBehaviour
         if (knockBack != null)
         {
             knockBack.KnockBack(bulletTransform, bulletKnockback);
-        }
-
-        IDamageable freeze = collision.gameObject.GetComponent<IDamageable>();
-        if (freeze != null)
-        {
-            freeze.Freeze(bulletSpeedReductionAmount, bulletfreezeTimer);
-        }
+        }  
 
         if (bulletPooling != null && bulletPenetration <= 0)
         {
