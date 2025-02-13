@@ -71,7 +71,7 @@ public class MBWashingtonPC : MBBasePlayerController
         MBBulletMovement tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
         lastBullet.transform.localScale = new Vector3(projectileSize * Mathf.Clamp(projectileSizeUpgrade, 0.1f, 10), projectileSize * Mathf.Clamp(projectileSizeUpgrade, 0.1f, 10), 0);
         tempBulletCollision.bulletPooling = bulletPoolScript;
-        tempBulletCollision.bulletDamage = attackDamage * Mathf.Clamp(attackDamageUpgrade, 0.1f, 10);
+        tempBulletCollision.bulletDamage = (attackDamage * Mathf.Clamp(attackDamageUpgrade, 0.1f, 10)) / Mathf.Clamp(projectileAmount, 1, 100);
 
         //unique to washington
         tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;
@@ -174,7 +174,7 @@ public class MBWashingtonPC : MBBasePlayerController
                 tempBulletMovement = lastBullet.GetComponent<MBBulletMovement>();
                 lastBullet.transform.localScale = new Vector3(projectileSize * Mathf.Clamp(projectileSizeUpgrade, 0.1f, 10), projectileSize * Mathf.Clamp(projectileSizeUpgrade, 0.1f, 10), 0);
                 tempBulletCollision.bulletPooling = bulletPoolScript;
-                tempBulletCollision.bulletDamage = attackDamage * Mathf.Clamp(attackDamageUpgrade, 0.1f, 10);
+                tempBulletCollision.bulletDamage = (attackDamage * Mathf.Clamp(attackDamageUpgrade, 0.1f, 10)) / Mathf.Clamp(projectileAmount, 1, 100);
 
                 //unique to washington
                 tempBulletCollision.doesMoreDamageCloseRange = hasUniqueCardOne;

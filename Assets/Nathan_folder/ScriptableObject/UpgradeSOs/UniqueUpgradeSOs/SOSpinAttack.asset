@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26604bcd13e86a5458791746f29a7aa5, type: 3}
-  m_Name: SOBayonetUp
+  m_Name: SOSpinAttack
   m_EditorClassIdentifier: 
-  CardName: Bayonet
+  CardName: SpinAtk
   moveSpeedUpgrade: 0
-  attackDamageUpgrade: 0
-  attackSpeedUpgrade: 0
-  healthUpgrade: 0.2
+  attackDamageUpgrade: -0.1
+  attackSpeedUpgrade: 0.08
+  healthUpgrade: 0.05
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0

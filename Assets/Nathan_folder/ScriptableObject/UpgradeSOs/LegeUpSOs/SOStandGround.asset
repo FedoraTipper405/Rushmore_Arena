@@ -26,4 +26,4 @@ MonoBehaviour:
   penetrationUpgrade: 0
   spread: 0
   isUniqueCardOne: 0
-  isOneTimeCard: 0
+  isOneTimeCard: 1
