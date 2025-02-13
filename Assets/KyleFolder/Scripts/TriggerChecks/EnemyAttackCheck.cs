@@ -13,6 +13,7 @@ public class EnemyAttackCheck : MonoBehaviour
     [SerializeField] private Transform _detectTransform;
     [SerializeField] private Vector2 _detectArea;
     [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private GameObject _slashEffect;
 
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class EnemyAttackCheck : MonoBehaviour
         if (collision.gameObject == PlayerTarget)
         {
             StartCoroutine(CanAttackAgain());
+            StartCoroutine(SlashEffectTimer());
             _collider.enabled = false;
             _baseEnemy.EnemyAnimator.SetTrigger("Attack");
         }
@@ -61,6 +63,14 @@ public class EnemyAttackCheck : MonoBehaviour
         yield return new WaitForSeconds(_detectTimer);
         _canDetect = true;
     }
+
+    private IEnumerator SlashEffectTimer()
+    {
+        _slashEffect.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        _slashEffect.SetActive(false);
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;

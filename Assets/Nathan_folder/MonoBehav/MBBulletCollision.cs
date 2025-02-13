@@ -8,6 +8,8 @@ public class MBBulletCollision : MonoBehaviour
     public float bulletKnockback;
     public float bulletDamageOverTimeAmount;
     public float bulletDamageOverTimeTicks;
+    public float bulletSpeedReductionAmount;
+    public float bulletfreezeTimer;
     public bool doesMoreDamageCloseRange = false;
     [SerializeField] MBBulletMovement bulletMovement;
     [SerializeField] private float closeRangeDistance = 2;
@@ -55,6 +57,12 @@ public class MBBulletCollision : MonoBehaviour
         if (knockBack != null)
         {
             knockBack.KnockBack(bulletTransform, bulletKnockback);
+        }
+
+        IDamageable freeze = collision.gameObject.GetComponent<IDamageable>();
+        if (freeze != null)
+        {
+            freeze.Freeze(bulletSpeedReductionAmount, bulletfreezeTimer);
         }
 
         if (bulletPooling != null && bulletPenetration <= 0)

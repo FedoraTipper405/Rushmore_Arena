@@ -18,6 +18,8 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
     # endregion
 
     public GameObject ArrowPrefab => BossStatSO.ArrowPrefab;
+    
+    public Animator BossAnimator;
 
     private void Awake()
     {
@@ -62,6 +64,10 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
     }
 
     public void KnockBack(Transform bulletTransform, float knockBackForce)
+    {
+
+    }
+    public void Freeze(float speedReductionAmount, float freezeTimer)
     {
 
     }

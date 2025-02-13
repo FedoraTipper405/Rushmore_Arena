@@ -9,6 +9,8 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public SOEnemyStats EnemyStatSO;
     public float MaxHealth => EnemyStatSO.EnemyMaxHealth;
     public float DamageAmount => EnemyStatSO.EnemyDamage;
+
+    public float MovementSpeed = 1f;
     public float CurrentHealth { get; set; }
     public Rigidbody2D RB { get; set; }
     public bool IsFacingRight { get; set; }
@@ -27,6 +29,8 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public bool ObjectInWay { get; set; }
     
     public Animator EnemyAnimator;
+
+    public SpriteRenderer HitColor;
 
     public MBWaveManager waveManager;
 
@@ -77,11 +81,19 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public void Damage(float damageAmount)
     {
         CurrentHealth -= damageAmount;
-
+        StartCoroutine(HitColorFlash());
         if (CurrentHealth <= 0f)
         {
             Die();
         }
+    }
+
+    IEnumerator HitColorFlash()
+    {
+        HitColor.color = new Color(1, 0, 0);
+        yield return new WaitForSeconds(0.1f);
+        HitColor.color = new Color(1, 1, 1);
+
     }
 
     public void KnockBack(Transform bulletTransform, float knockBackForce)
@@ -118,6 +130,19 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
             }
             IsOnFire = true;
         }
+    }
+    public void Freeze(float speedReductionAmount, float freezeTimer)
+    {
+        StartCoroutine(FreezeTimer(speedReductionAmount, freezeTimer));
+    }
+
+    IEnumerator FreezeTimer(float speedReductionAmount, float freezeTimer)
+    {
+        MovementSpeed *= speedReductionAmount;
+        Debug.Log(MovementSpeed);
+        yield return new WaitForSeconds(freezeTimer);
+        MovementSpeed /= speedReductionAmount;
+        Debug.Log(MovementSpeed);
     }
 
     public void Die()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a102acf75a7d46448df1363e9ee53ef, type: 3}
   m_Name: RomanSwordSoldierStats
   m_EditorClassIdentifier: 
-  EnemyMaxHealth: 50
+  EnemyMaxHealth: 100
   EnemyDamage: 20
   AttackTimer: 1
   DetectTimer: 1

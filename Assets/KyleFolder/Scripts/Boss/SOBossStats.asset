@@ -15,14 +15,14 @@ MonoBehaviour:
   BossMaxHealth: 100
   BossMeleeDamage: 20
   ArrowDamage: 10
-  ArrowSpeed: 8
+  ArrowSpeed: 6
   MovementSpeed: 1
   TimeUntilStateChange: 3
   ChargeSpeed: 10
-  TimeUntilCharge: 1
+  TimeUntilCharge: 0.5
   DistanceCheck: 2
   RadiusOfGroundSlam: 4
   NumberOfArrowsSpiral: 8
   NumberOfArrowsBurst: 5
-  TimeUntilFireArrow: 2
+  TimeUntilFireArrow: 1
   ArrowPrefab: {fileID: 1491379982255337961, guid: 5306095b213863b428d9c1cb5cce531a, type: 3}

@@ -7,6 +7,7 @@ public class BossArrowSpiral : BossState
     private float _timeUntilFire => boss.BossStatSO.TimeUntilFireArrow;
 
     private const float radius = 1f;
+    private int ShotTimes;
     private float _timer;
 
     public BossArrowSpiral(Boss boss, BossStateMachine bossStateMachine) : base(boss, bossStateMachine) { }
@@ -15,7 +16,7 @@ public class BossArrowSpiral : BossState
     {
         base.EnterState();
         boss.MoveEnemy(Vector2.zero);
-        SpawnArrows(_numberOfArrows);
+        ShotTimes = 0;
         _timer = 0f;
     }
 
@@ -36,6 +37,7 @@ public class BossArrowSpiral : BossState
 
     private void SpawnArrows(int numberOfArrows)
     {
+        boss.BossAnimator.SetTrigger("ArrowShot");
         float angleStep = 360f / numberOfArrows;
         float angle = Random.Range(0, 360/numberOfArrows);
 
@@ -53,8 +55,12 @@ public class BossArrowSpiral : BossState
             tempArrow.transform.rotation = Quaternion.Euler(0, 0, rot + 180);
 
             angle += angleStep;
+        }
+        _timer = 0f;
+        ShotTimes++;
+        if (ShotTimes >= 3)
+        {
             boss.StateMachine.ChangeState(boss.ChaseState);
-            _timer = 0f;
         }
     }
 }

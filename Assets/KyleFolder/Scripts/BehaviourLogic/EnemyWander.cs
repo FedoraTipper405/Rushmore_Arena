@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Enemy-Wander", menuName = "Kyles SOs/Enemy-Wander")]
 public class EnemyWander : EnemyMovementSOBase
 {
-    [SerializeField] private float MovementSpeed;
+    private float MovementSpeed => baseEnemy.MovementSpeed;
     [SerializeField] private float MovementRange;
 
     private Vector3 _targetPos;
