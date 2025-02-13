@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689c1b636d14b31459dc81b65eb63b57, type: 3}
   m_Name: SOWashington
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 0.85
   attackDamage: 20
   attackSpeed: 0.65
-  health: 100
+  health: 120
   attackRange: 9
   isRangedAttacker: 1
   projectileAmount: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: BasicDMG
   moveSpeedUpgrade: 0
-  attackDamageUpgrade: 0.15
+  attackDamageUpgrade: 0.2
   attackSpeedUpgrade: 0
   healthUpgrade: 0
   attackRangeUpgrade: 0

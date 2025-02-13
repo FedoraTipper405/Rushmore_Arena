@@ -55,7 +55,7 @@ public class MBUpgradeManager : MonoBehaviour
     [SerializeField]GameObject UpgradingTimeText;
 
 
-
+    private bool canReshuffle = true;
 
 
     
@@ -108,8 +108,13 @@ public class MBUpgradeManager : MonoBehaviour
     }
     public void Reshuffle()
     {
-        enemySpawner.difficultyCounter++;
-        RandomizeThreeUpgrades();
+        if (canReshuffle)
+        {
+            enemySpawner.difficultyCounter++;
+            canReshuffle = false;
+            RandomizeThreeUpgrades();
+        }
+        
     }
     public void ChangeSelectedUpgrade(Vector2 input)
     {
@@ -212,6 +217,7 @@ public class MBUpgradeManager : MonoBehaviour
                     }
                 }
             }
+            canReshuffle = true;
             ChangeUpgradingState();
         }
     }
