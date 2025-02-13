@@ -52,7 +52,7 @@ public class MBBulletCollision : MonoBehaviour
         {
             if (isDragonsBreath)
             {
-                damageableOverTime.DamageOverTime(bulletDamage/6, bulletDamageOverTimeTicks);
+                damageableOverTime.DamageOverTime(bulletDamage/2, bulletDamageOverTimeTicks);
             }
         }
 
