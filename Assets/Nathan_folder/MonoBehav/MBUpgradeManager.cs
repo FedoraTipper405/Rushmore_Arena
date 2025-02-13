@@ -17,9 +17,9 @@ public class MBUpgradeManager : MonoBehaviour
      List<SOUpgradeCards> jeffyUpgradeSOList = new List<SOUpgradeCards>();
 
     [SerializeField] GameObject[] presidentUniqueCardsOne = new GameObject[4];
-    SOUpgradeCards[] presidentUniqueCardsSOsOne = new SOUpgradeCards[4];
-    GameObject currentPresidentUniqueCardOne;
-    SOUpgradeCards currentPresidentsUniqueCardSOOne;
+    //SOUpgradeCards[] presidentUniqueCardsSOsOne = new SOUpgradeCards[4];
+    //GameObject currentPresidentUniqueCardOne;
+    //SOUpgradeCards currentPresidentsUniqueCardSOOne;
 
     public int currentSelectedUpgrade = 0;
 
@@ -48,6 +48,7 @@ public class MBUpgradeManager : MonoBehaviour
     public List<SOUpgradeCards> chosenUpgrades = new List<SOUpgradeCards>();
 
     [SerializeField] GameObject selectionParent;
+    [SerializeField] GameObject upgradeBackground;
     [SerializeField] GameObject[] selectorIcons = new GameObject[3];
 
     [SerializeField] EnemySpawner enemySpawner;
@@ -55,7 +56,7 @@ public class MBUpgradeManager : MonoBehaviour
     [SerializeField]GameObject UpgradingTimeText;
 
 
-
+    private bool canReshuffle = true;
 
 
     
@@ -71,8 +72,8 @@ public class MBUpgradeManager : MonoBehaviour
             {
                 selectedPresident = presidentControllers[i];
                 selectedPresidentIndex = i;
-                currentPresidentUniqueCardOne = presidentUniqueCardsOne[i];
-                currentPresidentsUniqueCardSOOne = presidentUniqueCardsOne[i].GetComponent<MBHoldUpgradeSO>().upgradeSO;
+                //currentPresidentUniqueCardOne = presidentUniqueCardsOne[i];
+                //currentPresidentsUniqueCardSOOne = presidentUniqueCardsOne[i].GetComponent<MBHoldUpgradeSO>().upgradeSO;
                 
             }
         }
@@ -103,6 +104,16 @@ public class MBUpgradeManager : MonoBehaviour
             {
                 jeffyUpgradeSOList.Add(jeffyUpgradeCardList[i].GetComponent<MBHoldUpgradeSO>().upgradeSO);
             }
+        }
+        
+    }
+    public void Reshuffle()
+    {
+        if (canReshuffle)
+        {
+            enemySpawner.difficultyCounter++;
+            canReshuffle = false;
+            RandomizeThreeUpgrades();
         }
         
     }
@@ -207,6 +218,7 @@ public class MBUpgradeManager : MonoBehaviour
                     }
                 }
             }
+            canReshuffle = true;
             ChangeUpgradingState();
         }
     }
@@ -478,7 +490,10 @@ public class MBUpgradeManager : MonoBehaviour
         //added upgrades
         selectedPresident.projectileAmount += selectedUpgrade.projectileAmountUpgrade;
         selectedPresident.penetration += selectedUpgrade.penetrationUpgrade;
-        selectedPresident.hasUniqueCardOne = selectedUpgrade.isUniqueCardOne;
+        if (selectedUpgrade.isUniqueCardOne)
+        {
+            selectedPresident.hasUniqueCardOne = selectedUpgrade.isUniqueCardOne;
+        }
 
         Debug.Log(" moveSpeed - " + selectedPresident.moveSpeed * Mathf.Clamp(selectedPresident.moveSpeedUpgrade,0,10) + " atkDmg - " + selectedPresident.attackDamage * Mathf.Clamp(selectedPresident.attackDamageUpgrade, 0, 10) + " atkSpd - " + selectedPresident.attackSpeed * Mathf.Clamp(selectedPresident.attackSpeedUpgrade, 0, 10) + " atkrng - " + selectedPresident.attackRange * Mathf.Clamp(selectedPresident.attackRangeUpgrade, 0, 10) + " prjSpeed - " + selectedPresident.projectileSpeed * Mathf.Clamp(selectedPresident.projectileSpeedUpgrade, 0, 10) + " PrjSize - " + selectedPresident.projectileSize * Mathf.Clamp(selectedPresident.projectileSizeUpgrade, 0, 10) + " kb - " + selectedPresident.knockBack * Mathf.Clamp(selectedPresident.knockbackUpgrade, 0, 10) + " prjSpread - " + selectedPresident.projectileSpread * Mathf.Clamp(selectedPresident.projectileSpreadUpgrade, 0, 10) + " health - " + selectedPresident.baseMaxHealth * Mathf.Clamp(selectedPresident.healthUpgrade, 0, 10) + " prjamount - " + selectedPresident.projectileAmount+ " penetration - " + selectedPresident.penetration);
     }
@@ -487,10 +502,12 @@ public class MBUpgradeManager : MonoBehaviour
         if (isUpgrading)
         {
             selectionParent.SetActive(true);
+            upgradeBackground.SetActive(true);
         }
         else
         {
             selectionParent.SetActive(false);
+            upgradeBackground.SetActive(false);
         }
     }
     public void ChangeUpgradingState()
@@ -542,9 +559,10 @@ public class MBUpgradeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.U))
         {
-            ChangeUpgradingState();
-        }*/
+           Reshuffle();
+        }
+
     }
 }

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689c1b636d14b31459dc81b65eb63b57, type: 3}
   m_Name: SOTeddy
   m_EditorClassIdentifier: 
-  moveSpeed: 0.8
-  attackDamage: 20
-  attackSpeed: 0.7
-  health: 120
+  moveSpeed: 0.65
+  attackDamage: 25
+  attackSpeed: 1
+  health: 100
   attackRange: 4.5
   isRangedAttacker: 1
   projectileAmount: 5

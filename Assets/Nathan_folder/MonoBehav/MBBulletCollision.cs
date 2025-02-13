@@ -11,6 +11,8 @@ public class MBBulletCollision : MonoBehaviour
     public float bulletSpeedReductionAmount;
     public float bulletfreezeTimer;
     public bool doesMoreDamageCloseRange = false;
+    public bool hasSlowEffect = false;
+    public bool isDragonsBreath = false;
     [SerializeField] MBBulletMovement bulletMovement;
     [SerializeField] private float closeRangeDistance = 2;
     private Transform bulletTransform;
@@ -56,7 +58,10 @@ public class MBBulletCollision : MonoBehaviour
         IDamageable damageableOverTime = collision.gameObject.GetComponent<IDamageable>();
         if (damageableOverTime != null)
         {
-            damageableOverTime.DamageOverTime(bulletDamageOverTimeAmount, bulletDamageOverTimeTicks);
+            if (isDragonsBreath)
+            {
+                damageableOverTime.DamageOverTime(bulletDamage/2, bulletDamageOverTimeTicks);
+            }
         }
 
         IDamageable knockBack = collision.gameObject.GetComponent<IDamageable>();

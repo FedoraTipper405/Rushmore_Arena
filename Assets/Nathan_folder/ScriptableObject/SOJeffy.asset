@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689c1b636d14b31459dc81b65eb63b57, type: 3}
   m_Name: SOJeffy
   m_EditorClassIdentifier: 
-  moveSpeed: 1.3
+  moveSpeed: 1.1
   attackDamage: 30
   attackSpeed: 0.45
-  health: 150
+  health: 140
   attackRange: 3
   isRangedAttacker: 0
   projectileAmount: 0

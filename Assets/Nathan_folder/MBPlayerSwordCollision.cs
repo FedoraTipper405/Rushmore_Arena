@@ -22,5 +22,10 @@ public class MBPlayerSwordCollision : MonoBehaviour
             damageable.Damage(JeffyPc.attackDamage * Mathf.Clamp(JeffyPc.attackDamageUpgrade, 0.05f, 10));
             Debug.Log(JeffyPc.attackDamage * Mathf.Clamp(JeffyPc.attackDamageUpgrade,0.05f, 10));
         }
+        IDamageable knockBack = collision.gameObject.GetComponent<IDamageable>();
+        if (knockBack != null)
+        {
+            knockBack.KnockBack(this.transform, JeffyPc.knockBack * Mathf.Clamp(JeffyPc.knockbackUpgrade,0.05f,50));
+        }
     }
 }

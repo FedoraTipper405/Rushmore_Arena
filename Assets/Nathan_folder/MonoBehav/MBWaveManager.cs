@@ -13,7 +13,7 @@ public class MBWaveManager : MonoBehaviour
     [SerializeField] private TMP_Text Wave;
 
     //temp solution. Needs to be fixed for when there is more that one president
-    [SerializeField] private MBBasePlayerController playerController;
+    [SerializeField] public MBBasePlayerController playerController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

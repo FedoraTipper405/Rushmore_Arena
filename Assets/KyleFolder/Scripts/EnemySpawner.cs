@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private bool[] isSpawningType = new bool[5];
 
-    [SerializeField] MBWaveManager waveManager;
+    [SerializeField]  MBWaveManager waveManager;
     //private int _swordSpawns; 0
     //private int _spearSpawns; 1
     //private int _rhinoSpawns; 2
