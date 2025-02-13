@@ -2126,6 +2126,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 58658814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1228979449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4433041820197402830, guid: 95d45f457ef95684ab150b311d489a50, type: 3}
+  m_PrefabInstance: {fileID: 8642889178499219550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1302212410
 GameObject:
   m_ObjectHideFlags: 0
@@ -3474,6 +3479,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 594784211660490648, guid: 95d45f457ef95684ab150b311d489a50, type: 3}
+      propertyPath: m_Radius
+      value: 2.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 594784211660490648, guid: 95d45f457ef95684ab150b311d489a50, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3353123558080398563, guid: 95d45f457ef95684ab150b311d489a50, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.02
@@ -3522,6 +3535,14 @@ PrefabInstance:
       propertyPath: middleOfArena
       value: 
       objectReference: {fileID: 1413875777}
+    - target: {fileID: 4293540655553278702, guid: 95d45f457ef95684ab150b311d489a50, type: 3}
+      propertyPath: FullAttackCircle
+      value: 
+      objectReference: {fileID: 1228979449}
+    - target: {fileID: 4433041820197402830, guid: 95d45f457ef95684ab150b311d489a50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5352786354308615506, guid: 95d45f457ef95684ab150b311d489a50, type: 3}
       propertyPath: upgradeManager
       value: 

@@ -13,6 +13,8 @@ public class MBJeffyPC : MBBasePlayerController
     [SerializeField] GameObject RightUpAttackCollider;
     [SerializeField] GameObject RightDownAttackCollider;
 
+    [SerializeField] GameObject FullAttackCircle;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,47 +35,54 @@ public class MBJeffyPC : MBBasePlayerController
     public override void Attack()
     {
         //right attack
-        if (currentShootDirection.x > 0)
+        if (hasUniqueCardOne)
         {
-            if(currentShootDirection.y == 0)
-            {
-                StartCoroutine(AttackColliderOn(RightAttackCollider));
-            }
-            else if(currentShootDirection.y > 0)
-            {
-                StartCoroutine(AttackColliderOn(RightUpAttackCollider));
-            }
-            else
-            {
-                StartCoroutine(AttackColliderOn(RightDownAttackCollider));
-            }
-        } 
-        //left attack
-        else if(currentShootDirection.x < 0)
-        {
-            if (currentShootDirection.y == 0)
-            {
-                StartCoroutine(AttackColliderOn(LeftAttackCollider));
-            }
-            else if (currentShootDirection.y > 0)
-            {
-                StartCoroutine(AttackColliderOn(LeftUpAttackCollider));
-            }
-            else
-            {
-                StartCoroutine(AttackColliderOn(LeftDownAttackCollider));
-            }
+            StartCoroutine(AttackColliderOn(FullAttackCircle));
         }
-        //up or down
         else
         {
-            if(currentShootDirection.y > 0)
+            if (currentShootDirection.x > 0)
             {
-                StartCoroutine(AttackColliderOn(UpAttackCollider));
+                if (currentShootDirection.y == 0)
+                {
+                    StartCoroutine(AttackColliderOn(RightAttackCollider));
+                }
+                else if (currentShootDirection.y > 0)
+                {
+                    StartCoroutine(AttackColliderOn(RightUpAttackCollider));
+                }
+                else
+                {
+                    StartCoroutine(AttackColliderOn(RightDownAttackCollider));
+                }
             }
+            //left attack
+            else if (currentShootDirection.x < 0)
+            {
+                if (currentShootDirection.y == 0)
+                {
+                    StartCoroutine(AttackColliderOn(LeftAttackCollider));
+                }
+                else if (currentShootDirection.y > 0)
+                {
+                    StartCoroutine(AttackColliderOn(LeftUpAttackCollider));
+                }
+                else
+                {
+                    StartCoroutine(AttackColliderOn(LeftDownAttackCollider));
+                }
+            }
+            //up or down
             else
             {
-                StartCoroutine(AttackColliderOn(DownAttackCollider));
+                if (currentShootDirection.y > 0)
+                {
+                    StartCoroutine(AttackColliderOn(UpAttackCollider));
+                }
+                else
+                {
+                    StartCoroutine(AttackColliderOn(DownAttackCollider));
+                }
             }
         }
     }
