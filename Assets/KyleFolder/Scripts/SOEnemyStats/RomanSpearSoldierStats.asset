@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RomanSpearSoldierStats
   m_EditorClassIdentifier: 
   EnemyMaxHealth: 70
-  EnemyDamage: 20
-  EnemyMovementSpeed: 1.5
+  EnemyDamage: 15
+  EnemyMovementSpeed: 1.2
   EnemyChargeSpeed: 4
   AttackTimer: 1
   DetectTimer: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LionStats
   m_EditorClassIdentifier: 
   EnemyMaxHealth: 50
-  EnemyDamage: 30
+  EnemyDamage: 20
   EnemyMovementSpeed: 2
   EnemyChargeSpeed: 4
   AttackTimer: 1

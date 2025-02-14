@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RomanSwordSoldierStats
   m_EditorClassIdentifier: 
   EnemyMaxHealth: 85
-  EnemyDamage: 25
+  EnemyDamage: 15
   EnemyMovementSpeed: 1.5
   EnemyChargeSpeed: 4
   AttackTimer: 1
