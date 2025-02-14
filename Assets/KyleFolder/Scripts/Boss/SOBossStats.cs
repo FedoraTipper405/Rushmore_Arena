@@ -15,6 +15,10 @@ public class SOBossStats : ScriptableObject
     [SerializeField] public float RadiusOfGroundSlam;
     [SerializeField] public int NumberOfArrowsSpiral;
     [SerializeField] public int NumberOfArrowsBurst;
+    [SerializeField] public int ArrowBurstTimes;
+    [SerializeField] public int ArrowSpiralTimes;
     [SerializeField] public float TimeUntilFireArrow;
+    [SerializeField] public float CantReachPlayerTimer;
+    [SerializeField] public int NumberOfCharges;
     [SerializeField] public GameObject ArrowPrefab;
 }

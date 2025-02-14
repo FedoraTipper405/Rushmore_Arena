@@ -20,9 +20,13 @@ MonoBehaviour:
   TimeUntilStateChange: 3
   ChargeSpeed: 10
   TimeUntilCharge: 0.5
-  DistanceCheck: 2
+  DistanceCheck: 0.2
   RadiusOfGroundSlam: 4
   NumberOfArrowsSpiral: 8
   NumberOfArrowsBurst: 5
+  ArrowBurstTimes: 3
+  ArrowSpiralTimes: 3
   TimeUntilFireArrow: 1
+  CantReachPlayerTimer: 3
+  NumberOfCharges: 4
   ArrowPrefab: {fileID: 1491379982255337961, guid: 5306095b213863b428d9c1cb5cce531a, type: 3}

@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c0f737e8bb262408403fd221149a7c, type: 3}
   m_Name: Enemy-Charge Player
   m_EditorClassIdentifier: 
-  SpeedOfCharge: 5
   _timeUntilCharge: 0.5
   _distanceToCountExit: 1

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7725113631402693494}
   - component: {fileID: 6393367184336334513}
   - component: {fileID: 7392700293669669049}
-  - component: {fileID: 2402923991263391775}
   - component: {fileID: 97886099743857826}
+  - component: {fileID: 4212940273552790266}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -181,18 +181,6 @@ MonoBehaviour:
   BossStatSO: {fileID: 11400000, guid: 632123689c849bf41b2467f607f57ceb, type: 2}
   BossAnimator: {fileID: 97886099743857826}
   GroundSlamIndicator: {fileID: 2688580527660398388}
---- !u!114 &2402923991263391775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240107356636800206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8065ce2791011c44fafa51c5d463aaab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &97886099743857826
 Animator:
   serializedVersion: 7
@@ -215,6 +203,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4212940273552790266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240107356636800206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a277690d23ff3c40a2922a766535539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2688580527660398388
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,11 @@ public class BossArrowSpiral : BossState
     private int _numberOfArrows => boss.BossStatSO.NumberOfArrowsSpiral;
     private float _arrowSpeed => boss.BossStatSO.ArrowSpeed;
     private float _timeUntilFire => boss.BossStatSO.TimeUntilFireArrow;
+    private float _arrowDamage => boss.BossStatSO.ArrowDamage;
+    private int _arrowSpiralTimes => boss.BossStatSO.ArrowSpiralTimes;
 
     private const float radius = 1f;
-    private int ShotTimes;
+    private int _shotTimes;
     private float _timer;
 
     public BossArrowSpiral(Boss boss, BossStateMachine bossStateMachine) : base(boss, bossStateMachine) { }
@@ -16,7 +18,7 @@ public class BossArrowSpiral : BossState
     {
         base.EnterState();
         boss.MoveEnemy(Vector2.zero);
-        ShotTimes = 0;
+        _shotTimes = 0;
         _timer = 0f;
     }
 
@@ -49,16 +51,17 @@ public class BossArrowSpiral : BossState
             Vector3 arrowVector = new Vector3(arrowDirectionXPosition, arrowDirectionYPosition, 0);
             Vector3 arrowMoveDirection = (arrowVector - boss.transform.position).normalized * _arrowSpeed;
             
-            GameObject tempArrow = GameObject.Instantiate(boss.ArrowPrefab, boss.transform.position, Quaternion.identity);
-            tempArrow.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(arrowMoveDirection.x, arrowMoveDirection.y, 0);
+            GameObject shotArrow = GameObject.Instantiate(boss.ArrowPrefab, boss.transform.position, Quaternion.identity);
+            shotArrow.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(arrowMoveDirection.x, arrowMoveDirection.y, 0);
+            shotArrow.GetComponent<ArrowLogic>().arrowDamage = _arrowDamage;
             float rot = Mathf.Atan2(-arrowMoveDirection.y, -arrowMoveDirection.x) * Mathf.Rad2Deg;
-            tempArrow.transform.rotation = Quaternion.Euler(0, 0, rot + 180);
+            shotArrow.transform.rotation = Quaternion.Euler(0, 0, rot + 180);
 
             angle += angleStep;
         }
         _timer = 0f;
-        ShotTimes++;
-        if (ShotTimes >= 3)
+        _shotTimes++;
+        if (_shotTimes >= _arrowSpiralTimes)
         {
             boss.StateMachine.ChangeState(boss.ChaseState);
         }
