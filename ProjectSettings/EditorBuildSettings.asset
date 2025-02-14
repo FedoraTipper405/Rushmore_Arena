@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/KyleFolder/Scenes/OptionsMenu.unity
     guid: b6589a2eb3b592b46b4f349e9a090f8b
+  - enabled: 1
+    path: Assets/Nathan_folder/FinalGameScene.unity
+    guid: 02dcd3c59aee3d84596e5c569f83ea3b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

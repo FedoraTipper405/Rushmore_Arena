@@ -123,7 +123,7 @@ public class MBNewMenu : MonoBehaviour
                         volumeSettings.backgroundVolume = sliders[selectedIndex].value;
                     }
                     else if (selectedIndex == 2)
-                    {
+                { 
                     if (input.x < 0)
                     {
                         difficultyValue--;
@@ -170,28 +170,31 @@ public class MBNewMenu : MonoBehaviour
                 selectedIndex--;
                 if (selectedIndex < 0)
                 {
-                    selectedIndex = framesForCharselect.Length - 1;
+                    selectedIndex = framesForCharselect.Length - 2;
                 }
             }
             else if (input.x > 0)
             {
                 selectedIndex++;
-                if (selectedIndex >= framesForCharselect.Length)
+                if (selectedIndex >= framesForCharselect.Length - 1)
                 {
                     selectedIndex = 0;
                 }
             }
+            charSelectState.sprite = framesForCharselect[selectedIndex];
             if(input.y != 0)
             {
                 
                 if(selectedIndex < 4)
                 {
                     selectedIndex = 4;
+                    charSelectState.sprite = framesForCharselect[selectedIndex];
                     charSelectBackButton.color = new Color(buttonIntensity, buttonIntensity, buttonIntensity);
                 }
                 else
                 {
                     selectedIndex = 0;
+                    charSelectState.sprite = framesForCharselect[selectedIndex];
                     charSelectBackButton.color = new Color(1, 1, 1);
                 }
             }
@@ -243,6 +246,9 @@ public class MBNewMenu : MonoBehaviour
             {
                 selectedPres.selectedPresidentIndex = 2;
                 SceneManager.LoadScene("FinalGameScene");
+            }else if(selectedIndex == 4)
+            {
+                SceneManager.LoadScene("RushmoreMainMenu");
             }
         }
 

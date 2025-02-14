@@ -393,7 +393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -629996422375855428, guid: d4c27a868a787424b92bfa3ffdc307ef, type: 3}
+  m_Sprite: {fileID: 6410328079085438446, guid: 8d6796a48755aee4ea016296a2f7e1b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -459,17 +459,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuButtons: []
   framesForCharselect:
-  - {fileID: -629996422375855428, guid: d4c27a868a787424b92bfa3ffdc307ef, type: 3}
-  - {fileID: -7818044094305717356, guid: d4c27a868a787424b92bfa3ffdc307ef, type: 3}
-  - {fileID: -3910466147613936417, guid: d4c27a868a787424b92bfa3ffdc307ef, type: 3}
-  - {fileID: 5510043805218980724, guid: d4c27a868a787424b92bfa3ffdc307ef, type: 3}
+  - {fileID: 6410328079085438446, guid: 8d6796a48755aee4ea016296a2f7e1b7, type: 3}
+  - {fileID: 1925793545343855510, guid: 8d6796a48755aee4ea016296a2f7e1b7, type: 3}
+  - {fileID: -3850574818092217295, guid: 8d6796a48755aee4ea016296a2f7e1b7, type: 3}
+  - {fileID: -5851519849555759144, guid: 8d6796a48755aee4ea016296a2f7e1b7, type: 3}
+  - {fileID: 350618394782477133, guid: 8d6796a48755aee4ea016296a2f7e1b7, type: 3}
   charSelectState: {fileID: 1742113287}
   charSelectBackButton: {fileID: 1958329470}
   selectedPres: {fileID: 11400000, guid: e57807b86ce20e14282fa919eb0bafc0, type: 2}
   soDifficulty: {fileID: 0}
   volumeSettings: {fileID: 0}
   sliders: []
-  buttonIntensity: 0
+  buttonIntensity: 0.6
   difficultyText: {fileID: 0}
   menuIndex: 1
 --- !u!114 &1879970701
