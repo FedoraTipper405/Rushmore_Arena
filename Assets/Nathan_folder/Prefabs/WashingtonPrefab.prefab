@@ -15,14 +15,14 @@ GameObject:
   - component: {fileID: 1444339123119469800}
   - component: {fileID: 8223043867426963367}
   - component: {fileID: 346407237865184801}
-  - component: {fileID: 6908038814438544122}
+  - component: {fileID: 1225354438394595991}
   m_Layer: 3
   m_Name: WashingtonPrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1274696153337142022
 Transform:
   m_ObjectHideFlags: 0
@@ -40,6 +40,10 @@ Transform:
   - {fileID: 7938641101400127567}
   - {fileID: 3064818063418763668}
   - {fileID: 3374454861873053334}
+  - {fileID: 5177601726052127432}
+  - {fileID: 1654440917300780603}
+  - {fileID: 393640330422341400}
+  - {fileID: 4427333927575022585}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8736174567393708941
@@ -161,13 +165,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3100145603139117077, guid: cded7b439d21a2a42966d2dc844a5c63, type: 3}
   isAttacking: 0
+  isUpgrading: 0
   lastMoveDirection: {x: 0, y: 0, z: 0}
   currentShootDirection: {x: 1, y: 0, z: 0}
   StatSO: {fileID: 11400000, guid: 95ef367998d86c0458ce7cd57a94b5c5, type: 2}
   moveSpeed: 0
   attackDamage: 0
   attackSpeed: 0
-  maxHealth: 0
+  baseMaxHealth: 0
+  currentMaxHealth: 0
   health: 0
   attackRange: 0
   isRangedAttacker: 0
@@ -177,16 +183,26 @@ MonoBehaviour:
   knockBack: 0
   penetration: 0
   projectileSpread: 0
-  hasUniqueCardOne: 1
+  hasUniqueCardOne: 0
+  moveSpeedUpgrade: 1
+  attackDamageUpgrade: 1
+  attackSpeedUpgrade: 1
+  healthUpgrade: 1
+  attackRangeUpgrade: 1
+  projectileSpeedUpgrade: 1
+  projectileSizeUpgrade: 1
+  knockbackUpgrade: 1
+  projectileSpreadUpgrade: 1
   spriteRenderer: {fileID: 8736174567393708941}
   _animator: {fileID: 346407237865184801}
   middleOfArena: {fileID: 0}
   healthBar: {fileID: 0}
+  HitColor: {fileID: 8736174567393708941}
   bulletPoolScript: {fileID: 8223043867426963367}
-  bulletSpawnLeft: {fileID: 8199458955320002410}
-  bulletSpawnRight: {fileID: 2095223703898525279}
-  bulletSpawnUp: {fileID: 4832320316364555109}
-  bulletSpawnDown: {fileID: 6825616814604262861}
+  bulletSpawnLeft: {fileID: 1005972857986377966}
+  bulletSpawnRight: {fileID: 4699275843550743584}
+  bulletSpawnUp: {fileID: 843589283002625915}
+  bulletSpawnDown: {fileID: 2539478501486997589}
 --- !u!114 &8223043867426963367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +237,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &6908038814438544122
+--- !u!50 &1225354438394595991
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -248,6 +264,68 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1 &843589283002625915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 393640330422341400}
+  m_Layer: 3
+  m_Name: BulletSpawnUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &393640330422341400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843589283002625915}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.153, y: 1.716, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1274696153337142022}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1005972857986377966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1654440917300780603}
+  m_Layer: 3
+  m_Name: BulletSpawnLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1654440917300780603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005972857986377966}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.17, y: 0.888, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1274696153337142022}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2095223703898525279
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +349,68 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095223703898525279}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.833, y: 0.919, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1274696153337142022}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2539478501486997589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4427333927575022585}
+  m_Layer: 3
+  m_Name: BulletSpawnDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4427333927575022585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539478501486997589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0.638, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1274696153337142022}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4699275843550743584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5177601726052127432}
+  m_Layer: 3
+  m_Name: BulletSpawnRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5177601726052127432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699275843550743584}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.833, y: 0.919, z: 0}

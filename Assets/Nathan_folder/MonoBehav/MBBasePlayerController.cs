@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,10 +43,11 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
 
 
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Animator _animator;
+    [SerializeField] public Animator _animator;
 
     [SerializeField] private Transform middleOfArena;
     public HealthBar healthBar;
+    public SpriteRenderer HitColor;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     virtual public void Start()
@@ -167,11 +169,18 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     {
         health -= damageAmount;
         healthBar.SetHealth(health);
-
-        if(health <= 0)
+        StartCoroutine(HitColorFlash(new Color(0.68f, 0.68f, 0.68f)));
+        if (health <= 0)
         {
             PlayerDies();
         }
+    }
+    IEnumerator HitColorFlash(Color flashColor)
+    {
+        Color lastColor = HitColor.color;
+        HitColor.color = flashColor;
+        yield return new WaitForSeconds(0.1f);
+        HitColor.color = lastColor;
     }
 
     public void PlayerDies()

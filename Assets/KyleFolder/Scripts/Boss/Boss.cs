@@ -21,6 +21,8 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
     
     public Animator BossAnimator;
 
+    public GameObject GroundSlamIndicator;
+
     private void Awake()
     {
         StateMachine = new BossStateMachine();

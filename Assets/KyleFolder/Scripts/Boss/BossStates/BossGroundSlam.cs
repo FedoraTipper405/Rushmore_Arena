@@ -26,7 +26,7 @@ public class BossGroundSlam : BossState
 
     public override void FrameUpdate()
     {
-        base.FrameUpdate();
+        base.FrameUpdate();       
         if (_timer >= 1f)
         {
             GroundSlam();
@@ -37,6 +37,8 @@ public class BossGroundSlam : BossState
     private void GroundSlam()
     {
         boss.BossAnimator.SetTrigger("GroundSlam");
+        boss.GroundSlamIndicator.SetActive(true);
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(boss.transform.position, _radiusOfGroundSlam);
         foreach (Collider2D hit in colliders)
         {
@@ -55,6 +57,7 @@ public class BossGroundSlam : BossState
         _timer = 0f;
         if (SlamTimes >= 3)
         {
+            boss.GroundSlamIndicator.SetActive(false);
             boss.StateMachine.ChangeState(boss.ChaseState);
         }
     }

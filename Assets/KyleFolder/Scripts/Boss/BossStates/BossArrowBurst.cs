@@ -46,7 +46,6 @@ public class BossArrowBurst : BossState
         }
         _timer = 0f;
         ShotTimes++;
-        Debug.Log(ShotTimes);
         if (ShotTimes >= 3)
         {
             boss.StateMachine.ChangeState(boss.ChaseState);

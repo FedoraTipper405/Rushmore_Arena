@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1274696153337142022
 Transform:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 4453247102240985388, guid: 64b780d22021c2f4089c3bd4eb24ead3, type: 3}
+  m_Sprite: {fileID: -2592522258457025377, guid: 78afbd44b7653c24aa4ce1e31c5c6134, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,7 +180,8 @@ MonoBehaviour:
   moveSpeed: 0
   attackDamage: 0
   attackSpeed: 0
-  maxHealth: 0
+  baseMaxHealth: 0
+  currentMaxHealth: 0
   health: 0
   attackRange: 0
   isRangedAttacker: 0
@@ -191,10 +192,20 @@ MonoBehaviour:
   penetration: 0
   projectileSpread: 0
   hasUniqueCardOne: 0
+  moveSpeedUpgrade: 1
+  attackDamageUpgrade: 1
+  attackSpeedUpgrade: 1
+  healthUpgrade: 1
+  attackRangeUpgrade: 1
+  projectileSpeedUpgrade: 1
+  projectileSizeUpgrade: 1
+  knockbackUpgrade: 1
+  projectileSpreadUpgrade: 1
   spriteRenderer: {fileID: 8736174567393708941}
   _animator: {fileID: 346407237865184801}
   middleOfArena: {fileID: 0}
   healthBar: {fileID: 0}
+  HitColor: {fileID: 8736174567393708941}
   bulletPoolScript: {fileID: 8223043867426963367}
   bulletSpawnLeft: {fileID: 8199458955320002410}
   bulletSpawnRight: {fileID: 2095223703898525279}
@@ -210,7 +221,7 @@ Animator:
   m_GameObject: {fileID: 104721820689714229}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb90f09f9655b3b40876315b3f3b6fcf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6538cb87330ce96478822f11dfb9ba31, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

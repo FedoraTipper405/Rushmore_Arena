@@ -63,12 +63,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 2
+  m_Radius: 2.45
 --- !u!114 &1597746438048510309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3353123558080398563
 Transform:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 4453247102240985388, guid: 64b780d22021c2f4089c3bd4eb24ead3, type: 3}
+  m_Sprite: {fileID: 3301558800682694391, guid: 4622741e9e26e8c459536777fb305a03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -255,7 +255,8 @@ MonoBehaviour:
   moveSpeed: 0
   attackDamage: 0
   attackSpeed: 0
-  maxHealth: 0
+  baseMaxHealth: 0
+  currentMaxHealth: 0
   health: 0
   attackRange: 0
   isRangedAttacker: 0
@@ -266,10 +267,20 @@ MonoBehaviour:
   penetration: 0
   projectileSpread: 0
   hasUniqueCardOne: 0
+  moveSpeedUpgrade: 1
+  attackDamageUpgrade: 1
+  attackSpeedUpgrade: 1
+  healthUpgrade: 1
+  attackRangeUpgrade: 1
+  projectileSpeedUpgrade: 1
+  projectileSizeUpgrade: 1
+  knockbackUpgrade: 1
+  projectileSpreadUpgrade: 1
   spriteRenderer: {fileID: 4168655980253289611}
   _animator: {fileID: 3647463819476927931}
   middleOfArena: {fileID: 0}
   healthBar: {fileID: 0}
+  HitColor: {fileID: 4168655980253289611}
   LeftAttackCollider: {fileID: 9116493546695698068}
   RightAttackCollider: {fileID: 4021865121388741508}
   UpAttackCollider: {fileID: 5981666965523269456}
@@ -278,6 +289,7 @@ MonoBehaviour:
   LeftDownAttackCollider: {fileID: 1111124185819650331}
   RightUpAttackCollider: {fileID: 2732921289136235974}
   RightDownAttackCollider: {fileID: 4909614625881850183}
+  FullAttackCircle: {fileID: 4433041820197402830}
 --- !u!114 &8061489712807694237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +312,7 @@ Animator:
   m_GameObject: {fileID: 8993779212077502870}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb90f09f9655b3b40876315b3f3b6fcf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8aec32fc3648d1749878353f9747552a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

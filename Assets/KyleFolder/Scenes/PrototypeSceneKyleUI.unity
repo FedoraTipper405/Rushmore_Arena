@@ -1129,6 +1129,37 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1064966908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1064966909}
+  m_Layer: 0
+  m_Name: BossSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1064966909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064966908}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.73, y: 0.15529183, z: 0.035160203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1077925096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,12 +1464,14 @@ MonoBehaviour:
   - {fileID: 1194376451}
   - {fileID: 1719833101}
   - {fileID: 381363551}
+  BossSpawnPoint: {fileID: 1064966909}
   enemiesToSpawn:
   - {fileID: 7589553203355588689, guid: 20418afcbf1ce9e4f96a63734250ca6b, type: 3}
   - {fileID: 6910088278627587558, guid: c9ce908694fe4a34bbf9f9e390fb2ada, type: 3}
   - {fileID: 5389000251035024268, guid: 32dbb31b4a2b6164ebf4ae1bcb19c639, type: 3}
   - {fileID: 3833030110451123808, guid: f8c3d2949162765449ac76f36efff3c5, type: 3}
   - {fileID: 1406854409288136065, guid: 22908e459d1f5874c91286b81b782358, type: 3}
+  BossPrefab: {fileID: 1240107356636800206, guid: b77526455e8913e44b5062018c281487, type: 3}
   _amountOfSpawns: 0
   enemySpawns: 0000000000000000000000000000000000000000
   enemyAmountsWhenSpawned: 0600000005000000030000000200000004000000
@@ -1696,50 +1729,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9561e5fdf67a28d439dd1065fdbff32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeCardList:
-  - {fileID: 6977338615978971011, guid: 700e7c4d4b6911049999f9be706adb8c, type: 3}
-  - {fileID: 6977338615978971011, guid: 700e7c4d4b6911049999f9be706adb8c, type: 3}
-  - {fileID: 6977338615978971011, guid: 700e7c4d4b6911049999f9be706adb8c, type: 3}
-  - {fileID: 6977338615978971011, guid: 700e7c4d4b6911049999f9be706adb8c, type: 3}
-  - {fileID: 6977338615978971011, guid: 6c4a5fa988552574ca09e4d1efc464ba, type: 3}
-  - {fileID: 6977338615978971011, guid: 6c4a5fa988552574ca09e4d1efc464ba, type: 3}
-  - {fileID: 6977338615978971011, guid: 6c4a5fa988552574ca09e4d1efc464ba, type: 3}
-  - {fileID: 6977338615978971011, guid: 6c4a5fa988552574ca09e4d1efc464ba, type: 3}
-  - {fileID: 6977338615978971011, guid: ead558690abafe54eb8a0b508bfa2313, type: 3}
-  - {fileID: 6977338615978971011, guid: ead558690abafe54eb8a0b508bfa2313, type: 3}
-  - {fileID: 6977338615978971011, guid: ead558690abafe54eb8a0b508bfa2313, type: 3}
-  - {fileID: 6977338615978971011, guid: ead558690abafe54eb8a0b508bfa2313, type: 3}
-  - {fileID: 6977338615978971011, guid: cbed832d1da1e744fa5c2f91d78a03d9, type: 3}
-  - {fileID: 6977338615978971011, guid: cbed832d1da1e744fa5c2f91d78a03d9, type: 3}
-  - {fileID: 6977338615978971011, guid: cbed832d1da1e744fa5c2f91d78a03d9, type: 3}
-  - {fileID: 6977338615978971011, guid: cbed832d1da1e744fa5c2f91d78a03d9, type: 3}
-  - {fileID: 7898566241512594426, guid: 605b2b736fd65a64497c332af5f57fc7, type: 3}
-  - {fileID: 7898566241512594426, guid: 605b2b736fd65a64497c332af5f57fc7, type: 3}
-  - {fileID: 7898566241512594426, guid: 64a916c60404b9f408bfe1d3e31167be, type: 3}
-  - {fileID: 7898566241512594426, guid: 64a916c60404b9f408bfe1d3e31167be, type: 3}
-  - {fileID: 7898566241512594426, guid: 5fea2ba5798a695409933d87b3383f56, type: 3}
-  - {fileID: 7898566241512594426, guid: 5fea2ba5798a695409933d87b3383f56, type: 3}
-  - {fileID: 7898566241512594426, guid: 5b45552d589efc946bdfb06c1a551d2a, type: 3}
-  - {fileID: 7898566241512594426, guid: 5b45552d589efc946bdfb06c1a551d2a, type: 3}
-  - {fileID: 7898566241512594426, guid: 32366007e1fd64c4aa2acbf9eb45e6f8, type: 3}
-  - {fileID: 7898566241512594426, guid: 32366007e1fd64c4aa2acbf9eb45e6f8, type: 3}
-  - {fileID: 7898566241512594426, guid: 5ae0c266dd3567a4faaf7ea6c9154d88, type: 3}
-  - {fileID: 7898566241512594426, guid: 5ae0c266dd3567a4faaf7ea6c9154d88, type: 3}
-  upgradeSOList: []
+  washingtonUpgradeCardList: []
+  abeUpgradeCardList: []
+  teddyUpgradeCardList: []
+  jeffyUpgradeCardList: []
+  presidentUniqueCardsOne:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentSelectedUpgrade: 0
+  cardSlotOneIndex: 0
+  cardSlotTwoIndex: 0
+  cardSlotThreeIndex: 0
   presidentControllers:
   - {fileID: 58658808}
   - {fileID: 58658808}
   - {fileID: 58658808}
   - {fileID: 58658808}
   isUpgrading: 0
+  isWaitingToUpgrade: 0
   chosenUpgrades: []
   selectionParent: {fileID: 965392677}
+  upgradeBackground: {fileID: 0}
   selectorIcons:
   - {fileID: 506950188}
   - {fileID: 805013228}
   - {fileID: 1770042548}
   enemySpawner: {fileID: 1136968393}
+  UpgradingTimeText: {fileID: 0}
 --- !u!114 &1456351888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,6 +2256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WashingtonPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 104721820689714229, guid: 3170d02e8e42eb846933f57812740061, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 346407237865184801, guid: 3170d02e8e42eb846933f57812740061, type: 3}
       propertyPath: m_Controller
       value: 
@@ -2361,6 +2383,7 @@ SceneRoots:
   - {fileID: 1194376451}
   - {fileID: 1719833101}
   - {fileID: 381363551}
+  - {fileID: 1064966909}
   - {fileID: 2107166973}
   - {fileID: 1310452052}
   - {fileID: 1759179530}

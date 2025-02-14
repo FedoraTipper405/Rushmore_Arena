@@ -146,7 +146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1088483399666812410
 Transform:
   m_ObjectHideFlags: 0
@@ -317,6 +317,7 @@ MonoBehaviour:
   _animator: {fileID: 1635747281628161539}
   middleOfArena: {fileID: 0}
   healthBar: {fileID: 0}
+  HitColor: {fileID: 1436845170367929229}
   bulletPoolScript: {fileID: 4075565811422146577}
   bulletSpawnLeft: {fileID: 1231538477943127323}
   bulletSpawnRight: {fileID: 3533402585708372786}

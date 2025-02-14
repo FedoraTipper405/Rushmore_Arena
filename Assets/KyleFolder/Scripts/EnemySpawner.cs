@@ -5,8 +5,12 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Transform[] spawnPoints;
-    
+
+    [SerializeField] private Transform BossSpawnPoint;
+
     [SerializeField] private GameObject[] enemiesToSpawn;
+    
+    [SerializeField] private GameObject BossPrefab;
 
     [SerializeField] private int _amountOfSpawns;
 
@@ -17,24 +21,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private bool[] isSpawningType = new bool[5];
 
     [SerializeField]  MBWaveManager waveManager;
-    //private int _swordSpawns; 0
-    //private int _spearSpawns; 1
-    //private int _rhinoSpawns; 2
-    //private int _lionSpawns; 3
-    //private int _bowSpawns; 4
-
-    //[SerializeField] private int _swordAmount;
-    //[SerializeField] private int _spearAmount;
-    //[SerializeField] private int _rhinoAmount;
-    //[SerializeField] private int _lionAmount;
-    //[SerializeField] private int _bowAmount;
-
-    //private bool _isSpawningSword;
-    //private bool _isSpawningSpear;
-    //private bool _isSpawningRhino;
-    //private bool _isSpawningLion;
-    //private bool _isSpawningBow;
-
+    
     public int difficultyCounter;
 
     private void Start()
@@ -45,24 +32,32 @@ public class EnemySpawner : MonoBehaviour
 
     public void MakeNewSpawnList()
     {
-        for(int i = 0; i < enemySpawns.Length; i++)
+        if(waveManager.CurrentWave == 4)
         {
-            enemySpawns[i] = 0;
+            StartCoroutine(SpawnBoss());
         }
-        for(int i = 0; i < isSpawningType.Length; i++)
+        else
         {
-            isSpawningType[i] = false;
-        }
+            for (int i = 0; i < enemySpawns.Length; i++)
+            {
+                enemySpawns[i] = 0;
+            }
+            for (int i = 0; i < isSpawningType.Length; i++)
+            {
+                isSpawningType[i] = false;
+            }
 
-        for (int i = 0; i < difficultyCounter; i++)
-        {
-            int enemyAdded = Random.Range(0, enemiesToSpawn.Length);
-            enemySpawns[enemyAdded] += enemyAmountsWhenSpawned[enemyAdded];
-            isSpawningType[enemyAdded] = true;
+            for (int i = 0; i < difficultyCounter; i++)
+            {
+                int enemyAdded = Random.Range(0, enemiesToSpawn.Length);
+                enemySpawns[enemyAdded] += enemyAmountsWhenSpawned[enemyAdded];
+                isSpawningType[enemyAdded] = true;
 
+            }
+            //      Debug.Log("Starting Couro");
+            StartCoroutine(SpawnTimer());
         }
-  //      Debug.Log("Starting Couro");
-        StartCoroutine(SpawnTimer());
+       
     }
 
     private void SpawnEnemy()
@@ -119,5 +114,11 @@ public class EnemySpawner : MonoBehaviour
             
             SpawnEnemy();
         }
+    }
+
+    IEnumerator SpawnBoss()
+    {
+        yield return new WaitForSeconds(4f);
+        GameObject bossPrefab = Instantiate(BossPrefab, BossSpawnPoint.position, Quaternion.identity);
     }
 }

@@ -47,14 +47,17 @@ public class MBJeffyPC : MBBasePlayerController
                 if (currentShootDirection.y == 0)
                 {
                     StartCoroutine(AttackColliderOn(RightAttackCollider));
+                    _animator.SetTrigger("AttackSide");
                 }
                 else if (currentShootDirection.y > 0)
                 {
                     StartCoroutine(AttackColliderOn(RightUpAttackCollider));
+                    _animator.SetTrigger("AttackSide");
                 }
                 else
                 {
                     StartCoroutine(AttackColliderOn(RightDownAttackCollider));
+                    _animator.SetTrigger("AttackSide");
                 }
             }
             //left attack
@@ -63,14 +66,17 @@ public class MBJeffyPC : MBBasePlayerController
                 if (currentShootDirection.y == 0)
                 {
                     StartCoroutine(AttackColliderOn(LeftAttackCollider));
+                    _animator.SetTrigger("AttackSide");
                 }
                 else if (currentShootDirection.y > 0)
                 {
                     StartCoroutine(AttackColliderOn(LeftUpAttackCollider));
+                    _animator.SetTrigger("AttackSide");
                 }
                 else
                 {
                     StartCoroutine(AttackColliderOn(LeftDownAttackCollider));
+                    _animator.SetTrigger("AttackSide");
                 }
             }
             //up or down
@@ -79,10 +85,12 @@ public class MBJeffyPC : MBBasePlayerController
                 if (currentShootDirection.y > 0)
                 {
                     StartCoroutine(AttackColliderOn(UpAttackCollider));
+                    _animator.SetTrigger("AttackUp");
                 }
                 else
                 {
                     StartCoroutine(AttackColliderOn(DownAttackCollider));
+                    _animator.SetTrigger("AttackDown");
                 }
             }
         }
