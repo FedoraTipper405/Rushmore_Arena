@@ -10,8 +10,8 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public float MaxHealth => EnemyStatSO.EnemyMaxHealth;
     public float DamageAmount => EnemyStatSO.EnemyDamage;
 
-    public float ChargeSpeed;
-    public float MovementSpeed;
+    [HideInInspector] public float ChargeSpeed;
+    [HideInInspector] public float MovementSpeed;
     public float CurrentHealth { get; set; }
     public Rigidbody2D RB { get; set; }
     public bool IsFacingRight { get; set; }
@@ -35,7 +35,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public MBWaveManager waveManager;
 
-    public bool IsKnockedBack;
+    [HideInInspector] public bool IsKnockedBack;
 
     private bool IsOnFire;
 
@@ -73,14 +73,9 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         StateMachine.Initialize(StateMovement);
     }
 
-    private void Update()
-    {
-        StateMachine.CurrentEnemyState.FrameUpdate();
-    }
-
     private void FixedUpdate()
     {
-        StateMachine.CurrentEnemyState.PhysicsUpdate();
+        StateMachine.CurrentEnemyState.FrameUpdate();
     }
 
     public void Damage(float damageAmount)

@@ -24,11 +24,4 @@ public class EnemyChaseState : EnemyState
 
         baseEnemy.EnemyChaseBaseInstance.DoFrameUpdateLogic();
     }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-
-        baseEnemy.EnemyChaseBaseInstance.DoPhysicsLogic();
-    }
 }

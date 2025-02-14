@@ -49,11 +49,6 @@ public class EnemyWander : EnemyMovementSOBase
        
     }
 
-    public override void DoPhysicsLogic()
-    {
-        base.DoPhysicsLogic();
-    }
-
     public override void Initialize(GameObject gameObject, BaseEnemy baseEnemy)
     {
         base.Initialize(gameObject, baseEnemy);

@@ -26,11 +26,4 @@ public class EnemyMovementState : EnemyState
 
         baseEnemy.EnemyMovementBaseInstance.DoFrameUpdateLogic();
     }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-
-        baseEnemy.EnemyMovementBaseInstance.DoPhysicsLogic();
-    }
 }

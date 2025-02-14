@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7130182066381338800}
   - component: {fileID: 7265308088286034619}
-  - component: {fileID: 8355206673794096709}
+  - component: {fileID: 2800213397569384964}
   - component: {fileID: 4659778945720745103}
   - component: {fileID: 6475042103472365428}
   - component: {fileID: 2035309465393012137}
@@ -94,7 +94,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8355206673794096709
+--- !u!114 &2800213397569384964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,12 +103,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5389000251035024268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99443fcc9785e6a439434e63577402ec, type: 3}
+  m_Script: {fileID: 11500000, guid: d1996eca39aad1f4484c0dd8d350c669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyStatSO: {fileID: 11400000, guid: 81e1cb60d75dc0447a573379c748be89, type: 2}
   ChargeSpeed: 0
-  MovementSpeed: 1
+  MovementSpeed: 0
   EnemyMovementBase: {fileID: 11400000, guid: c655c7176ad73a74ea23215ea867d407, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: 7ca52472db39bd041b15c3ceeab1ab07, type: 2}
   EnemyAnimator: {fileID: 2035309465393012137}

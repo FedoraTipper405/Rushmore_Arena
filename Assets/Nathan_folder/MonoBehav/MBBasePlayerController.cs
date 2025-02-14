@@ -177,10 +177,9 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     }
     IEnumerator HitColorFlash(Color flashColor)
     {
-        Color lastColor = HitColor.color;
         HitColor.color = flashColor;
         yield return new WaitForSeconds(0.1f);
-        HitColor.color = lastColor;
+        HitColor.color = new Color(1,1,1);
     }
 
     public void PlayerDies()

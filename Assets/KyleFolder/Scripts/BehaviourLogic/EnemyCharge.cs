@@ -43,11 +43,6 @@ public class EnemyCharge : EnemyChaseSOBase
         _timer += Time.deltaTime;
     }
 
-    public override void DoPhysicsLogic()
-    {
-        base.DoPhysicsLogic();
-    }
-
     public override void Initialize(GameObject gameObject, BaseEnemy baseEnemy)
     {
         base.Initialize(gameObject, baseEnemy);
