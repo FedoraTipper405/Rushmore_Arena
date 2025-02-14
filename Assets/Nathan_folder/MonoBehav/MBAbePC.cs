@@ -12,7 +12,7 @@ public class MBAbePC : MBBasePlayerController
     [SerializeField] GameObject bulletSpawnDown;
     private GameObject currentBulletSpawn;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Start()
     {
         currentBulletSpawn = bulletSpawnRight;
         moveSpeed = StatSO.moveSpeed;
@@ -28,6 +28,7 @@ public class MBAbePC : MBBasePlayerController
         knockBack = StatSO.knockBack;
         penetration = StatSO.penetration;
         projectileSpread = StatSO.spread;
+        base.Start();
     }
     public override void Attack()
     {

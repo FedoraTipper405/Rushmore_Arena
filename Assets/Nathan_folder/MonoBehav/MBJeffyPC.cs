@@ -16,7 +16,7 @@ public class MBJeffyPC : MBBasePlayerController
     [SerializeField] GameObject FullAttackCircle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Start()
     {
         moveSpeed = StatSO.moveSpeed;
         attackDamage = StatSO.attackDamage;
@@ -31,6 +31,7 @@ public class MBJeffyPC : MBBasePlayerController
         knockBack = StatSO.knockBack;
         penetration = StatSO.penetration;
         projectileSpread = StatSO.spread;
+        base.Start();
     }
     public override void Attack()
     {

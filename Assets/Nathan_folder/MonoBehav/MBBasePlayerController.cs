@@ -48,7 +48,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
     public HealthBar healthBar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    virtual public void Start()
     {
         currentMaxHealth = baseMaxHealth;
         healthBar.SetMaxHealth(currentMaxHealth);
