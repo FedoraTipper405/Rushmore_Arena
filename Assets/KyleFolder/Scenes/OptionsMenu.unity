@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2191693423779216377, guid: fcfa98d591db10e45a7cc3b003d920da, type: 3}
+  m_Sprite: {fileID: 7543754022252170089, guid: ea670f0e2af68e048aa6d9180d4fcdad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2225,7 +2225,7 @@ MonoBehaviour:
   charSelectState: {fileID: 0}
   charSelectBackButton: {fileID: 0}
   selectedPres: {fileID: 0}
-  soDifficulty: {fileID: 11400000, guid: d308e6084c9abd34ebe125b3c0ae4b94, type: 2}
+  soDifficulty: {fileID: 11400000, guid: ce7ca73937392fd4eb04e1863837e83e, type: 2}
   volumeSettings: {fileID: 11400000, guid: a28d451f41fca974e8fd59b67f0ba427, type: 2}
   sliders:
   - {fileID: 1867074596}

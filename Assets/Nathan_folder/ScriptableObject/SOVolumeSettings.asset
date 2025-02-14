@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90ca5d2d2de3e3448a536534df06678, type: 3}
   m_Name: SOVolumeSettings
   m_EditorClassIdentifier: 
-  playerVolume: 0.5999999
-  backgroundVolume: 0.5
+  playerVolume: 0.6
+  backgroundVolume: 0.4

@@ -10,7 +10,7 @@ public class MBNewMenu : MonoBehaviour
     [SerializeField] Image charSelectState;
     [SerializeField] Image charSelectBackButton;
     [SerializeField] SOSelectedPres selectedPres;
-    [SerializeField] SODifficulty soDifficulty;
+    [SerializeField] SOFixedDifficulty soDifficulty;
 
     [SerializeField] SOVolumeSettings volumeSettings;
 
@@ -65,6 +65,15 @@ public class MBNewMenu : MonoBehaviour
         }
         
     }
+
+    void OnDisable()
+    {
+        if(soDifficulty != null)
+        {
+            soDifficulty.difficultyIndex = difficultyValue;
+        }
+    }
+
     public void ChangeSelectedButton(Vector2 input)
     {
         if(menuIndex == 0 || menuIndex == 2)
