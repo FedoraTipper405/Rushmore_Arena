@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
 {
@@ -24,6 +26,12 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
 
     public GameObject GroundSlamIndicator;
 
+    public SpriteRenderer HitColor;
+
+    [SerializeField] Slider healthBar;
+    [SerializeField] Transform healthBarTransform;
+    private float healthBarBaseScale;
+
     private void Awake()
     {
         StateMachine = new BossStateMachine();
@@ -32,11 +40,12 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
         ArrowSpiralState = new BossArrowSpiral(this, StateMachine);
         ArrowBurstState = new BossArrowBurst(this, StateMachine);
         GroundSlamState = new BossGroundSlam(this, StateMachine);
+        healthBarBaseScale = healthBarTransform.localScale.x;
     }
     private void Start()
     {
         CurrentHealth = MaxHealth;
-
+        healthBar.maxValue = MaxHealth;
         RB = GetComponent<Rigidbody2D>();
 
         StateMachine.Initialize(ChaseState);
@@ -45,7 +54,8 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
     public void Damage(float damageAmount)
     {
         CurrentHealth -= damageAmount;
-
+        healthBar.value = CurrentHealth;
+        StartCoroutine(HitColorFlash());
         if (CurrentHealth <= 0f)
         {
             Die();
@@ -81,6 +91,12 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
         RB.linearVelocity = velocity;
         CheckFacing(velocity);
     }
+    IEnumerator HitColorFlash()
+    {
+        HitColor.color = new Color(.5f, .5f, .5f);
+        yield return new WaitForSeconds(0.1f);
+        HitColor.color = new Color( 1, 1, 1);
+    }
     public void CheckFacing(Vector2 velocity)
     {
         if (IsFacingRight && velocity.x < 0f)
@@ -88,11 +104,13 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
             Vector3 rotator = new Vector3(transform.rotation.x, 0f, transform.rotation.z);
             transform.rotation = Quaternion.Euler(rotator);
             IsFacingRight = !IsFacingRight;
+            healthBarTransform.localScale = new Vector3(healthBarBaseScale, healthBarTransform.localScale.y, healthBarTransform.localScale.z);
         }
 
         else if (!IsFacingRight && velocity.x > 0f)
         {
             Vector3 rotator = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
+            healthBarTransform.localScale = new Vector3(healthBarBaseScale * -1, healthBarTransform.localScale.y, healthBarTransform.localScale.z);
             transform.rotation = Quaternion.Euler(rotator);
             IsFacingRight = !IsFacingRight;
         }

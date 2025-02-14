@@ -257,6 +257,9 @@ MonoBehaviour:
   BossStatSO: {fileID: 11400000, guid: 632123689c849bf41b2467f607f57ceb, type: 2}
   BossAnimator: {fileID: 97886099743857826}
   GroundSlamIndicator: {fileID: 2688580527660398388}
+  HitColor: {fileID: 7139424388007187743}
+  healthBar: {fileID: 1555000438563349365}
+  healthBarTransform: {fileID: 5018020445588617422}
 --- !u!95 &97886099743857826
 Animator:
   serializedVersion: 7
@@ -606,7 +609,7 @@ RectTransform:
   m_GameObject: {fileID: 7207849085113204270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.001, y: 0.0005, z: 0.001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2700740655096792928}
@@ -614,7 +617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 955.05, y: 539.60913}
+  m_AnchoredPosition: {x: 0.27, y: 2.03}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7586482456576208912
