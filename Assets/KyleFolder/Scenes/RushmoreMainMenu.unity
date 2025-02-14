@@ -1280,9 +1280,9 @@ MonoBehaviour:
   framesForCharselect: []
   charSelectState: {fileID: 0}
   charSelectBackButton: {fileID: 0}
-  selectedPres: {fileID: 0}
+  selectedPres: {fileID: 11400000, guid: e57807b86ce20e14282fa919eb0bafc0, type: 2}
   soDifficulty: {fileID: 11400000, guid: ce7ca73937392fd4eb04e1863837e83e, type: 2}
-  volumeSettings: {fileID: 0}
+  volumeSettings: {fileID: 11400000, guid: a28d451f41fca974e8fd59b67f0ba427, type: 2}
   sliders: []
   buttonIntensity: 0.6
   difficultyText: {fileID: 1241157156}
