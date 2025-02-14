@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SOVolumeSettings
   m_EditorClassIdentifier: 
   playerVolume: 0.5999999
-  backgroundVolume: 1
+  backgroundVolume: 0.5

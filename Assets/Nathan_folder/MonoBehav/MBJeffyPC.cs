@@ -36,6 +36,7 @@ public class MBJeffyPC : MBBasePlayerController
     public override void Attack()
     {
         //right attack
+        AudioManager.PlaySound(1);
         if (hasUniqueCardOne)
         {
             StartCoroutine(AttackColliderOn(FullAttackCircle));

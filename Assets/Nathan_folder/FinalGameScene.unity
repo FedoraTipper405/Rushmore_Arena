@@ -484,7 +484,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 67353f904ec472f4a9526e3c6296b1d0, type: 3}
   m_Resource: {fileID: 8300000, guid: 67353f904ec472f4a9526e3c6296b1d0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1222,7 +1222,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 2f0e876c5d464ba47af4b587a0a8646b, type: 3}
   m_Resource: {fileID: 8300000, guid: 2f0e876c5d464ba47af4b587a0a8646b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2367,9 +2367,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aecc575b5a87c1409c39695ce7c0e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundClip:
+  audioList:
   - {fileID: 8300000, guid: 67353f904ec472f4a9526e3c6296b1d0, type: 3}
+  - {fileID: 8300000, guid: 0ab3429bbe9f64f42847a684fd1bb77f, type: 3}
+  - {fileID: 8300000, guid: 5853da1ac5644264cb03ee85e65021b9, type: 3}
+  - {fileID: 8300000, guid: 12de9cbd990e155409436975bbe00a10, type: 3}
+  - {fileID: 8300000, guid: 0e29312e0ccd02e42b776e6ed7a5cbd2, type: 3}
+  - {fileID: 8300000, guid: 243b0e8a74850b14985d9833a4ee0b4d, type: 3}
+  - {fileID: 8300000, guid: 2d86c95ee537aff4f8eb5c90f5f9e1ac, type: 3}
+  - {fileID: 8300000, guid: 07cf0d411c7b49940ba1522d6834d86b, type: 3}
   SFXSource: {fileID: 336010170}
+  MusicSource: {fileID: 739162154}
+  volumeSettings: {fileID: 11400000, guid: a28d451f41fca974e8fd59b67f0ba427, type: 2}
 --- !u!1 &1310452049
 GameObject:
   m_ObjectHideFlags: 0

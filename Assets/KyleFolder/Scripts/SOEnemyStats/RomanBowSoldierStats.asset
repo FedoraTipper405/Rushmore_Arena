@@ -19,4 +19,5 @@ MonoBehaviour:
   AttackTimer: 1.5
   DetectTimer: 1
   ArrowSpeed: 3
+  SoundEffect: 6
   ArrowPrefab: {fileID: 1491379982255337961, guid: 5306095b213863b428d9c1cb5cce531a, type: 3}

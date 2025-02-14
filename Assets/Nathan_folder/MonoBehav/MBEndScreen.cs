@@ -17,7 +17,8 @@ public class MBEndScreen : MonoBehaviour
     }
     IEnumerator BackToMenu()
     {
-        yield return new WaitForSeconds(3);
+        AudioManager.PlaySound(7);
+        yield return new WaitForSeconds(8);
         SceneManager.LoadScene("RushmoreMainMenu");
     }
 }

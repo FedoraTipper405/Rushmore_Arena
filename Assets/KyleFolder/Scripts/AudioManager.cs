@@ -1,26 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
-public enum SoundClip
-{
-    Shoot
-}
 
 public class AudioManager : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip[] _soundClip;
+    private AudioClip[] audioList;
     [SerializeField]
     private AudioSource SFXSource;
     [SerializeField]
-    private static AudioManager instance;
+    private AudioSource MusicSource;
+    [SerializeField]
+    public static AudioManager Instance;
+    [SerializeField]
+    public SOVolumeSettings volumeSettings;
 
-    private void Awake()
+    public void Start()
     {
-        instance = this;
+        SFXSource.volume = volumeSettings.playerVolume;
+        MusicSource.volume = volumeSettings.backgroundVolume;
+    }
+    public void Awake()
+    {
+        Instance = this;
     }
 
-    public static void PlaySound(SoundClip soundClip)
+    public static void PlaySound(int sound)
     {
-        instance.SFXSource.PlayOneShot(instance._soundClip[(int)soundClip]);
+        Instance.SFXSource.PlayOneShot(Instance.audioList[sound]);
     }
 }

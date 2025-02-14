@@ -9,6 +9,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public SOEnemyStats EnemyStatSO;
     public float MaxHealth => EnemyStatSO.EnemyMaxHealth;
     public float DamageAmount => EnemyStatSO.EnemyDamage;
+    public int _soundEffect => EnemyStatSO.SoundEffect;
 
     [HideInInspector] public float ChargeSpeed;
     [HideInInspector] public float MovementSpeed;
@@ -156,8 +157,9 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     }
 
     public void Die()
-    { 
-       Destroy(gameObject);
+    {
+        AudioManager.PlaySound(_soundEffect);
+        Destroy(gameObject);
     }
     public void OnDestroy()
     {

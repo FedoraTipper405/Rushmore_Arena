@@ -19,4 +19,5 @@ MonoBehaviour:
   AttackTimer: 1
   DetectTimer: 1
   ArrowSpeed: 0
+  SoundEffect: 3
   ArrowPrefab: {fileID: 0}

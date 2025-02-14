@@ -10,5 +10,6 @@ public class SOEnemyStats : ScriptableObject
     [SerializeField] public float AttackTimer;
     [SerializeField] public float DetectTimer;
     [SerializeField] public float ArrowSpeed;
+    [SerializeField] public int SoundEffect;
     [SerializeField] public GameObject ArrowPrefab;
 }

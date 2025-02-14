@@ -32,6 +32,7 @@ public class MBTeddyPC : MBBasePlayerController
     public override void Attack()
     {
         Debug.Log("here");
+        AudioManager.PlaySound(2);
         if (Mathf.Abs(currentShootDirection.x) >= Mathf.Abs(currentShootDirection.y))
         {
             if (currentShootDirection.x > 0)
