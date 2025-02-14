@@ -221,7 +221,7 @@ public class MBNewMenu : MonoBehaviour
             }
             else if (selectedIndex == 2)
             {
-                //quit game
+                Application.Quit();
             }
         }
         //char select functions

@@ -257,6 +257,7 @@ MonoBehaviour:
   BossStatSO: {fileID: 11400000, guid: 632123689c849bf41b2467f607f57ceb, type: 2}
   BossAnimator: {fileID: 97886099743857826}
   GroundSlamIndicator: {fileID: 2688580527660398388}
+  HitColor: {fileID: 7139424388007187743}
   healthBar: {fileID: 1555000438563349365}
   healthBarTransform: {fileID: 5018020445588617422}
 --- !u!95 &97886099743857826

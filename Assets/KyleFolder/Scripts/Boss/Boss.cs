@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,6 +25,8 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
     public Animator BossAnimator;
 
     public GameObject GroundSlamIndicator;
+
+    public SpriteRenderer HitColor;
 
     [SerializeField] Slider healthBar;
     [SerializeField] Transform healthBarTransform;
@@ -52,6 +55,7 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
     {
         CurrentHealth -= damageAmount;
         healthBar.value = CurrentHealth;
+        StartCoroutine(HitColorFlash());
         if (CurrentHealth <= 0f)
         {
             Die();
@@ -86,6 +90,12 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
     {
         RB.linearVelocity = velocity;
         CheckFacing(velocity);
+    }
+    IEnumerator HitColorFlash()
+    {
+        HitColor.color = new Color(.5f, .5f, .5f);
+        yield return new WaitForSeconds(0.1f);
+        HitColor.color = new Color( 1, 1, 1);
     }
     public void CheckFacing(Vector2 velocity)
     {
