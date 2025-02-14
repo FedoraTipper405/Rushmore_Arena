@@ -333,7 +333,10 @@ MonoBehaviour:
 
     ++Projectile Size
 
-    --Projectile Amount'
+    +Damage
+
+    -Projectile
+    Amount'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1a55773266c0a04f8b633ad7989cebd, type: 2}
   m_sharedMaterial: {fileID: -4999235382699176842, guid: b1a55773266c0a04f8b633ad7989cebd, type: 2}

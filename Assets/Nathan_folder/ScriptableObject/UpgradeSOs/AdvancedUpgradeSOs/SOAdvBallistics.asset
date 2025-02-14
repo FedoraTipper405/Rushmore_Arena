@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: AdvBal
   moveSpeedUpgrade: 0
-  attackDamageUpgrade: 0
+  attackDamageUpgrade: 0.15
   attackSpeedUpgrade: 0
   healthUpgrade: 0
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: -1
-  projectileSpeedUpgrade: 0.1
+  projectileSpeedUpgrade: 0.2
   projectileSizeUpgrade: 0.25
   knockBackUpgrade: 0
   penetrationUpgrade: 0

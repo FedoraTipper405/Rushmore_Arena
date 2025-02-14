@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: SlowBullets
   moveSpeedUpgrade: 0
-  attackDamageUpgrade: 0.2
-  attackSpeedUpgrade: 0.075
+  attackDamageUpgrade: 0.25
+  attackSpeedUpgrade: 0.15
   healthUpgrade: 0
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0

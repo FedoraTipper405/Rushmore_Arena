@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f616c157ef0fb40a389bfb0c36f56a, type: 3}
   m_Name: SODifficulty
   m_EditorClassIdentifier: 
-  difficultyIndex: 0
+  difficultyIndex: 2
   wavesForDifficulty: 050000000a0000000f000000

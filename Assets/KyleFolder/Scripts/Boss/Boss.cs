@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
 {
@@ -59,6 +60,7 @@ public class Boss : MonoBehaviour, IDamageable, IEnemyMoveable
     public void Die()
     {
         Destroy(gameObject);
+        SceneManager.LoadScene("VictoryScene");
     }
     public void DamageOverTime(float damageOverTimeAmount, float damageOverTimer)
     {

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a102acf75a7d46448df1363e9ee53ef, type: 3}
   m_Name: RomanBowSoldierStats
   m_EditorClassIdentifier: 
-  EnemyMaxHealth: 50
+  EnemyMaxHealth: 65
   EnemyDamage: 20
   EnemyMovementSpeed: 2
   EnemyChargeSpeed: 4
-  AttackTimer: 1
+  AttackTimer: 1.5
   DetectTimer: 1
-  ArrowSpeed: 5
+  ArrowSpeed: 3
   ArrowPrefab: {fileID: 1491379982255337961, guid: 5306095b213863b428d9c1cb5cce531a, type: 3}

@@ -18,10 +18,16 @@ public class MBInputHandler : MonoBehaviour
             playerControls.PlayerControlMap.Attack.performed += (var) => playerController.HandleAttack(true);
             playerControls.PlayerControlMap.Attack.canceled += (var) => playerController.HandleAttack(false);
             //input for upgrades
+            
+           
+        }
+        if(upgradeManager != null)
+        {
             playerControls.PlayerControlMap.Movement.performed += (var) => upgradeManager.ChangeSelectedUpgrade(var.ReadValue<Vector2>());
             playerControls.PlayerControlMap.Attack.performed += (var) => upgradeManager.ConfirmUpgrade();
-            playerControls.Enable();
+            playerControls.PlayerControlMap.SecondaryAction.performed += (var) => upgradeManager.Reshuffle();
         }
+        playerControls.Enable();
     }
 
     void OnDisable()
@@ -33,12 +39,16 @@ public class MBInputHandler : MonoBehaviour
             //input for attack
             playerControls.PlayerControlMap.Attack.performed -= (var) => playerController.HandleAttack(true);
             playerControls.PlayerControlMap.Attack.canceled -= (var) => playerController.HandleAttack(false);
-            //input for upgrades
+            
+            
+        }
+        if (upgradeManager != null)
+        {
             playerControls.PlayerControlMap.Movement.performed -= (var) => upgradeManager.ChangeSelectedUpgrade(var.ReadValue<Vector2>());
             playerControls.PlayerControlMap.Attack.performed -= (var) => upgradeManager.ConfirmUpgrade();
-            playerControls.Disable();
+            playerControls.PlayerControlMap.SecondaryAction.performed -= (var) => upgradeManager.Reshuffle();
         }
-        
+        playerControls.Disable();
     }
 
 

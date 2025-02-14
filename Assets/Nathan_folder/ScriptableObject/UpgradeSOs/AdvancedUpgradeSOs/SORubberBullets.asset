@@ -22,7 +22,7 @@ MonoBehaviour:
   projectileAmountUpgrade: 0
   projectileSpeedUpgrade: -0.2
   projectileSizeUpgrade: 0.1
-  knockBackUpgrade: 0.4
+  knockBackUpgrade: 0.5
   penetrationUpgrade: -2
   spread: 0
   isUniqueCardOne: 0

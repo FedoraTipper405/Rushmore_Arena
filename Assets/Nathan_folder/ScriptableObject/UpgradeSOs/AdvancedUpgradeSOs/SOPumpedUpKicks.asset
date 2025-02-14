@@ -16,7 +16,7 @@ MonoBehaviour:
   moveSpeedUpgrade: 0.25
   attackDamageUpgrade: 0
   attackSpeedUpgrade: 0
-  healthUpgrade: -0.2
+  healthUpgrade: -0.25
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0

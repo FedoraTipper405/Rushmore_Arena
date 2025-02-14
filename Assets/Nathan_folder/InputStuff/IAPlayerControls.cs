@@ -44,6 +44,15 @@ public partial class @IAPlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondaryAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""33babc80-b0a2-48b4-8b8c-2bee46ddfa40"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -178,6 +187,28 @@ public partial class @IAPlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a45d23b-dd47-4ec3-9050-aaa1039059fe"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c18a6456-d2ac-4a44-a2fd-232b12c3c33e"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -188,6 +219,7 @@ public partial class @IAPlayerControls: IInputActionCollection2, IDisposable
         m_PlayerControlMap = asset.FindActionMap("PlayerControlMap", throwIfNotFound: true);
         m_PlayerControlMap_Movement = m_PlayerControlMap.FindAction("Movement", throwIfNotFound: true);
         m_PlayerControlMap_Attack = m_PlayerControlMap.FindAction("Attack", throwIfNotFound: true);
+        m_PlayerControlMap_SecondaryAction = m_PlayerControlMap.FindAction("SecondaryAction", throwIfNotFound: true);
     }
 
     ~@IAPlayerControls()
@@ -256,12 +288,14 @@ public partial class @IAPlayerControls: IInputActionCollection2, IDisposable
     private List<IPlayerControlMapActions> m_PlayerControlMapActionsCallbackInterfaces = new List<IPlayerControlMapActions>();
     private readonly InputAction m_PlayerControlMap_Movement;
     private readonly InputAction m_PlayerControlMap_Attack;
+    private readonly InputAction m_PlayerControlMap_SecondaryAction;
     public struct PlayerControlMapActions
     {
         private @IAPlayerControls m_Wrapper;
         public PlayerControlMapActions(@IAPlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerControlMap_Movement;
         public InputAction @Attack => m_Wrapper.m_PlayerControlMap_Attack;
+        public InputAction @SecondaryAction => m_Wrapper.m_PlayerControlMap_SecondaryAction;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControlMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -277,6 +311,9 @@ public partial class @IAPlayerControls: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @SecondaryAction.started += instance.OnSecondaryAction;
+            @SecondaryAction.performed += instance.OnSecondaryAction;
+            @SecondaryAction.canceled += instance.OnSecondaryAction;
         }
 
         private void UnregisterCallbacks(IPlayerControlMapActions instance)
@@ -287,6 +324,9 @@ public partial class @IAPlayerControls: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @SecondaryAction.started -= instance.OnSecondaryAction;
+            @SecondaryAction.performed -= instance.OnSecondaryAction;
+            @SecondaryAction.canceled -= instance.OnSecondaryAction;
         }
 
         public void RemoveCallbacks(IPlayerControlMapActions instance)
@@ -308,5 +348,6 @@ public partial class @IAPlayerControls: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnSecondaryAction(InputAction.CallbackContext context);
     }
 }

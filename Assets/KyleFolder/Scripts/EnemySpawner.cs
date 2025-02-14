@@ -21,7 +21,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private bool[] isSpawningType = new bool[5];
 
     [SerializeField]  MBWaveManager waveManager;
-    
+
+    [SerializeField] SODifficulty difficultySO;
     public int difficultyCounter;
 
     private void Start()
@@ -32,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void MakeNewSpawnList()
     {
-        if(waveManager.CurrentWave == 4)
+        if(waveManager.CurrentWave == difficultySO.wavesForDifficulty[difficultySO.difficultyIndex])
         {
             StartCoroutine(SpawnBoss());
         }
@@ -110,7 +111,7 @@ public class EnemySpawner : MonoBehaviour
         waveManager.EnemiesInScene = _amountOfSpawns;
         for (int i = 0; i < _amountOfSpawns; i++)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3/(difficultySO.difficultyIndex+1));
             
             SpawnEnemy();
         }

@@ -43,7 +43,7 @@ public class MBBulletCollision : MonoBehaviour
         }
         
         IDamageable freeze = collision.gameObject.GetComponent<IDamageable>();
-        if (freeze != null)
+        if (freeze != null && hasSlowEffect)
         {
             freeze.Freeze(bulletSpeedReductionAmount, bulletfreezeTimer);
         }

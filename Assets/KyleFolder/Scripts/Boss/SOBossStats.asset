@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0b7cc091b72b24b85e5932eb41b93c, type: 3}
   m_Name: SOBossStats
   m_EditorClassIdentifier: 
-  BossMaxHealth: 100
-  BossMeleeDamage: 20
+  BossMaxHealth: 1750
+  BossMeleeDamage: 30
   ArrowDamage: 10
-  ArrowSpeed: 6
+  ArrowSpeed: 4.8
   MovementSpeed: 1
   TimeUntilStateChange: 3
   ChargeSpeed: 10

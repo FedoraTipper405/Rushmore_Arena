@@ -90,7 +90,16 @@ public class BaseEnemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     IEnumerator HitColorFlash(Color flashColor)
     {
-        Color lastColor = HitColor.color;
+        Color lastColor;
+        if (HitColor.color == flashColor)
+        {
+            lastColor = new Color(1, 1, 1);
+        }
+        else
+        {
+            lastColor = HitColor.color;
+        }
+        
         HitColor.color = flashColor;
         yield return new WaitForSeconds(0.1f);
         HitColor.color = lastColor;
