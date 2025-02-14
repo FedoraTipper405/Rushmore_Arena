@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7db8db2f7c71846a022537d025af27, type: 3}
-  m_Name: SOSelectedPres
+  m_Script: {fileID: 11500000, guid: c90ca5d2d2de3e3448a536534df06678, type: 3}
+  m_Name: SOVolumeSettings
   m_EditorClassIdentifier: 
-  selectedPresidentIndex: 0
+  playerVolume: 0.5999999
+  backgroundVolume: 1
