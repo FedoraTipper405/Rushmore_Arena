@@ -340,6 +340,8 @@ MonoBehaviour:
 
     -Knockback
 
+    -Penetration
+
     -Damage
 
 '

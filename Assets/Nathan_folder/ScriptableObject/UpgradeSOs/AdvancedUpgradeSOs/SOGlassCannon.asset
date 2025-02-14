@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: GlassCannon
   moveSpeedUpgrade: 0
-  attackDamageUpgrade: 1
-  attackSpeedUpgrade: 0.05
+  attackDamageUpgrade: 0.7
+  attackSpeedUpgrade: 0.1
   healthUpgrade: -0.5
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0

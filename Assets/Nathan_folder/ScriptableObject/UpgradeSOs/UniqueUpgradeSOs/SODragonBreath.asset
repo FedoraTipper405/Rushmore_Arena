@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: DragonBreath
   moveSpeedUpgrade: 0
-  attackDamageUpgrade: 0.1
+  attackDamageUpgrade: 0.3
   attackSpeedUpgrade: 0
   healthUpgrade: 0
   attackRangeUpgrade: 0

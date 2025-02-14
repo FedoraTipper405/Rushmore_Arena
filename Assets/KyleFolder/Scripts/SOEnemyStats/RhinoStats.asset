@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RhinoStats
   m_EditorClassIdentifier: 
   EnemyMaxHealth: 100
-  EnemyDamage: 20
+  EnemyDamage: 40
   EnemyMovementSpeed: 2
   EnemyChargeSpeed: 4
   AttackTimer: 1

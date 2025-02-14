@@ -15,7 +15,7 @@ MonoBehaviour:
   CardName: RapidAssault
   moveSpeedUpgrade: 0
   attackDamageUpgrade: -0.2
-  attackSpeedUpgrade: -0.2
+  attackSpeedUpgrade: -0.35
   healthUpgrade: 0
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0

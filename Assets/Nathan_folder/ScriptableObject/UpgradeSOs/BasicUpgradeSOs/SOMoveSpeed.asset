@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SOMoveSpeed
   m_EditorClassIdentifier: 
   CardName: MoveSpeed
-  moveSpeedUpgrade: 0.1
+  moveSpeedUpgrade: 0.15
   attackDamageUpgrade: 0
   attackSpeedUpgrade: 0
   healthUpgrade: 0

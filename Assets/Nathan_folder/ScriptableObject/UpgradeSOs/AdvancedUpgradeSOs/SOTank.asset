@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SOTank
   m_EditorClassIdentifier: 
   CardName: Tank
-  moveSpeedUpgrade: -0.15
+  moveSpeedUpgrade: -0.25
   attackDamageUpgrade: 0
   attackSpeedUpgrade: 0
   healthUpgrade: 0.4

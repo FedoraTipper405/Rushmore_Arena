@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a102acf75a7d46448df1363e9ee53ef, type: 3}
   m_Name: LionStats
   m_EditorClassIdentifier: 
-  EnemyMaxHealth: 30
-  EnemyDamage: 20
+  EnemyMaxHealth: 50
+  EnemyDamage: 30
   EnemyMovementSpeed: 2
   EnemyChargeSpeed: 4
   AttackTimer: 1

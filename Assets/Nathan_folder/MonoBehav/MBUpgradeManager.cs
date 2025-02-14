@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,6 +58,7 @@ public class MBUpgradeManager : MonoBehaviour
 
 
     private bool canReshuffle = true;
+    [SerializeField] GameObject reshuffleText;
 
 
     
@@ -109,8 +111,9 @@ public class MBUpgradeManager : MonoBehaviour
     }
     public void Reshuffle()
     {
-        if (canReshuffle)
+        if (canReshuffle && isUpgrading)
         {
+            reshuffleText.SetActive(false);
             enemySpawner.difficultyCounter++;
             canReshuffle = false;
             RandomizeThreeUpgrades();
@@ -501,6 +504,7 @@ public class MBUpgradeManager : MonoBehaviour
     {
         if (isUpgrading)
         {
+            reshuffleText.SetActive(true);
             selectionParent.SetActive(true);
             upgradeBackground.SetActive(true);
         }
@@ -559,10 +563,6 @@ public class MBUpgradeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-           Reshuffle();
-        }
 
     }
 }

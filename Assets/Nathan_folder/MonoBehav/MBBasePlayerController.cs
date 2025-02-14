@@ -184,7 +184,7 @@ public class MBBasePlayerController : MonoBehaviour, IDamageablePlayer
 
     public void PlayerDies()
     {
-        SceneManager.LoadScene("RushmoreMainMenu");
+        SceneManager.LoadScene("DeathScene");
         Debug.Log("Man I'm dead");
     }
 }

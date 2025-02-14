@@ -15,15 +15,15 @@ MonoBehaviour:
   CardName: SmallerCaliber
   moveSpeedUpgrade: 0
   attackDamageUpgrade: -0.15
-  attackSpeedUpgrade: -0.2
+  attackSpeedUpgrade: -0.25
   healthUpgrade: 0.15
   attackRangeUpgrade: 0
   isRangedAttackerUpgrade: 0
   projectileAmountUpgrade: 0
-  projectileSpeedUpgrade: 0.3
+  projectileSpeedUpgrade: 0.35
   projectileSizeUpgrade: -0.2
   knockBackUpgrade: -0.15
-  penetrationUpgrade: 0
+  penetrationUpgrade: -1
   spread: 0
   isUniqueCardOne: 0
   isOneTimeCard: 0
