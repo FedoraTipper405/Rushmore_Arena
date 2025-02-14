@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Nathan_folder/PrototypeScene.unity
     guid: d167c5ac1d9d9c643bd8ac768946e5e7
+  - enabled: 1
+    path: Assets/Nathan_folder/CharacterMenu.unity
+    guid: 8d2286fc4b67a694397d6ee1159fd5db
+  - enabled: 1
+    path: Assets/KyleFolder/Scenes/OptionsMenu.unity
+    guid: b6589a2eb3b592b46b4f349e9a090f8b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

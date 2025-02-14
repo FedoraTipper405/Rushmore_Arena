@@ -21,11 +21,15 @@ public class MBMenuInput : MonoBehaviour
 
     void OnDisable()
     {
-      //  if (playerController != null)
-      //  {
-            
-      //      menuNav.Disable();
-      //  }
-
+        //  if (playerController != null)
+        //  {
+        menuNav.PlayerControlMap.Navigate.performed -= (var) => menu.ChangeSelectedButton(var.ReadValue<Vector2>());
+        menuNav.PlayerControlMap.Navigate.canceled -= (var) => menu.ChangeSelectedButton(var.ReadValue<Vector2>());
+        //input for select
+        menuNav.PlayerControlMap.Select.performed -= (var) => menu.SelectOption();
+        menuNav.Disable();
     }
+    //  }
+
 }
+
